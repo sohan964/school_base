@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <!-- Define the sequence for Academic Year without numbering -->
+        <record id="seq_chool_academic_year" model="ir.sequence">
+            <field name="name">Academic Year</field>
+            <field name="code">school.academic.year</field>
+            <field name="prefix">Y_%(year)s</field>  <!-- Prefix with current year -->
+            <field name="padding" eval="0"/>           <!-- No padding, as we don't need numbers -->
+            <field name="company_id" eval="False"/>
+            <field name="number_next" eval="1"/>       <!-- Number is not relevant, just for initialization -->
+            <field name="number_increment" eval="1"/>
+        </record>
+    </data>
+</odoo>

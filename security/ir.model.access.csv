@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_academic_year_admin,school.academic.year.admin,model_school_academic_year,school_base.group_school_admin,1,1,1,1
+school_base.access_school_department,access.school.department,school_base.model_school_department,school_base.group_school_admin,1,1,1,1
+school_base.access_school_teacher,access.school.teacher,school_base.model_school_teacher,school_base.group_school_admin,1,1,1,1
+school_base.access_school_student,access.school.student,school_base.model_school_student,school_base.group_school_admin,1,1,1,1
+school_base.access_school_class,access.school.class,school_base.model_school_class,school_base.group_school_admin,1,1,1,1
+school_base.access_school_class_section,access.school.class.section,school_base.model_school_class_section,school_base.group_school_admin,1,1,1,1
+school_base.access_school_class_subject,access.school.class_subject,school_base.model_school_class_subject,school_base.group_school_admin,1,1,1,1

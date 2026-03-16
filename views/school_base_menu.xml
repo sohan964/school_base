@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <menuitem id="menu_school_root" name="School Management" />
+        <menuitem id="menu_school_configuration" name="Configuration" parent="menu_school_root" />
+        <menuitem id="menu_school_academic_year" name="Academic Years"
+            parent="menu_school_configuration" action="action_school_academic_year" />
+        <menuitem id="menu_school_department_manage" name="Department"
+            action="action_school_department" parent="menu_school_root" />
+        <menuitem id="menu_school_teacher_manage" name="Teachers" parent="menu_school_root" />
+        <menuitem id="menu_school_teacher_info" name="All Teachers"
+            parent="menu_school_teacher_manage" action="action_school_teacher" />
+        <menuitem id="menu_school_student" name="Students" parent="menu_school_root"/>
+        <menuitem id="menu_school_student_list" name="Student List" parent="menu_school_student" action="action_school_student"/>
+        <menuitem id="menu_school_academic" name="Academic" parent="menu_school_root" />
+        <menuitem id="menu_school_class" name="Classes" parent="menu_school_academic" action="action_school_class" />
+        <menuitem id="menu_school_class_section" name="Sections" parent="menu_school_academic" action="action_school_class_section" />
+        <menuitem id="menu_school_class_subject" name="Subjects" parent="menu_school_academic" action="action_school_class_subject"/>
+        
+    </data>
+</odoo>
