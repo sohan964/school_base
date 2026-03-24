@@ -45,3 +45,14 @@ class SchoolClassSubject(models.Model):
     _sql_constraints = [
         ("subject_code_unique", "unique(code)", "Subject code must be unique"),
     ]
+
+
+
+
+# class SchoolTeacherAssignment(models.Model):
+#     _name="school.teacher.assignment"
+#     _description="assigning teachers for couses"
+
+#     teacher_id = fields.Many2one('school.teacher', string="Teacher", required=True)
+#     year_id = fields.Many2one('school.academic.year', string="Year", required=True )
+    

@@ -51,3 +51,34 @@ class SchoolAcademicYear(models.Model):
         for rec in self:
             if rec.date_end < rec.date_start:
                 raise ValidationError("End date must be greater than start date.")
+            
+
+class SchoolTimeSlot(models.Model):
+    _name="school.time.slot"
+    _description="time slots for sedules classes"
+
+    name = fields.Char(required=True)  # Example: "08:00 - 09:00"
+    start_time = fields.Float(required=True)
+    end_time = fields.Float(required=True)
+    active = fields.Boolean(default=True)
+
+
+class SchoolWeeklyDay(models.Model):
+    _name = "school.weekly.day"
+    _description = "School Day of Week"
+
+    name = fields.Char(string="Day Name", required=True)
+    code = fields.Selection(
+        [
+            ("mon", "Monday"),
+            ("tue", "Tuesday"),
+            ("wed", "Wednesday"),
+            ("thu", "Thursday"),
+            ("fri", "Friday"),
+            ("sat", "Saturday"),
+            ("sun", "Sunday"),
+        ],
+        string="Day Code",
+        required=True,
+    )
+    active = fields.Boolean(default=True)

@@ -6,3 +6,5 @@ school_base.access_school_student,access.school.student,school_base.model_school
 school_base.access_school_class,access.school.class,school_base.model_school_class,school_base.group_school_admin,1,1,1,1
 school_base.access_school_class_section,access.school.class.section,school_base.model_school_class_section,school_base.group_school_admin,1,1,1,1
 school_base.access_school_class_subject,access.school.class_subject,school_base.model_school_class_subject,school_base.group_school_admin,1,1,1,1
+school_base.access_school_time_slot,access.school.time.slot,school_base.model_school_time_slot,school_base.group_school_admin,1,1,1,1
+school_base.access_school_weekly_day,access.school.weekly.day,school_base.model_school_weekly_day,school_base.group_school_admin,1,1,1,1

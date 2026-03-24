@@ -13,6 +13,8 @@
         "data/sequence.xml",
         "views/school_class_subject_views.xml",
         "views/school_class_section_views.xml",
+        "views/school_time_slot_views.xml",
+        "views/school_weekly_day.xml",
         "views/school_class_views.xml",
         "views/school_student_views.xml",
         "views/school_teacher_views.xml",
