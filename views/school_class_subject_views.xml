@@ -9,6 +9,7 @@
                 <list>
                     <field name="name"/>
                     <field name="code"/>
+                    <field name="department_ids" widget="many2many_tags" />
                     <field name="class_ids" widget="many2many_tags"/>
                     <field name="active"/>
                 </list>
@@ -26,6 +27,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="code"/>
+                                <field name="department_ids" widget="many2many_tags" />
                                 <field name="class_ids" widget="many2many_tags"/>
                                 <field name="active"/>
                             </group>

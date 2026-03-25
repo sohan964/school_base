@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record id="view_school_teacher_assignment_list" model="ir.ui.view">
+            <field name="name">school.teacher.assignment.list</field>
+            <field name="model">school.teacher.assignment</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="teacher_id"/>
+                    <field name="year_id"/>
+                    <field name="department_id"/>
+                    <field name="class_id"/>
+                    <field name="section_id"/>
+                    <field name="subject_id"/>
+                    <field name="day_id"/>
+                    <field name="slot_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_school_teacher_assignment_form" model="ir.ui.view">
+            <field name="name">school.teacher.assignment.form</field>
+            <field name="model">school.teacher.assignment</field>
+            <field name="arch" type="xml">
+                <form string="Teacher Assignment">
+                    <sheet>
+                        <!-- Title -->
+                        <div class="oe_title">
+                            <h1>
+                                <field name="teacher_id"/>
+                            </h1>
+                        </div>
+                        <!-- Academic Info -->
+                        <group string="Academic Information">
+                            <group>
+                                <field name="year_id"/>
+                                <field name="department_id"/>
+                            </group>
+                        </group>
+                        <!-- Class & Subject -->
+                        <group string="Class Details">
+                            <group>
+                                <field name="class_id"/>
+                                <field name="section_id"/>
+                            </group>
+                            <group>
+                                <field name="subject_id"/>
+                            </group>
+                        </group>
+                        <!-- Schedule -->
+                        <group string="Schedule">
+                            <group>
+                                <field name="day_id"/>
+                            </group>
+                            <group>
+                                <field name="slot_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Action -->
+        <record id="action_school_teacher_assignment" model="ir.actions.act_window">
+            <field name="name">Course Teacher assignment</field>
+            <field name="res_model">school.teacher.assignment</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    create a new Teacher class
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

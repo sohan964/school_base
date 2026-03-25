@@ -15,3 +15,4 @@ class SchoolDepartment(models.Model):
         ("code_unique", "unique(code)", "Department code must be unique."),
         ("name_unique", "unique(name)", "Department name must be unique."),
     ]
+    

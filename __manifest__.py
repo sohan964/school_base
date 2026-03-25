@@ -18,6 +18,7 @@
         "views/school_class_views.xml",
         "views/school_student_views.xml",
         "views/school_teacher_views.xml",
+        "views/school_teacher_assignment_views.xml",
         "views/school_department_views.xml",
         "views/academic_year_views.xml",
         "views/school_base_menu.xml",

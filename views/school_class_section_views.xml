@@ -9,7 +9,8 @@
                 <list>
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="class_ids" widget="many2many_tags"/>
+                    <field name="class_id"/>
+                    <field name="department_id" />
                     <field name="active"/>
                 </list>
             </field>
@@ -26,12 +27,12 @@
                             <group>
                                 <field name="name"/>
                                 <field name="code"/>
-                                <field name="class_ids" widget="many2many_tags" />
+                                <field name="class_id"/>
+                                <field name="department_id" />
                                 <field name="active"/>
                             </group>
                         </group>
 
-                        
                     </sheet>
                 </form>
             </field>

@@ -15,6 +15,7 @@
         <menuitem id="menu_school_class" name="Classes" parent="menu_school_academic" action="action_school_class" />
         <menuitem id="menu_school_class_section" name="Sections" parent="menu_school_academic" action="action_school_class_section" />
         <menuitem id="menu_school_class_subject" name="Subjects" parent="menu_school_academic" action="action_school_class_subject"/>
+        <menuitem id="menu_school_teacher_assignment" name="Course Schedule" parent = "menu_school_academic" action="action_school_teacher_assignment" />
 
         <menuitem id="menu_school_time_slot" name="Time Slots" parent="menu_school_configuration" action="action_school_time_slot"/>
         <menuitem id="menu_school_weekly_day" name="Weekly Days" parent="menu_school_configuration" action="action_school_weekly_day"/>
