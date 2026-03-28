@@ -1,6 +1,6 @@
-from odoo import fields, models
-
-
+from odoo import fields, models, api
+from odoo.exceptions import ValidationError
+# create new student
 class SchoolStudent(models.Model):
     _name = "school.student"
     _description = "School Student"
@@ -28,3 +28,41 @@ class SchoolStudent(models.Model):
     _sql_constraints = [
         ("student_code_unique", "unique(code)", "Student code must be unique."),
     ]
+
+
+# student enrollment to the class
+class SchoolStudentEnrollment(models.Model):
+    _name="school.student.enrollment"
+    _description = "Student Enroll for class"
+
+    student_id = fields.Many2one('school.student', string="Student", required=True)
+    year_id = fields.Many2one("school.academic.year", string="Year", required=True)
+    department_id = fields.Many2one("school.department", string="Department", required=True)
+    class_id = fields.Many2one("school.class", string="Class", required=True)
+    section_id = fields.Many2one("school.class.section", string="Section", 
+                                 domain="[('department_id', '=', department_id), ('class_id', '=', class_id)]",
+                                 required=True)
+    roll_no = fields.Integer(string="Roll No")
+    date_start = fields.Date(string="Started Date")
+    date_end = fields.Date(string="End Date")
+    state = fields.Selection([
+        ("active", "Active"),
+         ("completed","Completed"),
+         ("droped","Droped")
+    ],string="Status")
+
+    @api.constrains('student_id', 'year_id', 'state')
+    def _check_duplicate_enrollment(self):
+        for rec in self:
+            
+            domain=[
+                ('id', '!=', rec.id),
+                ('student_id', '=', rec.student_id),
+                ('year_id', '=', rec.year_id),
+                ('state', '=', 'active')
+            ]
+            if self.search_count(domain):
+                raise ValidationError("This student is already enrolled in this year with active status")
+            
+    
+

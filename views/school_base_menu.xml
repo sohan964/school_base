@@ -11,6 +11,7 @@
             parent="menu_school_teacher_manage" action="action_school_teacher" />
         <menuitem id="menu_school_student" name="Students" parent="menu_school_root"/>
         <menuitem id="menu_school_student_list" name="Student List" parent="menu_school_student" action="action_school_student"/>
+        <menuitem id="menu_school_student_enrollment" name="Student Enrollment" parent="menu_school_student" action="action_school_student_enrollment" />
         <menuitem id="menu_school_academic" name="Academic" parent="menu_school_root" />
         <menuitem id="menu_school_class" name="Classes" parent="menu_school_academic" action="action_school_class" />
         <menuitem id="menu_school_class_section" name="Sections" parent="menu_school_academic" action="action_school_class_section" />
@@ -19,6 +20,11 @@
 
         <menuitem id="menu_school_time_slot" name="Time Slots" parent="menu_school_configuration" action="action_school_time_slot"/>
         <menuitem id="menu_school_weekly_day" name="Weekly Days" parent="menu_school_configuration" action="action_school_weekly_day"/>
+
+        <menuitem id="menu_school_attendance" name="Attendance" parent="menu_school_root"/>
+        <menuitem id="menu_school_student_attendance" name="Student Attendance" parent="menu_school_attendance" action="action_school_student_attendance"/>
+        
+
         
     </data>
 </odoo>
