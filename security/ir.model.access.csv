@@ -11,3 +11,6 @@ school_base.access_school_weekly_day,access.school.weekly.day,school_base.model_
 school_base.access_school_teacher_assignment,access.school.teacher.assignment,school_base.model_school_teacher_assignment,school_base.group_school_admin,1,1,1,1
 school_base.access_school_student_enrollment,access.school.student.enrollment,school_base.model_school_student_enrollment,school_base.group_school_admin,1,1,1,1
 school_base.access_school_student_attendance,access.school.student.attendance,school_base.model_school_student_attendance,school_base.group_school_admin,1,1,1,1
+school_base.access_school_student_attendance_line,access.school.student.attendance.line,school_base.model_school_student_attendance_line,school_base.group_school_admin,1,1,1,1
+school_base.access_school_exam_type,access.school.exam.type,school_base.model_school_exam_type,school_base.group_school_admin,1,1,1,1
+school_base.access_school_exam,access.school.exam,school_base.model_school_exam,school_base.group_school_admin,1,1,1,1

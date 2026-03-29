@@ -24,6 +24,10 @@
         <menuitem id="menu_school_attendance" name="Attendance" parent="menu_school_root"/>
         <menuitem id="menu_school_student_attendance" name="Student Attendance" parent="menu_school_attendance" action="action_school_student_attendance"/>
         
+        <menuitem id="menu_school_exam" name="Manage Exams" parent="menu_school_root" />
+        <menuitem id="menu_school_exam_type" name="Exam Types" parent="menu_school_exam" action="action_school_exam_type"/>
+        <menuitem id="menu_school_exam_list" name="All Exams" parent="menu_school_exam" action="action_school_exam"/>
+        
 
         
     </data>

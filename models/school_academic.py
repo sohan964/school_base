@@ -65,6 +65,23 @@ class SchoolTeacherAssignment(models.Model):
     day_id = fields.Many2one("school.weekly.day", string="Days", required=True)
     slot_id = fields.Many2one("school.time.slot", string="Slots", required=True)
 
+    display_name = fields.Char(compute="_compute_display_name", store=True)
+
+    @api.depends('class_id', 'section_id', 'subject_id', 'day_id', 'slot_id')
+    def _compute_display_name(self):
+        for rec in self:
+            name = rec.class_id.name or ""
+
+            if rec.section_id:
+                name += f" | {rec.section_id.name}"
+
+            if rec.subject_id:
+                name += f" | {rec.subject_id.name}"
+
+            if rec.day_id and rec.slot_id:
+                name += f" | {rec.day_id.name} ({rec.slot_id.name})"
+
+            rec.display_name = name
 
 
     @api.constrains('year_id','teacher_id', 'day_id', 'slot_id')

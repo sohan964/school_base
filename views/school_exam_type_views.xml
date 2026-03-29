@@ -1,0 +1,12 @@
+<odoo>
+    <record id="action_school_exam_type" model="ir.actions.act_window">
+        <field name="name">Exam Types</field>
+        <field name="res_model">school.exam.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create an Exam Type
+            </p>
+        </field>
+    </record>
+</odoo>
