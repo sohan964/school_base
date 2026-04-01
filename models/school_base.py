@@ -82,3 +82,12 @@ class SchoolWeeklyDay(models.Model):
         required=True,
     )
     active = fields.Boolean(default=True)
+
+class SchoolExamTimeSlot(models.Model):
+    _name="school.exam.time.slot"
+    _description = "All Exam times"
+
+    name=fields.Char(required=True)
+    start_time = fields.Float(required=True)
+    end_time = fields.Float(required=True)
+    active = fields.Boolean(default=True)

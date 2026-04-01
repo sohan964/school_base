@@ -1,12 +1,76 @@
 <odoo>
-    <record id="action_school_exam" model="ir.actions.act_window">
-        <field name="name">School Exams</field>
-        <field name="res_model">school.exam</field>
-        <field name="view_mode">list,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Create a new Exam
-            </p>
-        </field>
-    </record>
+    <data>
+
+        <!-- List View -->
+        <record id="view_school_exam_list" model="ir.ui.view">
+            <field name="name">school.exam.list</field>
+            <field name="model">school.exam</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="exam_type_id"/>
+                    <field name="year_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_school_exam_form" model="ir.ui.view">
+            <field name="name">school.exam.form</field>
+            <field name="model">school.exam</field>
+            <field name="arch" type="xml">
+                <form string="School Exam">
+                    <sheet>
+
+                        <!-- Header Info -->
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="exam_type_id"/>
+                                <field name="year_id"/>
+                            </group>
+
+                            <group>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                                <field name="state"/>
+                            </group>
+                        </group>
+
+                        <!-- Exam Lines -->
+                        <notebook>
+                            <page string="Exam Schedule">
+                                <field name="exam_line_ids">
+                                    <list editable="bottom">
+                                        <field name="department_id"/>
+                                        <field name="class_id"/>
+                                        <field name="subject_id"/>
+                                        <field name="exam_date"/>
+                                        <field name="full_marks"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_school_exam" model="ir.actions.act_window">
+            <field name="name">School Exams</field>
+            <field name="res_model">school.exam</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Exam
+                </p>
+            </field>
+        </record>
+
+    </data>
 </odoo>

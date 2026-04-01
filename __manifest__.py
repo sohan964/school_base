@@ -23,6 +23,8 @@
         "views/school_student_attendance_views.xml",
         "views/school_exam_type_views.xml",
         "views/school_exam_views.xml",
+        "views/school_exam_time_slot_views.xml",
+        "views/school_exam_result_views.xml",
         "views/school_department_views.xml",
         "views/academic_year_views.xml",
         "views/school_base_menu.xml",

@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_school_exam_result_list" model="ir.ui.view">
+        <field name="name">school.exam.result.list</field>
+        <field name="model">school.exam.result</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="teacher_id"/>
+                <field name="year_id"/>
+                <field name="class_id"/>
+                <field name="section_id"/>
+                <field name="exam_line_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_school_exam_result_form" model="ir.ui.view">
+        <field name="name">school.exam.result.form</field>
+        <field name="model">school.exam.result</field>
+        <field name="arch" type="xml">
+            <form string="Exam Result">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="teacher_id"/>
+                            <field name="year_id"/>
+                            <field name="department_id"/>
+                            <field name="exam_id"/>
+                            <field name="exam_line_id"/>
+                        </group>
+                        <group>
+                            <field name="class_id" domain="[('id', 'in', available_class_ids)]"/>
+                            <field name="section_id" domain="[('id','in', available_section_ids)]"/>
+                            <field name="subject_id" domain = "[('id','in', available_subject_ids)]"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Students">
+                            <field name="result_ids">
+                                <list editable="bottom" create="false">
+                                    <field name="enrollment_id" column_invisible="True"/>
+                                    <field name="student_id"/>
+                                    <field name="marks_obtained"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_school_exam_result" model="ir.actions.act_window">
+        <field name="name">Exam Results</field>
+        <field name="res_model">school.exam.result</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Submit exam results
+            </p>
+        </field>
+    </record>
+</odoo>

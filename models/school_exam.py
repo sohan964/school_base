@@ -25,7 +25,20 @@ class SchoolExam(models.Model):
         ('done',"Done"),
         ('cancelled',"Cancelled")
     ], string="Status")
-    
-    
+    exam_line_ids = fields.One2many("school.exam.line",'exam_id', string="Exams")
 
-    
+
+class SchoolExamLine(models.Model):
+    _name="school.exam.line"
+    _description="School Exams"
+
+    exam_id = fields.Many2one("school.exam", string="Exam")
+    department_id = fields.Many2one("school.department", string="Department")
+    class_id = fields.Many2one("school.class", string="Class")
+    subject_id = fields.Many2one("school.class.subject", string="Subject", domain="[('department_ids','=',department_id),('class_ids','=',class_id)]")
+    exam_date = fields.Date(string="Exam Date")
+    full_marks = fields.Float(string="Full Marks")
+    exam_time_slot_id = fields.Many2one("school.exam.time.slot",string="Exam Time Slot")
+
+    # contrains remain
+    #@api.constrains('')
