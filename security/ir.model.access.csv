@@ -17,3 +17,4 @@ school_base.access_school_exam,access.school.exam,school_base.model_school_exam,
 school_base.access_school_exam_line,access.school.exam.line,school_base.model_school_exam_line,school_base.group_school_admin,1,1,1,1
 school_base.access_school_exam_result,access.school.exam.result,school_base.model_school_exam_result,school_base.group_school_admin,1,1,1,1
 school_base.access_school_exam_result_line,access.school.exam.result.line,school_base.model_school_exam_result_line,school_base.group_school_admin,1,1,1,1
+school_base.access_school_exam_time_slot,access.school.exam.time.slot,school_base.model_school_exam_time_slot,school_base.group_school_admin,1,1,1,1

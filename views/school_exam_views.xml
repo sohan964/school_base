@@ -49,6 +49,7 @@
                                         <field name="class_id"/>
                                         <field name="subject_id"/>
                                         <field name="exam_date"/>
+                                        <field name="exam_time_slot_id"/>
                                         <field name="full_marks"/>
                                     </list>
                                 </field>
