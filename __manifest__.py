@@ -9,6 +9,7 @@
     "depends": ["base", "mail"],
     "data": [
         "security/school_base_groups.xml",
+        "security/school_record_rules.xml",
         "security/ir.model.access.csv",
         "data/sequence.xml",
         "views/school_class_subject_views.xml",

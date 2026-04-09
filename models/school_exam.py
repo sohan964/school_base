@@ -39,6 +39,23 @@ class SchoolExamLine(models.Model):
     exam_date = fields.Date(string="Exam Date")
     full_marks = fields.Float(string="Full Marks")
     exam_time_slot_id = fields.Many2one("school.exam.time.slot",string="Exam Time Slot")
-
+    display_name = fields.Char(compute="_compute_display_name")
     # contrains remain
-    #@api.constrains('')
+    # @api.constrains('')
+
+    # display name
+    @api.depends('exam_id', 'department_id', 'class_id', 'subject_id')
+    def _compute_display_name(self):
+        for rec in self:
+            name = rec.exam_id.name or ""
+
+            if rec.department_id:
+                name += f" | {rec.department_id.name}"
+
+            if rec.class_id:
+                name += f" | {rec.class_id.name}"
+
+            if rec.subject_id:
+                name += f" | {rec.subject_id.name}"
+
+            rec.display_name = name

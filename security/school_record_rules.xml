@@ -1,0 +1,11 @@
+<odoo>
+    <!-- own attendnace access to teacher -->
+    <record id="rule_teacher_own_attendance" model="ir.rule">
+        <field name="name">Teacher: Own Attendance Only</field>
+        <field name="model_id" ref="model_school_student_attendance"/>
+        <field name="groups" eval="[(4, ref('school_base.group_school_teacher'))]"/>
+        <field name="domain_force">
+            [('teacher_id.user_id', '=', user.id)]
+        </field>
+    </record>
+</odoo>
