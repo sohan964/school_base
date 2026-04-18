@@ -1,0 +1,141 @@
+<templates xml:space="preserve">
+    <t t-name="school_base.SchoolAdminDashboard" school_base="1">
+        <div class="container-fluid">
+            <div class="">
+                <!-- ✅ Mobile Topbar -->
+                <!-- <nav class="navbar navbar-dark bg-dark d-md-none">
+                    <div class="container-fluid">
+                        <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                    ☰
+                </button>
+                        <span class="navbar-brand mb-0">🎓 School</span>
+                    </div>
+                </nav> -->
+                <!-- ✅ Sidebar (Desktop) -->
+                <!-- <div class="col-md-2 d-none d-md-block bg-dark text-white min-vh-100 p-3">
+                    <span class="fs-4 d-block mb-3">🎓 School</span>
+                    <hr/>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active text-white">
+                                <i class="bi bi-speedometer2 me-2"/> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-people me-2"/> Students
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-person-badge me-2"/> Teachers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-book me-2"/> Classes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-calendar-check me-2"/> Attendance
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-pencil-square me-2"/> Exams
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-bar-chart me-2"/> Reports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <i class="bi bi-gear me-2"/> Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+                <!-- ✅ Offcanvas Sidebar (Mobile) -->
+                <!-- <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="sidebarMenu">
+                    <div class="offcanvas-header">
+                        <h5>🎓 School</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"/>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">Students</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">Teachers</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">Classes</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">Attendance</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">Exams</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">Reports</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+                <!-- ✅ Main Content -->
+                <main class="col-12 col-md-10 ms-sm-auto p-4">
+                    <div class="d-flex justify-content-between mb-4">
+                        <h3>Dashboard</h3>
+                        <div>👤 Admin</div>
+                    </div>
+                    <!-- Your content here -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card text-white bg-primary h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Students</h6>
+                                    <h3 class="card-text" ><span t-esc="state.students.value"/></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card text-white bg-success h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Teachers</h6>
+                                    <h3 class="card-text"><span t-esc="state.teachers.value"/></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card text-white bg-warning h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Total Classes</h6>
+                                    <h3 class="card-text" t-esc="state.classes.value"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card text-white bg-danger h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Departments</h6>
+                                    <h3 class="card-text" t-esc="state.departments.value"></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </t>
+</templates>

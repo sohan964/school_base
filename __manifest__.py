@@ -6,12 +6,15 @@
     "author": "Your Name",
     "category": "Education",
     "license": "LGPL-3",
-    "depends": ["base", "mail"],
+    "depends": ["base", "mail", 'web'],
     "data": [
         "security/school_base_groups.xml",
         "security/school_record_rules.xml",
         "security/ir.model.access.csv",
         "data/sequence.xml",
+        # dashboard views
+        "views/admin_dashboard.xml",
+
         "views/school_class_subject_views.xml",
         "views/school_class_section_views.xml",
         "views/school_time_slot_views.xml",
@@ -30,6 +33,12 @@
         "views/academic_year_views.xml",
         "views/school_base_menu.xml",
     ],
+    "assets" :{
+        'web.assets_backend' :[
+            'school_base/static/src/js/admin_dashboard.js',
+            'school_base/static/src/xml/admin_dashboard.xml',
+        ]
+    },
     "installable": True,
     "application": True,
 }
