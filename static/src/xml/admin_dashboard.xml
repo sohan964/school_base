@@ -1,140 +1,138 @@
 <templates xml:space="preserve">
     <t t-name="school_base.SchoolAdminDashboard" school_base="1">
-        <div class="container-fluid">
-            <div class="">
-                <!-- ✅ Mobile Topbar -->
-                <!-- <nav class="navbar navbar-dark bg-dark d-md-none">
-                    <div class="container-fluid">
-                        <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
-                    ☰
-                </button>
-                        <span class="navbar-brand mb-0">🎓 School</span>
-                    </div>
-                </nav> -->
-                <!-- ✅ Sidebar (Desktop) -->
-                <!-- <div class="col-md-2 d-none d-md-block bg-dark text-white min-vh-100 p-3">
-                    <span class="fs-4 d-block mb-3">🎓 School</span>
-                    <hr/>
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active text-white">
-                                <i class="bi bi-speedometer2 me-2"/> Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-people me-2"/> Students
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-person-badge me-2"/> Teachers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-book me-2"/> Classes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-calendar-check me-2"/> Attendance
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-pencil-square me-2"/> Exams
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-bar-chart me-2"/> Reports
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white">
-                                <i class="bi bi-gear me-2"/> Settings
-                            </a>
-                        </li>
-                    </ul>
-                </div> -->
-                <!-- ✅ Offcanvas Sidebar (Mobile) -->
-                <!-- <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="sidebarMenu">
-                    <div class="offcanvas-header">
-                        <h5>🎓 School</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"/>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="nav nav-pills flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">Students</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">Teachers</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">Classes</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">Attendance</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">Exams</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">Reports</a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-white">Settings</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
+        <div class="vh-100 overflow-auto " >
+            <div class="row">
                 <!-- ✅ Main Content -->
-                <main class="col-12 col-md-10 ms-sm-auto p-4">
+                <div class="col-12 col-md-10 mx-auto p-4">
                     <div class="d-flex justify-content-between mb-4">
                         <h3>Dashboard</h3>
                         <div>👤 Admin</div>
                     </div>
                     <!-- Your content here -->
                     <div class="row g-3 mb-4">
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="card text-white bg-primary h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title">Total Students</h6>
-                                    <h3 class="card-text" ><span t-esc="state.students.value"/></h3>
+                        <KpiCard t-props="{
+                            bg: 'bg-primary',
+                            name: 'Total Students',
+                            value: state.students.value,
+                            icon: 'bi-people'
+                        }"/>
+                        <KpiCard t-props="{
+                            bg: 'bg-success',
+                            name: 'Total Teachers',
+                            value: state.teachers.value,
+                            icon: 'bi-person-badge'
+                        }"/>
+                        <KpiCard t-props="{
+                            bg: 'bg-warning',
+                            name: 'Total Classes',
+                            value: state.classes.value,
+                            icon: 'bi-book'
+                        }"/>
+                        <KpiCard t-props="{
+                            bg: 'bg-danger',
+                            name: 'Total Departments',
+                            value: state.departments.value,
+                            icon: 'bi-building'
+                        }"/>
+                    </div>
+                    <!-- ACADEMIC YEAR -->
+                    <div class="card soft-card mb-3 shadow-sm">
+                        <div class="card-body d-flex flex-wrap align-items-center justify-content-between">
+                            <!-- Left: Title -->
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-calendar3 fs-4 text-primary me-2"></i>
+                                <h6 class="mb-0 fw-bold" t-esc="state.accademic_year.name"/>
+                            </div>
+                            <!-- Right: Dates -->
+                            <div class="d-flex gap-2">
+                                <span class="badge bg-primary">
+                                    Start:
+                                    <span t-esc="state.accademic_year.date_start"/>
+                                </span>
+                                <span class="badge bg-success">
+                                    End:
+                                    <span t-esc="state.accademic_year.date_end"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Todays Academic Activities -->
+                    <div class="row g-3">
+                        <!-- LEFT COLUMN -->
+                        <div class="col-lg-6">
+                            <!-- TODAY ACTIVITY -->
+                            <div class="card soft-card mb-3">
+                                <div class="card-header">Today's Academic Activity</div>
+                                <div class="p-3">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="status-box bg-warning">
+                                            <i class="bi bi-calendar"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">Classes Scheduled Today</div>
+                                        <strong t-esc="state.todayacademicactivities.classes_scheduled"></strong>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="status-box bg-success">
+                                            <i class="bi bi-check"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">Classes Completed</div>
+                                        <strong t-esc="state.todayacademicactivities.classes_completed"></strong>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="status-box bg-danger">
+                                            <i class="bi bi-exclamation"></i>
+                                        </div>
+                                        <div class="ms-3 flex-grow-1">Classes Pending</div>
+                                        <strong t-esc="state.todayacademicactivities.classes_pendding"></strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- teacher alart -->
+                            <div class="card soft-card mb-3">
+                                <div class="card-header d-flex justify-content-between">
+                                    Pending Work / Alerts
+                                    <span class="text-primary">View All</span>
+                                </div>
+                                <div class="p-3">
+                                    <div class="alert-item">❌ 3 Classes without Teacher</div>
+                                    <div class="alert-item">❌ 6 Attendance Pending</div>
+                                    <div class="alert-item">❌ 5 Students without Enrollment</div>
+                                    <div class="alert-item">❌ 2 Exams Missing</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="card text-white bg-success h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title">Total Teachers</h6>
-                                    <h3 class="card-text"><span t-esc="state.teachers.value"/></h3>
+                        <!-- right columns -->
+                        <div class="col-lg-6">
+                            <!-- ATTENDANCE -->
+                            <div class="card soft-card mb-3">
+                                <div class="card-header">Attendance Summary</div>
+                                <div class="p-3 row text-center g-2">
+                                    <div class="col">
+                                        <div class="mini-card bg-success">Present
+                                            <br/>
+                                            <strong id="presentCount">920</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mini-card bg-danger">Absent
+                                            <br/>
+                                            <strong id="absentCount">55</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mini-card bg-warning">Late
+                                            <br/>
+                                            <strong id="lateCount">15</strong>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="card text-white bg-warning h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title">Total Classes</h6>
-                                    <h3 class="card-text" t-esc="state.classes.value"></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="card text-white bg-danger h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title">Departments</h6>
-                                    <h3 class="card-text" t-esc="state.departments.value"></h3>
+                                <div class="p-3 text-center">
+                                    <ChartRenderer />
                                 </div>
                             </div>
                         </div>
                     </div>
-                </main>
+                </div>
             </div>
         </div>
     </t>

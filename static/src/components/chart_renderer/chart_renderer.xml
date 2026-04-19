@@ -1,0 +1,7 @@
+<templates xml:space="preserve">
+    <t t-name="school_base.ChartRenderer" school_base="1">
+        <div style="width: 220px; height: 220px; margin: auto;">
+            <canvas t-ref="chart"/>
+        </div>
+    </t>
+</templates>

@@ -37,6 +37,12 @@
         'web.assets_backend' :[
             'school_base/static/src/js/admin_dashboard.js',
             'school_base/static/src/xml/admin_dashboard.xml',
+            'school_base/static/src/css/admin_dashboard.css',
+            'school_base/static/src/components/**/*.xml',
+            'school_base/static/src/components/**/*.js',
+            'school_base/static/src/components/**/*.css',
+            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css',
+
         ]
     },
     "installable": True,
