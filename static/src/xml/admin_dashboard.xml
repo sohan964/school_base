@@ -41,7 +41,7 @@
                             <!-- Left: Title -->
                             <div class="d-flex align-items-center">
                                 <i class="bi bi-calendar3 fs-4 text-primary me-2"></i>
-                                <h6 class="mb-0 fw-bold" t-esc="state.accademic_year.name"/>
+                                <h6 class="mb-0 fw-bold" t-esc="state?.accademic_year?.name"/>
                             </div>
                             <!-- Right: Dates -->
                             <div class="d-flex gap-2">
@@ -106,7 +106,7 @@
                             <!-- ATTENDANCE -->
                             <div class="card soft-card mb-3">
                                 <div class="card-header">Attendance Summary</div>
-                                <div class="p-3 row text-center g-2">
+                                <!-- <div class="p-3 row text-center g-2">
                                     <div class="col">
                                         <div class="mini-card bg-success">Present
                                             <br/>
@@ -125,9 +125,10 @@
                                             <strong id="lateCount">15</strong>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="p-3 text-center">
                                     <ChartRenderer />
+                                    
                                 </div>
                             </div>
                         </div>

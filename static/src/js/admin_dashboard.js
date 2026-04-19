@@ -10,7 +10,7 @@ export class SchoolAdminDashboard extends Component {
             teachers: { value: 0 },
             classes: { value: 0 },
             departments: { value: 0 },
-            accademic_year: 0,
+            accademic_year: {},
             todayacademicactivities: {
                 classes_scheduled: 0,
                 classes_completed: 0,
@@ -95,9 +95,16 @@ export class SchoolAdminDashboard extends Component {
         );
         this.state.todayacademicactivities.classes_scheduled = totalClass;
         this.state.todayacademicactivities.classes_completed = completedClass;
-        this.state.todayacademicactivities.classes_pendding = totalClass - completedClass;
-        
+        this.state.todayacademicactivities.classes_pendding = totalClass - completedClass;        
     };
+
+    // getTodayAttendance = async ()=>{
+    //     const today = new Date().toISOString().split('T')[0];
+    //     const domain = []
+    //     const totalAttendance = await this.orm.searchCount('')
+    // }
+
+
 
 
 }
