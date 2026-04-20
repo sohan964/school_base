@@ -1,0 +1,56 @@
+.header-card {
+    border-radius: 14px;
+}
+.soft-card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Schedule */
+.schedule-item {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* mini cards */
+.mini-card {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* circle */
+.circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 8px solid #28a745;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-weight:bold;
+}
+
+/* subject cards */
+.subject-card {
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* tasks */
+.task-item {
+    display:flex;
+    justify-content: space-between;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+/* placeholder */
+.chart-placeholder {
+    height:120px;
+    background:#e9ecef;
+    border-radius:8px;
+}

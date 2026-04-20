@@ -10,44 +10,11 @@ export class ChartRenderer extends Component {
         onMounted(() => this.renderChart())
     }
     renderChart() {
-
-        new Chart(
-            this.chartRef.el,
-            {
-                type: "doughnut",
-                data: {
-                    labels: [
-                        "Present", "Absent", "Late"
-                    ],
-                    datasets: [
-                        {
-                            label: "Attendance Rate",
-                            data: [300, 50, 100],
-                            backgroundColor: [
-                                'rgb(40, 167, 69)',
-                                'rgb(212, 76, 89)',
-                                'rgb(233, 157, 0)'
-                            ],
-                            hoverOffset: 4
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                        },
-                        title: {
-                            display: true,
-                            text: "Attendance chart",
-                            position: 'bottom',
-                        }
-                    }
-                }
-            }
-        )
+        new Chart(this.chartRef.el, {
+            type: this.props.type || 'bar',
+            data: this.props.data,
+            options: this.props.options || {}
+        })
     }
 }
 

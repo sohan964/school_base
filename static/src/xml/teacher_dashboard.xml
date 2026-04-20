@@ -1,0 +1,150 @@
+<templates xml:space="preserve">
+    <t t-name="school_base.SchoolTeacherDashboard" school_base="1">
+        <div class="vh-100 overflow-auto">
+            <div class="row">
+                <div class="col-12 col-md-10 mx-auto p-4">
+                    <!-- HEADER -->
+                    <div class="card soft-card shadow-sm border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <!-- LEFT (Text) -->
+                                <div class="col-12 col-md-8">
+                                    <h5 class="fw-semibold mb-1">
+                                        👋 Welcome back, Mr. John Doe
+                                    </h5>
+                                    <div class="text-muted small">
+                                        Math Teacher · Science Department
+                                    </div>
+                                </div>
+                                <!-- RIGHT (Date + Avatar) -->
+                                <div class="col-12 col-md-4 mt-3 mt-md-0">
+                                    <div class="d-flex align-items-center justify-content-between justify-content-md-end">
+                                        <!-- Date -->
+                                        <div class="text-md-end">
+                                            <div class="fw-medium">Tuesday</div>
+                                            <small class="text-muted">April 23, 2024</small>
+                                        </div>
+                                        <!-- Avatar -->
+                                        <img 
+                                            src="https://i.pravatar.cc/60"
+                                            class="rounded-circle border shadow-sm ms-3"
+                                            width="45"
+                                            height="45"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TOP CARDS -->
+                    <div class="row g-3 mb-3">
+                        <!-- Schedule -->
+                        <div class="col-lg-6">
+                            <div class="card soft-card">
+                                <div class="card-header fw-semibold">Today's Schedule</div>
+                                <div class="p-3">
+                                    <div class="schedule-item bg-primary-subtle">
+                        9:00 AM - 10:00 AM Math (Class 8A)
+                    </div>
+                                    <div class="schedule-item bg-success-subtle">
+                        11:00 AM - 12:00 PM Science (Class 9B)
+                    </div>
+                                    <div class="schedule-item bg-warning-subtle">
+                        2:00 PM - 3:00 PM Geometry (Class 10A)
+                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Attendance -->
+                        <div class="col-lg-6">
+                            <div class="card soft-card">
+                                <div class="card-header fw-semibold">Today's Attendance</div>
+                                <div class="p-3 row text-center g-2">
+                                    <div class="col">
+                                        <div class="mini-card bg-light">
+                                            <h4>5</h4>
+                                            <small>Scheduled</small>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mini-card bg-success text-white">
+                                            <h4>3</h4>
+                                            <small>Taken</small>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mini-card bg-warning text-white">
+                                            <h4>2</h4>
+                                            <small>Pending</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center pb-3">
+                                    <div class="circle">89%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SECOND ROW -->
+                    <div class="row g-3">
+                        <!-- Students -->
+                        <div class="col-lg-4">
+                            <div class="card soft-card p-3 text-center">
+                                <h2 class="fw-bold">90 Students</h2>
+                                <div class="chart-placeholder mt-3">Chart</div>
+                            </div>
+                        </div>
+                        <!-- Exam Tasks -->
+                        <div class="col-lg-4">
+                            <div class="card soft-card p-3">
+                                <h6 class="fw-semibold">Exam Tasks</h6>
+                                <div class="task-item">
+                    Math Exam
+                                    <span class="badge bg-warning">Schedule</span>
+                                </div>
+                                <div class="task-item">
+                    Submit Results
+                                    <span class="badge bg-primary">Submit</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Subjects -->
+                        <div class="col-lg-4">
+                            <div class="card soft-card p-3">
+                                <h6 class="fw-semibold">My Subjects</h6>
+                                <div class="task-item">
+                    Math
+                                    <span class="badge bg-success">Schedule</span>
+                                </div>
+                                <div class="task-item">
+                    Science
+                                    <span class="badge bg-danger">Submit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SUBJECT CARDS -->
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-6">
+                            <div class="subject-card bg-primary text-white">
+                Math (3 Classes)
+            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="subject-card bg-success text-white">
+                Science (2 Classes)
+            </div>
+                        </div>
+                    </div>
+                    <!-- ACTION BUTTONS -->
+                    <div class="d-flex flex-wrap gap-2 justify-content-center mt-4">
+                        <button class="btn btn-warning">Take Attendance</button>
+                        <button class="btn btn-primary">View My Classes</button>
+                        <button class="btn btn-success">Submit Results</button>
+                        <button class="btn btn-info text-white">View Students</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

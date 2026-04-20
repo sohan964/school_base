@@ -15,8 +15,16 @@ export class SchoolAdminDashboard extends Component {
                 classes_scheduled: 0,
                 classes_completed: 0,
                 classes_pendding: 0,
-
+            },
+            attendance_chart: {
+                total: 0,
+                present: 0,
+                late: 0,
+                absent: 0,
+                attendance_parcent:0
             }
+
+
         })
 
         this.orm = useService("orm")
@@ -28,13 +36,14 @@ export class SchoolAdminDashboard extends Component {
             await this.getAllDepartment()
             await this.getAccademicYear()
             await this.getTodayAcademicSchedule()
+            await this.getTodayAttendanceStats()
         })
     }
 
     getAllStudent = async () => {
         let domain = []
         const data = await this.orm.searchCount("school.student", domain)
-        
+
         this.state.students.value = data
     }
 
@@ -95,17 +104,59 @@ export class SchoolAdminDashboard extends Component {
         );
         this.state.todayacademicactivities.classes_scheduled = totalClass;
         this.state.todayacademicactivities.classes_completed = completedClass;
-        this.state.todayacademicactivities.classes_pendding = totalClass - completedClass;        
+        this.state.todayacademicactivities.classes_pendding = totalClass - completedClass;
     };
 
-    // getTodayAttendance = async ()=>{
-    //     const today = new Date().toISOString().split('T')[0];
-    //     const domain = []
-    //     const totalAttendance = await this.orm.searchCount('')
-    // }
+    getTodayAttendanceStats = async () => {
+        const today = new Date().toISOString().split('T')[0];
 
+        const attendanceLines = await this.orm.searchRead(
+            'school.student.attendance.line',
+            [
+                ['attendance_id.date', '=', today]
+            ],
+            ['student_id', 'status']
+        );
 
+        // Unique student tracking
+        const studentMap = new Map();
 
+        for (const line of attendanceLines) {
+            if (!line.student_id) continue;
+
+            const studentId = line.student_id[0];
+
+            // If already counted → skip (avoid duplicates)
+            if (!studentMap.has(studentId)) {
+                studentMap.set(studentId, line.status);
+            }
+        }
+
+        // Counters
+        let present = 0;
+        let absent = 0;
+        let late = 0;
+
+        for (const status of studentMap.values()) {
+            if (status === 'present') present++;
+            else if (status === 'absent') absent++;
+            else if (status === 'late') late++;
+        }
+        let total = studentMap.size
+        const attendancePercent = total > 0
+        ? (((present + late) / total) * 100).toFixed(2)
+        : 0;
+        
+        this.state.attendance_chart.total = total
+        this.state.attendance_chart.present = present
+        this.state.attendance_chart.absent = absent
+        this.state.attendance_chart.late = late
+        this.state.attendance_chart.attendance_parcent = attendancePercent
+        console.log(this.state.attendance_chart)
+
+    };
+
+    
 
 }
 

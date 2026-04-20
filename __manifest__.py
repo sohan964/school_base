@@ -14,6 +14,7 @@
         "data/sequence.xml",
         # dashboard views
         "views/admin_dashboard.xml",
+        "views/teacher_dashboard.xml",
 
         "views/school_class_subject_views.xml",
         "views/school_class_section_views.xml",
@@ -35,9 +36,9 @@
     ],
     "assets" :{
         'web.assets_backend' :[
-            'school_base/static/src/js/admin_dashboard.js',
-            'school_base/static/src/xml/admin_dashboard.xml',
-            'school_base/static/src/css/admin_dashboard.css',
+            'school_base/static/src/js/*.js',
+            'school_base/static/src/xml/*.xml',
+            'school_base/static/src/css/*.css',
             'school_base/static/src/components/**/*.xml',
             'school_base/static/src/components/**/*.js',
             'school_base/static/src/components/**/*.css',

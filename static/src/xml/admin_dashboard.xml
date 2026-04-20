@@ -126,13 +126,74 @@
                                         </div>
                                     </div>
                                 </div> -->
-                                <div class="p-3 text-center">
-                                    <ChartRenderer />
+                                <div class=" p-3 text-center row">
                                     
+                                    <ChartRenderer t-props="{
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ['Present', 'Absent', 'Late'],
+                                            datasets: [{
+                                                label: 'Attendance '+ state.attendance_chart.total,
+                                                data: [
+                                                    state.attendance_chart.present,
+                                                    state.attendance_chart.absent,
+                                                    state.attendance_chart.late
+                                                ],
+                                                backgroundColor: [
+                                                    '#28a745',
+                                                    '#dc3545',
+                                                    '#ffc107'
+                                                ]
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: { position: 'bottom' },
+                                                title: { display: true, text: 'Attendance Summary', position: 'bottom'}
+                                            }
+                                        }
+                                    }"/>
+
+                                    <ChartRenderer t-props="{
+                                        type: 'pie',
+                                        data: {
+                                            labels: ['Present', 'Absent'],
+                                            datasets: [{
+                                                label: 'Attendance Parcentage 100%',
+                                                data: [
+                                                    state.attendance_chart.attendance_parcent,
+                                                    100 - state.attendance_chart.attendance_parcent,
+                                                    
+                                                ],
+                                                backgroundColor: [
+                                                    '#28a745',
+                                                    '#dc3545',
+                                                    
+                                                ]
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: { position: 'bottom' },
+                                                title: { display: true, text: 'Attendance Parcentage', position: 'bottom'}
+                                            }
+                                        }
+                                    }"/>
                                 </div>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card soft-card p-3 text-center">Exam Overview</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card soft-card p-3 text-center">Teacher Workload</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

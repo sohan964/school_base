@@ -1,6 +1,6 @@
 <templates xml:space="preserve">
     <t t-name="school_base.ChartRenderer" school_base="1">
-        <div style="width: 420px; height: 420px; margin: auto;">
+        <div style="width: 350px; height: 350px; margin: auto;">
             <canvas t-ref="chart"/>
         </div>
     </t>
