@@ -9,7 +9,9 @@ school_base.access_school_class_section,access.school.class.section,school_base.
 school_base.access_school_class_subject,access.school.class_subject,school_base.model_school_class_subject,school_base.group_school_admin,1,1,1,1
 school_base.access_school_time_slot,access.school.time.slot,school_base.model_school_time_slot,school_base.group_school_admin,1,1,1,1
 school_base.access_school_weekly_day,access.school.weekly.day,school_base.model_school_weekly_day,school_base.group_school_admin,1,1,1,1
+school_base.access_school_weekly_day_teacher,access.school.weekly.day.teacher,school_base.model_school_weekly_day,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_teacher_assignment,access.school.teacher.assignment,school_base.model_school_teacher_assignment,school_base.group_school_admin,1,1,1,1
+school_base.access_school_teacher_assignment_teacher,access.school.teacher.assignment.teacher,school_base.model_school_teacher_assignment,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_student_enrollment,access.school.student.enrollment,school_base.model_school_student_enrollment,school_base.group_school_admin,1,1,1,1
 school_base.access_school_student_attendance_admin,access.school.student.attendance.admin,school_base.model_school_student_attendance,school_base.group_school_admin,1,1,1,1
 school_base.access_school_student_attendance_line_admin,access.school.student.attendance.line.admin,school_base.model_school_student_attendance_line,school_base.group_school_admin,1,1,1,1

@@ -106,26 +106,7 @@
                             <!-- ATTENDANCE -->
                             <div class="card soft-card mb-3">
                                 <div class="card-header">Attendance Summary</div>
-                                <!-- <div class="p-3 row text-center g-2">
-                                    <div class="col">
-                                        <div class="mini-card bg-success">Present
-                                            <br/>
-                                            <strong id="presentCount">920</strong>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mini-card bg-danger">Absent
-                                            <br/>
-                                            <strong id="absentCount">55</strong>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mini-card bg-warning">Late
-                                            <br/>
-                                            <strong id="lateCount">15</strong>
-                                        </div>
-                                    </div>
-                                </div> -->
+                               
                                 <div class=" p-3 text-center row">
                                     
                                     <ChartRenderer t-props="{

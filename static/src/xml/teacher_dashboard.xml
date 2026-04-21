@@ -10,10 +10,12 @@
                                 <!-- LEFT (Text) -->
                                 <div class="col-12 col-md-8">
                                     <h5 class="fw-semibold mb-1">
-                                        👋 Welcome back, Mr. John Doe
+                                        👋 Welcome back,
+                                        <span t-esc="state.teacherinfo.name"/>
                                     </h5>
                                     <div class="text-muted small">
-                                        Math Teacher · Science Department
+                                        <span t-esc="state.teacherinfo.designation"/> ·
+                                        <span t-esc="state.teacherinfo.department"/>
                                     </div>
                                 </div>
                                 <!-- RIGHT (Date + Avatar) -->
@@ -21,12 +23,16 @@
                                     <div class="d-flex align-items-center justify-content-between justify-content-md-end">
                                         <!-- Date -->
                                         <div class="text-md-end">
-                                            <div class="fw-medium">Tuesday</div>
-                                            <small class="text-muted">April 23, 2024</small>
+                                            <div class="fw-medium">Join Date</div>
+                                            <small class="text-muted">
+                                                <span t-esc="state.teacherinfo.join_date"/>
+                                            </small>
                                         </div>
                                         <!-- Avatar -->
                                         <img 
-                                            src="https://i.pravatar.cc/60"
+                                            t-att-src="state.teacherinfo.image 
+                                                ? 'data:image/jpeg;base64,' + state.teacherinfo.image 
+                                                : 'https://via.placeholder.com/45'"
                                             class="rounded-circle border shadow-sm ms-3"
                                             width="45"
                                             height="45"
@@ -36,65 +42,138 @@
                             </div>
                         </div>
                     </div>
-                    <!-- TOP CARDS -->
-                    <div class="row g-3 mb-3">
-                        <!-- Schedule -->
+                    <div class="row g-3">
+                        <!-- LEFT: Schedule -->
                         <div class="col-lg-6">
-                            <div class="card soft-card">
+                            <div class="card soft-card mb-3">
                                 <div class="card-header fw-semibold">Today's Schedule</div>
                                 <div class="p-3">
-                                    <div class="schedule-item bg-primary-subtle">
-                        9:00 AM - 10:00 AM Math (Class 8A)
-                    </div>
-                                    <div class="schedule-item bg-success-subtle">
-                        11:00 AM - 12:00 PM Science (Class 9B)
-                    </div>
-                                    <div class="schedule-item bg-warning-subtle">
-                        2:00 PM - 3:00 PM Geometry (Class 10A)
-                    </div>
+                                    <t t-foreach="state.teacherroutine" t-as="routine" t-key="routine.id">
+                                        <div class="d-flex align-items-center justify-content-between bg-light border rounded px-3 py-2 mb-2">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-clock text-primary me-2"></i>
+                                                <span class="fw-medium" t-esc="routine.display_name"/>
+                                            </div>
+                                        </div>
+                                    </t>
                                 </div>
                             </div>
+                            <div>
+                                <div class="card soft-card p-3 text-center">
+                                <h2 class="fw-bold">90 Students</h2>
+                                <div class="chart-placeholder mt-3">Chart</div>
+                            </div>
+                            </div>
                         </div>
+                        <!-- RIGHT: Attendance -->
                         <!-- Attendance -->
-                        <div class="col-lg-6">
-                            <div class="card soft-card">
-                                <div class="card-header fw-semibold">Today's Attendance</div>
-                                <div class="p-3 row text-center g-2">
-                                    <div class="col">
-                                        <div class="mini-card bg-light">
-                                            <h4>5</h4>
-                                            <small>Scheduled</small>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mini-card bg-success text-white">
-                                            <h4>3</h4>
-                                            <small>Taken</small>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mini-card bg-warning text-white">
-                                            <h4>2</h4>
-                                            <small>Pending</small>
-                                        </div>
-                                    </div>
+                        <div class="col-lg-6 ">
+                            <div class="card soft-card ">
+                                <!-- Header -->
+                                <div class="card-header fw-semibold">
+                                    Today's Attendance
                                 </div>
-                                <div class="text-center pb-3">
-                                    <div class="circle">89%</div>
+                                <!-- Body -->
+                                <div class="card-body">
+                                    <div class="row g-3 align-items-center">
+                                        <!-- LEFT: Cards -->
+                                         
+                                        <div class="col-12 col-md-6">
+                                            <div class="d-flex flex-column gap-3">
+                                                <div class="card kpi-card text-white bg-primary shadow border-0 h-100">
+                                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                                     
+                                                        <div>
+                                                            <h6 class="text-white mb-1">Scheduled</h6>
+                                                            <h2 class="fw-bold  mb-0">
+                                                                <span class="text-white-100"> 10</span>
+                                                            </h2>
+                                                        </div>
+                                                       
+                                                        <div class="opacity-50">
+                                                            <i class="bi bi-calendar-check"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card kpi-card text-white bg-success shadow border-0 h-100">
+                                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                                     
+                                                        <div>
+                                                            <h6 class="text-white mb-1">Taken</h6>
+                                                            <h2 class="fw-bold  mb-0">
+                                                                <span class="text-white-100"> 7</span>
+                                                            </h2>
+                                                        </div>
+                                                       
+                                                        <div class="opacity-50">
+                                                            <i class="bi bi-check-circle"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card kpi-card text-white bg-warning shadow border-0 h-100">
+                                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                                     
+                                                        <div>
+                                                            <h6 class="text-white mb-1">Pending</h6>
+                                                            <h2 class="fw-bold  mb-0">
+                                                                <span class="text-white-100">3</span>
+                                                            </h2>
+                                                        </div>
+                                                       
+                                                        <div class="opacity-50">
+                                                            <i class="bi bi-clock"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                     
+                                        <div class="col-12 col-md-6">
+                                            <div class="d-flex justify-content-center align-items-center ">
+                                                <div >
+                                                    <ChartRenderer t-props="{
+                                                        type: 'doughnut',
+                                                        data: {
+                                                            labels: ['Taken', 'Pending'],
+                                                            datasets: [{
+                                                                label: 'Attendance ' + 8,
+                                                                data: [5, 2],
+                                                                backgroundColor: [
+                                                                    '#28a745',
+                                                                    '#ffc107'
+                                                                ]
+                                                            }]
+                                                        },
+                                                        options: {
+                                                            plugins: {
+                                                                legend: { position: 'bottom' },
+                                                                title: { 
+                                                                    display: true, 
+                                                                    text: 'Attendance Summary',
+                                                                    position: 'bottom'
+                                                                }
+                                                            }
+                                                        }
+                                                    }"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                           
                         </div>
                     </div>
-                    <!-- SECOND ROW -->
                     <div class="row g-3">
-                        <!-- Students -->
+                        
                         <div class="col-lg-4">
                             <div class="card soft-card p-3 text-center">
                                 <h2 class="fw-bold">90 Students</h2>
                                 <div class="chart-placeholder mt-3">Chart</div>
                             </div>
                         </div>
-                        <!-- Exam Tasks -->
+                        
                         <div class="col-lg-4">
                             <div class="card soft-card p-3">
                                 <h6 class="fw-semibold">Exam Tasks</h6>
@@ -108,7 +187,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Subjects -->
+                        
                         <div class="col-lg-4">
                             <div class="card soft-card p-3">
                                 <h6 class="fw-semibold">My Subjects</h6>
@@ -123,8 +202,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- SUBJECT CARDS -->
-                    <div class="row g-3 mt-2">
+                    <!-- <div class="row g-3 mt-2">
                         <div class="col-md-6">
                             <div class="subject-card bg-primary text-white">
                 Math (3 Classes)
@@ -135,14 +213,13 @@
                 Science (2 Classes)
             </div>
                         </div>
-                    </div>
-                    <!-- ACTION BUTTONS -->
-                    <div class="d-flex flex-wrap gap-2 justify-content-center mt-4">
+                    </div> -->
+                    <!-- <div class="d-flex flex-wrap gap-2 justify-content-center mt-4">
                         <button class="btn btn-warning">Take Attendance</button>
                         <button class="btn btn-primary">View My Classes</button>
                         <button class="btn btn-success">Submit Results</button>
                         <button class="btn btn-info text-white">View Students</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
