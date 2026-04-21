@@ -3,8 +3,12 @@ import { Component, useState, onWillStart } from "@odoo/owl"
 import { useService } from "@web/core/utils/hooks"
 import { KpiCard } from "../components/kpi_card/kpi_card"
 import { ChartRenderer } from "../components/chart_renderer/chart_renderer"
+import {user} from "@web/core/user"
 export class SchoolAdminDashboard extends Component {
     setup() {
+
+        
+        console.log(user.userId)
         this.state = useState({
             students: { value: 0 },
             teachers: { value: 0 },
