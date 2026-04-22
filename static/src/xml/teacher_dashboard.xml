@@ -59,10 +59,62 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="card soft-card p-3 text-center">
-                                <h2 class="fw-bold">90 Students</h2>
-                                <div class="chart-placeholder mt-3">Chart</div>
-                            </div>
+                                <div class="card soft-card  text-center">
+                                    <h2 class="fw-bold">90 Students</h2>
+                                    <div >
+    <ChartRenderer t-props="{
+        type: 'bar',
+        data: {
+            labels: [
+                'Class 1','Class 2','Class 3','Class 4','Class 5',
+                'Class 6','Class 7','Class 8','Class 9','Class 10'
+            ],
+            datasets: [
+                {
+                    label: 'Total Students',
+                    data: [40, 38, 42, 36, 45, 50, 48, 44, 46, 52],
+                    backgroundColor: '#0d6efd'
+                },
+                {
+                    label: 'Present',
+                    data: [35, 30, 38, 32, 40, 45, 43, 39, 41, 47],
+                    backgroundColor: '#28a745'
+                },
+                {
+                    label: 'Absent',
+                    data: [5, 8, 4, 4, 5, 5, 5, 5, 5, 5],
+                    backgroundColor: '#dc3545'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            plugins: {
+                legend: { position: 'top' },
+                title: {
+                    display: true,
+                    text: 'Class-wise Attendance Overview'
+                }
+            },
+
+            scales: {
+                x: {
+                    stacked: false,
+                    grid: { display: false }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10
+                    }
+                }
+            }
+        }
+    }"/>
+</div>
+                                </div>
                             </div>
                         </div>
                         <!-- RIGHT: Attendance -->
@@ -77,19 +129,16 @@
                                 <div class="card-body">
                                     <div class="row g-3 align-items-center">
                                         <!-- LEFT: Cards -->
-                                         
                                         <div class="col-12 col-md-6">
                                             <div class="d-flex flex-column gap-3">
                                                 <div class="card kpi-card text-white bg-primary shadow border-0 h-100">
                                                     <div class="card-body d-flex justify-content-between align-items-center">
-                                                     
                                                         <div>
                                                             <h6 class="text-white mb-1">Scheduled</h6>
                                                             <h2 class="fw-bold  mb-0">
-                                                                <span class="text-white-100"> 10</span>
+                                                                <span class="text-white-100" t-esc="state.schedules.total"></span>
                                                             </h2>
                                                         </div>
-                                                       
                                                         <div class="opacity-50">
                                                             <i class="bi bi-calendar-check"></i>
                                                         </div>
@@ -97,14 +146,12 @@
                                                 </div>
                                                 <div class="card kpi-card text-white bg-success shadow border-0 h-100">
                                                     <div class="card-body d-flex justify-content-between align-items-center">
-                                                     
                                                         <div>
                                                             <h6 class="text-white mb-1">Taken</h6>
                                                             <h2 class="fw-bold  mb-0">
-                                                                <span class="text-white-100"> 7</span>
+                                                                <span class="text-white-100" t-esc="state.schedules.taken"></span>
                                                             </h2>
                                                         </div>
-                                                       
                                                         <div class="opacity-50">
                                                             <i class="bi bi-check-circle"></i>
                                                         </div>
@@ -112,23 +159,19 @@
                                                 </div>
                                                 <div class="card kpi-card text-white bg-warning shadow border-0 h-100">
                                                     <div class="card-body d-flex justify-content-between align-items-center">
-                                                     
                                                         <div>
                                                             <h6 class="text-white mb-1">Pending</h6>
                                                             <h2 class="fw-bold  mb-0">
-                                                                <span class="text-white-100">3</span>
+                                                                <span class="text-white-100" t-esc="state.schedules.pending"></span>
                                                             </h2>
                                                         </div>
-                                                       
                                                         <div class="opacity-50">
                                                             <i class="bi bi-clock"></i>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
-                                     
                                         <div class="col-12 col-md-6">
                                             <div class="d-flex justify-content-center align-items-center ">
                                                 <div >
@@ -137,8 +180,8 @@
                                                         data: {
                                                             labels: ['Taken', 'Pending'],
                                                             datasets: [{
-                                                                label: 'Attendance ' + 8,
-                                                                data: [5, 2],
+                                                                label: 'Total Class ' + state.schedules.total,
+                                                                data: [state.schedules.taken, state.schedules.pending],
                                                                 backgroundColor: [
                                                                     '#28a745',
                                                                     '#ffc107'
@@ -162,18 +205,15 @@
                                     </div>
                                 </div>
                             </div>
-                           
                         </div>
                     </div>
                     <div class="row g-3">
-                        
                         <div class="col-lg-4">
                             <div class="card soft-card p-3 text-center">
                                 <h2 class="fw-bold">90 Students</h2>
                                 <div class="chart-placeholder mt-3">Chart</div>
                             </div>
                         </div>
-                        
                         <div class="col-lg-4">
                             <div class="card soft-card p-3">
                                 <h6 class="fw-semibold">Exam Tasks</h6>
@@ -187,7 +227,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="col-lg-4">
                             <div class="card soft-card p-3">
                                 <h6 class="fw-semibold">My Subjects</h6>

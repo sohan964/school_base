@@ -18,7 +18,12 @@ export class SchoolTeacherDashboard extends Component{
                 image:''
 
             },
-            teacherroutine: []
+            teacherroutine: [],
+            schedules:{
+                total:0,
+                taken:0,
+                pending:0
+            }
         })
 
         this.orm = useService("orm");
@@ -26,6 +31,8 @@ export class SchoolTeacherDashboard extends Component{
         onWillStart(async()=>{
             await this.getTeacherInfo()
             await this.getTeacherRoutine()
+            await this.getTakenClasses()
+            await this.getClassStudentCounts()
         })
     }
 
@@ -48,9 +55,67 @@ export class SchoolTeacherDashboard extends Component{
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const todayName = days[new Date().getDay()];
         let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['day_id.name','=', todayName]]
-        const data = await this.orm.searchRead("school.teacher.assignment", domain, ['display_name'])
+        const data = await this.orm.searchRead("school.teacher.assignment", domain, ['display_name', 'class_id', 'section_id'])
+        console.log(data)
+
         this.state.teacherroutine = data
-        console.log(this.teacherroutine)
+        
+
+        this.state.schedules.total = data.length
+         console.log(this.state.teacherroutine)
+    }
+
+    getTakenClasses = async() =>{
+        const today = new Date().toISOString().split('T')[0];
+        let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['date', '=', today]]
+        const data = await this.orm.searchCount('school.student.attendance', domain)
+        this.state.schedules.taken = data
+        this.state.schedules.pending = this.state.schedules.total - data
+    }
+
+    getClassStudentCounts = async()=>{
+        const routine = this.state.teacherroutine
+        console.log("routine",routine)
+        // const orDomain = routine.map(pair => [
+        //     '&',
+        //     ['class_id', '=', pair.class_id[0]],
+        //     ['section_id', '=', pair.section_id[0]]
+        // ])
+        let classDataCount = []
+        for(let route of routine){
+            console.log("this is ",route.class_id[0])
+            let data = this.orm.searchCount("school.student.enrollment", [['class_id', '=', route.class_id[0]], ['section_id', '=', route.section_id[0]]])
+            console.log("data",data)
+        }
+        
+        // let finalDomain = []
+        // if (orDomain.length === 1) {
+        //     finalDomain = orDomain[0]
+        // } else {
+        //     finalDomain = ['|', ...orDomain.flat()]
+        // }
+        // console.log(finalDomain)
+
+        // console.log(this.orm)
+        // const data = await this.orm.searchRead(
+        //     "school.student.enrollment",
+        //     finalDomain,
+        //     ['class_id', 'section_id', 'student_id']
+        // )
+        // const data = await this.orm.webReadGroup(
+        //     "school.student.enrollment",
+        //     finalDomain
+        // )
+        // console.log(data)
+
+        // const result = data.map(item => ({
+        //     class_id: item.class_id[0],
+        //     class_name: item.class_id[1],
+        //     section_id: item.section_id[0],
+        //     section_name: item.section_id[1],
+        //     total: item.__count
+        // }))
+        // console.log(result)
     }
 }
 
