@@ -1,5 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_school_academic_year_admin,school.academic.year.admin,model_school_academic_year,school_base.group_school_admin,1,1,1,1
+access_school_academic_year_teacher,school.academic.year.teacher,model_school_academic_year,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_department,access.school.department,school_base.model_school_department,school_base.group_school_admin,1,1,1,1
 school_base.access_school_teacher,access.school.teacher,school_base.model_school_teacher,school_base.group_school_admin,1,1,1,1
 school_base.access_school_teacher_teacher,access.school.teacher_teacher,school_base.model_school_teacher,school_base.group_school_teacher,1,0,0,0
@@ -8,6 +9,7 @@ school_base.access_school_class,access.school.class,school_base.model_school_cla
 school_base.access_school_class_section,access.school.class.section,school_base.model_school_class_section,school_base.group_school_admin,1,1,1,1
 school_base.access_school_class_subject,access.school.class_subject,school_base.model_school_class_subject,school_base.group_school_admin,1,1,1,1
 school_base.access_school_time_slot,access.school.time.slot,school_base.model_school_time_slot,school_base.group_school_admin,1,1,1,1
+school_base.access_school_time_slot_teacher,access.school.time.slot.teacher,school_base.model_school_time_slot,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_weekly_day,access.school.weekly.day,school_base.model_school_weekly_day,school_base.group_school_admin,1,1,1,1
 school_base.access_school_weekly_day_teacher,access.school.weekly.day.teacher,school_base.model_school_weekly_day,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_teacher_assignment,access.school.teacher.assignment,school_base.model_school_teacher_assignment,school_base.group_school_admin,1,1,1,1
