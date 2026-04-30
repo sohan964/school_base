@@ -23,7 +23,9 @@ export class SchoolTeacherDashboard extends Component {
                 total: 0,
                 taken: 0,
                 pending: 0
-            }
+            },
+            chartData:{},
+            all_student:0,
         })
 
         this.orm = useService("orm");
@@ -33,6 +35,7 @@ export class SchoolTeacherDashboard extends Component {
             await this.getTeacherRoutine()
             await this.getTakenClasses()
             await this.getClassStudentCounts()
+            this.prepareChartData()
         })
     }
 
@@ -83,55 +86,125 @@ export class SchoolTeacherDashboard extends Component {
         ])
 
 
+
         let finalDomain = []
         if (orDomain.length === 1) {
             finalDomain = orDomain[0]
         } else {
             finalDomain = ['|', ...orDomain.flat()]
         }
-        console.log(finalDomain)
 
         const data = await this.orm.searchRead(
             "school.student.enrollment",
             finalDomain,
             ['class_id', 'section_id', 'student_id']
         )
-        console.log(data)
 
-        const result = []
+        const enrollmentMap = {}
+
+        data.forEach(item => {
+            enrollmentMap[item.id] = {
+                class_id: item.class_id[0],
+                class_name: item.class_id[1],
+                section_id: item.section_id[0],
+                section_name: item.section_id[1]
+            }
+        })
+
+        this.state.all_student = data.length
 
         const map = {}
 
         data.forEach(item => {
 
-            const classId = item.class_id[0]
-            const className = item.class_id[1]
-            const sectionId = item.section_id[0]
-            const sectionName = item.section_id[1]
-
-            // unique key for class + section
-            const key = `${classId}_${sectionId}`
+            const key = `${item.class_id[0]}_${item.section_id[0]}`
 
             if (!map[key]) {
                 map[key] = {
-                    class_id: classId,
-                    class_name: className,
-                    section_id: sectionId,
-                    section_name: sectionName,
-                    student_count: 0
+                    class_id: item.class_id[0],
+                    class_name: item.class_id[1],
+                    section_id: item.section_id[0],
+                    section_name: item.section_id[1],
+                    student_count: 0,
+                    present: 0,
+                    absent: 0
                 }
             }
 
-            map[key].student_count += 1
+            map[key].student_count++
         })
 
-        // convert object → array
-        const finalResult = Object.values(map)
 
+        const today = new Date().toISOString().split('T')[0]
+
+        const attendanceLines = await this.orm.searchRead(
+            "school.student.attendance.line",
+            [
+                ['attendance_id.date', '=', today],
+                ['attendance_id.teacher_id', '=', this.state.teacherinfo.teacher_id],
+            ],
+            ['status', 'enrollment_id']
+        )
+        console.log(attendanceLines)
+        attendanceLines.forEach(line => {
+            const enrollment = enrollmentMap[line.enrollment_id[0]]
+
+            const key = `${enrollment.class_id}_${enrollment.section_id}`
+            if (!map[key]) return
+            if (line.status === 'present' || line.status === 'late') {
+                map[key].present++
+            } else {
+                map[key].absent++
+            }
+        })
+
+        const finalResult = Object.values(map)
         console.log(finalResult)
-        //this.state.classStudentStats = finalResult
+        this.state.classStudentStats = finalResult
 
     }
+
+    prepareChartData = () => {
+
+        const stats = this.state.classStudentStats || []
+
+        const labels = stats.map(
+            s => `${s.class_name} - ${s.section_name}`
+        )
+
+        const total = stats.map(s => s.student_count)
+        const present = stats.map(s => s.present)
+        const absent = stats.map(s => s.absent)
+
+        this.state.chartData = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Total Students',
+                    data: total,
+                    backgroundColor: '#0d6efd',
+                    borderRadius: 6,
+                    barThickness: 18
+                },
+                {
+                    label: 'Present',
+                    data: present,
+                    backgroundColor: '#28a745',
+                    borderRadius: 6,
+                    barThickness: 18
+                },
+                {
+                    label: 'Absent',
+                    data: absent,
+                    backgroundColor: '#dc3545',
+                    borderRadius: 6,
+                    barThickness: 18
+                }
+            ]
+        }
+    }
+
+
 }
 
 SchoolTeacherDashboard.template = "school_base.SchoolTeacherDashboard"
