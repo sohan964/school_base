@@ -9,7 +9,8 @@ class SchoolStudentAttendance(models.Model):
     teacher_id = fields.Many2one(
         "school.teacher",
         string="Teacher",
-        # default=lambda self: self.env['school.teacher'].search([('user_id', '=', self.env.uid)], limit=1)
+        default=lambda self: self.env['school.teacher'].search([('user_id', '=', self.env.uid)], limit=1),
+        readonly=True
     )
     year_id = fields.Many2one("school.academic.year", string="Year")
     
@@ -18,7 +19,7 @@ class SchoolStudentAttendance(models.Model):
     date = fields.Date(string="Date", required = True)
     teacher_assignment_id = fields.Many2one("school.teacher.assignment", 
                                             domain="[('teacher_id', '=', teacher_id),('year_id', '=', year_id), ('day_id','=',day_id),('slot_id','=', slot_id)]",
-                                              string="Routine")
+                                              string="Routine", required=True)
     attendance_line_ids = fields.One2many(
         "school.student.attendance.line",
         "attendance_id",
