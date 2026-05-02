@@ -26,11 +26,13 @@ export class SchoolTeacherDashboard extends Component {
             },
             chartData:{},
             all_student:0,
+            accademic_year:{}
         })
 
         this.orm = useService("orm");
 
         onWillStart(async () => {
+            await this.getAccademicYear()
             await this.getTeacherInfo()
             await this.getTeacherRoutine()
             await this.getTakenClasses()
@@ -51,18 +53,38 @@ export class SchoolTeacherDashboard extends Component {
         this.state.teacherinfo.designation = data[0].designation
         this.state.teacherinfo.image = data[0].image
         this.state.teacherinfo.teacher_id = data[0].id
-        console.log(this.state.teacherinfo)
+        // console.log(this.state.teacherinfo)
     }
+
+    getAccademicYear = async () => {
+        const today = new Date().toISOString().split('T')[0]; // format: YYYY-MM-DD
+        // console.log(today)
+        const domain = [
+            ['date_start', '<=', today],
+            ['date_end', '>=', today]
+        ];
+
+        const data = await this.orm.searchRead(
+            "school.academic.year",
+            domain,
+            ['name', 'date_start', 'date_end']
+        );
+
+        // console.log(data[0]);
+
+        // If you only expect one match:
+        this.state.accademic_year = data[0];
+        console.log(this.state.accademic_year)
+    };
 
     getTeacherRoutine = async () => {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const todayName = days[new Date().getDay()];
-        let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['day_id.name', '=', todayName]]
-        const data = await this.orm.searchRead("school.teacher.assignment", domain, ['display_name', 'class_id', 'section_id'])
-        console.log(data)
+        let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['day_id.name', '=', todayName], ['year_id','=', this.state.accademic_year.id]]
+        const data = await this.orm.searchRead("school.teacher.assignment", domain, ['display_name', 'class_id', 'section_id', 'subject_id'])
+        // console.log(data)
 
         this.state.teacherroutine = data
-
 
         this.state.schedules.total = data.length
         console.log(this.state.teacherroutine)
@@ -79,20 +101,11 @@ export class SchoolTeacherDashboard extends Component {
     getClassStudentCounts = async () => {
         const routine = this.state.teacherroutine
         console.log("routine", routine)
-        const orDomain = routine.map(pair => [
-            '&',
-            ['class_id', '=', pair.class_id[0]],
-            ['section_id', '=', pair.section_id[0]]
-        ])
 
-
-
-        let finalDomain = []
-        if (orDomain.length === 1) {
-            finalDomain = orDomain[0]
-        } else {
-            finalDomain = ['|', ...orDomain.flat()]
-        }
+        const finalDomain = [
+            ['class_id', 'in', routine.map(r => r.class_id[0])],
+            ['section_id', 'in', routine.map(r => r.section_id[0])]
+        ]
 
         const data = await this.orm.searchRead(
             "school.student.enrollment",
@@ -157,11 +170,9 @@ export class SchoolTeacherDashboard extends Component {
                 map[key].absent++
             }
         })
-
         const finalResult = Object.values(map)
         console.log(finalResult)
         this.state.classStudentStats = finalResult
-
     }
 
     prepareChartData = () => {
