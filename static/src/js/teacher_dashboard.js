@@ -26,7 +26,10 @@ export class SchoolTeacherDashboard extends Component {
             },
             chartData:{},
             all_student:0,
-            accademic_year:{}
+            accademic_year:{},
+            teacher_activities:{
+                subjects:[]
+            }
         })
 
         this.orm = useService("orm");
@@ -38,6 +41,7 @@ export class SchoolTeacherDashboard extends Component {
             await this.getTakenClasses()
             await this.getClassStudentCounts()
             this.prepareChartData()
+            await this.getTeacherYearlyActivities()
         })
     }
 
@@ -90,6 +94,24 @@ export class SchoolTeacherDashboard extends Component {
         console.log(this.state.teacherroutine)
     }
 
+    getTeacherYearlyActivities = async ()=>{
+        let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id]]
+        const data = await this.orm.searchRead("school.teacher.assignment", domain, ['subject_id', 'class_id'])
+
+        const subjectMap = new Map()
+        data.forEach(item =>{
+            if(item.subject_id){
+                const id = item.subject_id[0]
+                const name = item.subject_id[1]
+                subjectMap.set(id, {id, name});
+            }
+        })
+        console.log("the map", subjectMap)
+        this.state.teacher_activities.subjects = Array.from(subjectMap.values())
+         console.log(this.state.teacher_activities.subjects)
+        
+    }
+
     getTakenClasses = async () => {
         const today = new Date().toISOString().split('T')[0];
         let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['date', '=', today]]
@@ -97,6 +119,8 @@ export class SchoolTeacherDashboard extends Component {
         this.state.schedules.taken = data
         this.state.schedules.pending = this.state.schedules.total - data
     }
+
+
 
     getClassStudentCounts = async () => {
         const routine = this.state.teacherroutine
