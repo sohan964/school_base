@@ -198,14 +198,13 @@
                             </div>
                             <div class="card soft-card mt-3 p-3">
                                 <h6 class="fw-semibold">My Subjects</h6>
-                                <div class="task-item">
-                                                Math
-                                    <span class="badge bg-success">Schedule</span>
-                                </div>
-                                <div class="task-item">
-                                                Science
-                                    <span class="badge bg-danger">Submit</span>
-                                </div>
+
+                                <t t-foreach="state.teacher_activities.subjects" t-as="subject" t-key="subject.id">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span t-esc="subject.name" class="task-item"/>
+                                        <span class="badge bg-success">Schedule</span>
+                                    </div>
+                                </t>
                             </div>
                         </div>
                     </div>

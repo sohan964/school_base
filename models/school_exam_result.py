@@ -5,7 +5,9 @@ class SchoolExamResult(models.Model):
     _name = "school.exam.result"
     _description = "All Exams result"
 
-    teacher_id = fields.Many2one("school.teacher", string="Teacher")
+    teacher_id = fields.Many2one("school.teacher", string="Teacher",
+        default=lambda self: self.env['school.teacher'].search([('user_id', '=', self.env.uid)], limit=1),
+        readonly=True)
     year_id = fields.Many2one("school.academic.year", string="Year")
     department_id = fields.Many2one("school.department", string="Department")
     class_id = fields.Many2one("school.class", string="Class", required=True)

@@ -108,7 +108,7 @@ export class SchoolTeacherDashboard extends Component {
         })
         console.log("the map", subjectMap)
         this.state.teacher_activities.subjects = Array.from(subjectMap.values())
-         console.log(this.state.teacher_activities.subjects)
+        console.log(this.state.teacher_activities.subjects)
         
     }
 
