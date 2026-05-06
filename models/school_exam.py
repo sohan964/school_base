@@ -1,4 +1,5 @@
-from odoo import models, api, fields
+from odoo import models, api, fields, _
+from odoo.exceptions import ValidationError
 
 
 class SchoolExamType(models.Model):
@@ -27,6 +28,15 @@ class SchoolExam(models.Model):
     ], string="Status")
     exam_line_ids = fields.One2many("school.exam.line",'exam_id', string="Exams")
 
+    @api.constrains('exam_type_id', 'year_id')
+    def _check_duplicate_exam(self):
+        for rec in self:
+            domain =[
+                ('exam_type_id','=', rec.exam_type_id),
+                ('year_id','=', rec.year_id)
+            ]
+            if self.search_count(domain):
+                raise ValidationError("This Exam Already Created")
 
 class SchoolExamLine(models.Model):
     _name="school.exam.line"
@@ -59,3 +69,38 @@ class SchoolExamLine(models.Model):
                 name += f" | {rec.subject_id.name}"
 
             rec.display_name = name
+    
+    @api.constrains("department_id", "exam_id", "class_id", "subject_id", "exam_time_slot_id", "exam_date")
+    def _check_duplicate_exam_line(self):
+        for rec in self:
+
+            # 1. Duplicate subject in same exam + class
+            duplicate_domain = [
+                ("id", "!=", rec.id),
+                ("exam_id", "=", rec.exam_id.id),
+                ("class_id", "=", rec.class_id.id),
+                ("subject_id", "=", rec.subject_id.id),
+            ]
+
+            # duplicate_exam = self.search(duplicate_domain, limit=1)
+
+            if self.search_count(duplicate_domain):
+                raise ValidationError(
+                    _("This subject is already assigned for this class in the selected exam.")
+                )
+
+            # 2. Time slot conflict
+            conflict_domain = [
+                ("id", "!=", rec.id),
+                ("department_id", "=", rec.department_id.id),
+                ("class_id", "=", rec.class_id.id),
+                ("exam_date",'=', rec.exam_date),
+                ("exam_time_slot_id", "=", rec.exam_time_slot_id.id),
+            ]
+
+            # conflict_exam = self.search(conflict_domain, limit=1)
+
+            if self.search_count(conflict_domain):
+                raise ValidationError(
+                    _("Time slot conflict! Another exam is already scheduled for this department, class, and time slot.")
+                )

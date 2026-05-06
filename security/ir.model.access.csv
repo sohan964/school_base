@@ -34,6 +34,6 @@ school_base.access_school_exam_line_teacher,access.school.exam.line.teacher,scho
 school_base.access_school_exam_result,access.school.exam.result,school_base.model_school_exam_result,school_base.group_school_admin,1,1,1,1
 school_base.access_school_exam_result_teacher,access.school.exam.result.teacher,school_base.model_school_exam_result,school_base.group_school_teacher,1,1,1,1
 school_base.access_school_exam_result_line,access.school.exam.result.line,school_base.model_school_exam_result_line,school_base.group_school_admin,1,1,1,1
-school_base.access_school_exam_result_line_teacher,access.school.exam.result.line.teacher,school_base.model_school_exam_result_line,school_base.group_school_teacher,1,1,1,1
+school_base.access_school_exam_result_line_teacher,access.school.exam.result.line.teacher,school_base.model_school_exam_result_line,school_base.group_school_teacher,1,1,1,0
 school_base.access_school_exam_time_slot,access.school.exam.time.slot,school_base.model_school_exam_time_slot,school_base.group_school_admin,1,1,1,1
 school_base.access_school_exam_time_slot_teacher,access.school.exam.time.slot.teacher,school_base.model_school_exam_time_slot,school_base.group_school_teacher,1,0,0,0
