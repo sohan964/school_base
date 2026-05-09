@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class SchoolExamResult(models.Model):
@@ -28,6 +29,17 @@ class SchoolExamResult(models.Model):
         "result_id",
         string="Result"
     )
+
+    #
+    @api.constrains("exam_line_id")
+    def _check_duplicate_exam_result(self):
+        for rec in self:
+            domain = [
+                ('id','!=', rec.id),
+                ('exam_line_id', '=', rec.exam_line_id)      
+            ]
+            if self.search_count(domain):
+                raise ValidationError(_("This result is already submitted"))
 
     #auto load students
     @api.onchange('year_id','department_id', 'class_id', 'section_id')
