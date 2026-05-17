@@ -11,11 +11,11 @@ class SchoolExamResult(models.Model):
         readonly=True)
     year_id = fields.Many2one("school.academic.year", string="Year")
     department_id = fields.Many2one("school.department", string="Department")
-    class_id = fields.Many2one("school.class", string="Class", required=True)
+    class_id = fields.Many2one("school.class", string="Class", domain="[('id', 'in', available_class_ids)]", required=True)
     
-    section_id = fields.Many2one( "school.class.section", string="Section")
+    section_id = fields.Many2one( "school.class.section", domain="[('id', 'in', available_section_ids), ('department_id', '=', department_id)]", string="Section")
 
-    subject_id = fields.Many2one( "school.class.subject", string="Subject")
+    subject_id = fields.Many2one( "school.class.subject", domain="[('id', 'in', available_subject_ids), ('department_id', '=', department_id), ('class_id','=', class_id)]", string="Subject")
     exam_id = fields.Many2one("school.exam", string="Exam Name")
     exam_line_id = fields.Many2one(
         "school.exam.line",
@@ -29,6 +29,51 @@ class SchoolExamResult(models.Model):
         "result_id",
         string="Result"
     )
+
+    # these fields for get the class, section sujbect from teacher assignment (routine)
+    available_class_ids = fields.Many2many(
+        "school.class",
+        compute="_compute_available_fields"
+    )
+
+    available_section_ids = fields.Many2many(
+        "school.class.section",
+        compute="_compute_available_fields"
+    )
+
+    available_subject_ids = fields.Many2many(
+        "school.class.subject",
+        compute="_compute_available_fields"
+    )
+    #these compute to filter class section, subjects form teacher assignment
+    @api.depends('teacher_id', 'class_id')
+    def _compute_available_fields(self):
+        for rec in self:
+
+            assignments = self.env['school.teacher.assignment'].search([
+                ('teacher_id', '=', rec.teacher_id.id)
+            ])
+
+            rec.available_class_ids = assignments.mapped('class_id')
+
+            # section filtered by selected class
+            section_assignments = assignments
+            if rec.class_id:
+                section_assignments = assignments.filtered(
+                    lambda a: a.class_id.id == rec.class_id.id
+                )
+
+            rec.available_section_ids = section_assignments.mapped('section_id')
+
+            # subject filtered by selected class + section
+            subject_assignments = section_assignments
+
+            if rec.section_id:
+                subject_assignments = section_assignments.filtered(
+                    lambda a: a.section_id.id == rec.section_id.id
+                )
+
+            rec.available_subject_ids = subject_assignments.mapped('subject_id')
 
     #
     @api.constrains("exam_line_id")

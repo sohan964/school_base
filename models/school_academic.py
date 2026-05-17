@@ -83,6 +83,40 @@ class SchoolTeacherAssignment(models.Model):
 
             rec.display_name = name
 
+    # Prevent assigning the same subject of a class-section
+    # to multiple teachers in the same academic year.
+    @api.constrains(
+        'year_id',
+        'class_id',
+        'section_id',
+        'subject_id',
+        'teacher_id'
+    )
+    def _check_subject_teacher_conflict(self):
+
+        for rec in self:
+
+            domain = [
+                ('id', '!=', rec.id),
+                ('year_id', '=', rec.year_id.id),
+                ('class_id', '=', rec.class_id.id),
+                ('section_id', '=', rec.section_id.id),
+                ('subject_id', '=', rec.subject_id.id),
+                ('teacher_id', '!=', rec.teacher_id.id)
+            ]
+
+            existing = self.search(domain, limit=1)
+
+            if existing:
+                raise ValidationError(
+                    f"""
+                    Subject '{rec.subject_id.name}'
+                    for Class '{rec.class_id.name}'
+                    Section '{rec.section_id.name}'
+                    is already assigned to another teacher
+                    in this academic year.
+                    """
+                )
 
     @api.constrains('year_id','teacher_id', 'day_id', 'slot_id')
     def _check_teacher_conflict(self):
