@@ -86,7 +86,7 @@ export class SchoolAdminDashboard extends Component {
         // console.log(data[0]);
 
         // If you only expect one match:
-        this.state.accademic_year = data[0];
+        this.state.accademic_year = data.length ? data[0] : {};
     };
 
     getTodayAcademicSchedule = async () => {
