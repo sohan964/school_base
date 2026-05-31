@@ -7,6 +7,7 @@ school_base.access_school_teacher,access.school.teacher,school_base.model_school
 school_base.access_school_teacher_teacher,access.school.teacher_teacher,school_base.model_school_teacher,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_student,access.school.student,school_base.model_school_student,school_base.group_school_admin,1,1,1,1
 school_base.access_school_student_teacher,access.school.student.teacher,school_base.model_school_student,school_base.group_school_teacher,1,0,0,0
+school_base.access_school_student_student,access.school.student.student,school_base.model_school_student,school_base.group_school_student,1,0,0,0
 school_base.access_school_class,access.school.class,school_base.model_school_class,school_base.group_school_admin,1,1,1,1
 school_base.access_school_class_teacher,access.school.class.teacher,school_base.model_school_class,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_class_section,access.school.class.section,school_base.model_school_class_section,school_base.group_school_admin,1,1,1,1

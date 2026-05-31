@@ -1,0 +1,190 @@
+<templates xml:space="preserve">
+    <t t-name="school_base.SchoolStudentDashboard">
+        <div class="vh-100 overflow-auto">
+            <div class="row">
+                <div class="col-12 col-md-10 mx-auto p-4">
+                    <!-- Header -->
+                    <div class="card soft-card shadow-sm border-0 mb-4">
+                        <div class="card-body d-flex align-items-center">
+                                        <img 
+                                            t-att-src="state.studentInfo.image 
+                                                ? 'data:image/jpeg;base64,' + state.studentInfo.image 
+                                                : 'https://via.placeholder.com/45'"
+                                            class="rounded-circle border shadow-sm ms-3"
+                                            width="45"
+                                            height="45"
+                                        />
+                            <div>
+                                <h2 class="fw-bold mb-1">
+                        Welcome Back, John Doe 👋
+                    </h2>
+                                <p class="text-muted mb-0">
+                        Class 10 • Section A • Roll No: 15
+                    </p>
+                                <small class="text-secondary">
+                        Academic Year: 2025-2026
+                    </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- KPI Cards -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-3">
+                            <div class="card shadow-sm border-0 h-100">
+                                <div class="card-body">
+                                    <h6 class="text-muted">Attendance</h6>
+                                    <h2 class="text-success">92%</h2>
+                                    <small>120 Present / 130 Classes</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow-sm border-0 h-100">
+                                <div class="card-body">
+                                    <h6 class="text-muted">Average Marks</h6>
+                                    <h2 class="text-primary">78.5%</h2>
+                                    <small>Overall Performance</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow-sm border-0 h-100">
+                                <div class="card-body">
+                                    <h6 class="text-muted">Upcoming Exams</h6>
+                                    <h2 class="text-warning">3</h2>
+                                    <small>This Month</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow-sm border-0 h-100">
+                                <div class="card-body">
+                                    <h6 class="text-muted">Subjects</h6>
+                                    <h2 class="text-info">8</h2>
+                                    <small>Current Subjects</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Today's Classes + Upcoming Exams -->
+                    <div class="row g-3 mb-4">
+                        <!-- Today's Classes -->
+                        <div class="col-lg-8">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-header bg-white">
+                                    <h5 class="mb-0">
+                            Today's Classes
+                        </h5>
+                                </div>
+                                <div class="card-body p-0">
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Subject</th>
+                                                <th>Teacher</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>09:00 - 09:45</td>
+                                                <td>Mathematics</td>
+                                                <td>Mr. Smith</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10:00 - 10:45</td>
+                                                <td>Science</td>
+                                                <td>Mrs. Johnson</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11:00 - 11:45</td>
+                                                <td>English</td>
+                                                <td>Mr. Brown</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upcoming Exams -->
+                        <div class="col-lg-4">
+                            <div class="card shadow-sm border-0 h-100">
+                                <div class="card-header bg-white">
+                                    <h5 class="mb-0">
+                            Upcoming Exams
+                        </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <strong>Mathematics</strong>
+                                        <br/>
+                                        <small>25 May 2026</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong>Science</strong>
+                                        <br/>
+                                        <small>28 May 2026</small>
+                                    </div>
+                                    <div>
+                                        <strong>English</strong>
+                                        <br/>
+                                        <small>30 May 2026</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Attendance + Results -->
+                    <div class="row g-3">
+                        <div class="col-lg-6">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-header bg-white">
+                                    <h5 class="mb-0">
+                            Attendance Summary
+                        </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Present</span>
+                                        <span class="text-success">120</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Absent</span>
+                                        <span class="text-danger">10</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span>Late</span>
+                                        <span class="text-warning">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-header bg-white">
+                                    <h5 class="mb-0">
+                            Recent Results
+                        </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Mathematics</span>
+                                        <strong>85 / 100</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Science</span>
+                                        <strong>78 / 100</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span>English</span>
+                                        <strong>90 / 100</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

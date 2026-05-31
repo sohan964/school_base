@@ -34,6 +34,7 @@
         <!-- about dashboards manu -->
         <menuitem id="menu_school_admin_dashboard" name="Admin Dashboard" parent="menu_school_root" action="action_school_admin_dashboard" groups="school_base.group_school_admin"/>
         <menuitem id="menu_school_teacher_dashboard" name="Teacher Dashboard" parent="menu_school_root" action="action_school_teacher_dashboard" groups="school_base.group_school_teacher"/>
+        <menuitem id="menu_school_student_dashboard" name="Student Dashboard" parent="menu_school_root" action="action_school_student_dashboard" groups="school_base.group_school_student"/>
 
         
     </data>

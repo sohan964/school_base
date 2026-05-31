@@ -15,6 +15,7 @@
         # dashboard views
         "views/admin_dashboard.xml",
         "views/teacher_dashboard.xml",
+        "views/student_dashboard.xml",
 
         "views/school_class_subject_views.xml",
         "views/school_class_section_views.xml",
