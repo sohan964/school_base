@@ -38,28 +38,24 @@
                     <div class="row g-3 mb-4">
                         <KpiCard t-props="{
                             bg: 'bg-primary',
-                            name: 'Total Students',
-                            value: 5,
-                            icon: 'bi-people'
+                            name: 'Average Attendances',
+                            value: '5%',
+                            icon: 'bi-person-check'
                         }"/>
-                        <div class="col-md-3">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="card-body">
-                                    <h6 class="text-muted">Average Marks</h6>
-                                    <h2 class="text-primary">78.5%</h2>
-                                    <small>Overall Performance</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="card-body">
-                                    <h6 class="text-muted">Upcoming Exams</h6>
-                                    <h2 class="text-warning">3</h2>
-                                    <small>This Month</small>
-                                </div>
-                            </div>
-                        </div>
+                        <KpiCard t-props="{
+                            bg: 'bg-success',
+                            name: 'Average Marks',
+                            value: '5%',
+                            icon: 'bi-award'
+                        }"/>
+                        <KpiCard t-props="{
+                            bg: 'bg-warning',
+                            name: 'Upcoming Exams',
+                            value: '5%',
+                            icon: 'bi-award'
+                        }"/>
+                        
+                        
                         <div class="col-md-3">
                             <div class="card shadow-sm border-0 h-100">
                                 <div class="card-body">

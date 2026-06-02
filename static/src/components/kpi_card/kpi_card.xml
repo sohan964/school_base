@@ -10,7 +10,7 @@
                     <div>
                         <h6 class="text-white-50 mb-1" t-esc="props.name"/>
                         <h2 class="fw-bold  mb-0">
-                            <span class="text-white-100" t-esc="props.value"/>
+                            <span class="text-white" t-esc="props.value"/>
                         </h2>
                     </div>
 
