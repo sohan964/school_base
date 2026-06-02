@@ -15,17 +15,36 @@ export class SchoolStudentDashboard extends Component{
                 active:null,
                 admission_date:'',
                 image: '',
-            }
-
-
+            },
+            accademic_year: {},
         })
+        
 
         this.orm = useService("orm");
         onWillStart(async ()=>{
-            await this.getStudentInfo()
+            await this.getAccademicYear();
+            await this.getStudentInfo();
         })
+
+
         
     }
+    getAccademicYear = async () => {
+        const today = new Date().toISOString().split('T')[0]; // format: YYYY-MM-DD
+        const domain = [
+            ['date_start', '<=', today],
+            ['date_end', '>=', today]
+        ];
+
+        const data = await this.orm.searchRead(
+            "school.academic.year",
+            domain,
+            ['name', 'date_start', 'date_end']
+        );
+
+        // If you only expect one match:
+        this.state.accademic_year = data.length ? data[0] : {};
+    };
 
     getStudentInfo = async () =>{
         let domain = [['user_id', '=', this.userId]]
@@ -38,6 +57,11 @@ export class SchoolStudentDashboard extends Component{
         this.state.studentInfo.active = data[0].active
         this.state.studentInfo.code = data[0].code
 
+    }
+
+    getStudentAttendances = async () =>{
+        let domain = [['student_id', '=', this.state.studentInfo.student_id], ['']]
+        const data = await this.orm.searchRead("school.student.attendance.line")
     }
 }
 
