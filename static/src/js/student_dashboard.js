@@ -16,7 +16,26 @@ export class SchoolStudentDashboard extends Component{
                 admission_date:'',
                 image: '',
             },
-            accademic_year: {},
+            academic_year: {},
+            attendanceStats:{
+                total:0,
+                present:0,
+                absent:0,
+                late:0,
+                attendancePercentage:0,
+            },
+            academicStats:{
+                class: {},
+                department:{},
+                section: {},
+
+            },
+            subjectStats:{
+                subjects:[],
+                totalSubject: 0,
+            }
+            
+
         })
         
 
@@ -24,6 +43,9 @@ export class SchoolStudentDashboard extends Component{
         onWillStart(async ()=>{
             await this.getAccademicYear();
             await this.getStudentInfo();
+            await this.getStudentAttendances();
+            await this.getAcademicStats();
+            await this.getStudentSubjects();
         })
 
 
@@ -43,7 +65,7 @@ export class SchoolStudentDashboard extends Component{
         );
 
         // If you only expect one match:
-        this.state.accademic_year = data.length ? data[0] : {};
+        this.state.academic_year = data.length ? data[0] : {};
     };
 
     getStudentInfo = async () =>{
@@ -56,12 +78,54 @@ export class SchoolStudentDashboard extends Component{
         this.state.studentInfo.image = data[0].image
         this.state.studentInfo.active = data[0].active
         this.state.studentInfo.code = data[0].code
-
     }
 
     getStudentAttendances = async () =>{
-        let domain = [['student_id', '=', this.state.studentInfo.student_id], ['']]
-        const data = await this.orm.searchRead("school.student.attendance.line")
+        let domain = [['student_id', '=', this.state.studentInfo.student_id], ['attendance_id.year_id', '=', this.state.academic_year.id]]
+        const data = await this.orm.searchRead("school.student.attendance.line", domain, ['status'])
+        
+        const total = data.length;
+        let present = 0;
+        let late = 0;
+        let absent = 0;
+
+        data.forEach(item => {
+            if (item.status === "present") present++;
+            else if (item.status === "late") late++;
+            else if (item.status === "absent") absent++;
+        });
+        
+        const attendancePercentage = total > 0 ? (((present+late)/total)*100).toFixed(2) : 0;
+
+        this.state.attendanceStats = {
+            total,
+            present,
+            absent,
+            late,
+            attendancePercentage,
+        };
+    }
+
+    getAcademicStats = async () =>{
+        let domain = [['student_id', '=', this.state.studentInfo.student_id], ['year_id', '=', this.state.academic_year.id]]
+        const data = await this.orm.searchRead("school.student.enrollment", domain, ['class_id', 'department_id', 'section_id']);
+        this.state.academicStats.class = data[0].class_id
+        this.state.academicStats.department = data[0].department_id
+        this.state.academicStats.section = data[0].section_id
+        
+    }
+
+    getStudentSubjects = async () =>{
+        let domain = [['department_ids', 'in', this.state.academicStats.department[0]],['class_ids', 'in', this.state.academicStats.class[0]]]
+        const data = await this.orm.searchRead('school.class.subject', domain, ['name', 'code'])
+        const total = data.length
+        this.state.subjectStats.totalSubject = total;
+        this.state.subjectStats.subjects = data;
+        console.log(this.state.subjectStats);
+
+    }
+    getUpComingExams = async () =>{
+        // let domain = [['department_ids', 'in', this.]]
     }
 }
 

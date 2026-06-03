@@ -32,6 +32,7 @@ class SchoolExam(models.Model):
     def _check_duplicate_exam(self):
         for rec in self:
             domain =[
+                ('id','!=', rec.id),
                 ('exam_type_id','=', rec.exam_type_id),
                 ('year_id','=', rec.year_id)
             ]
