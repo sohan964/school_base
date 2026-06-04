@@ -88,8 +88,8 @@
                     <div class="row g-3 mb-4">
                         <!-- Today's Classes -->
                         <div class="col-lg-8">
-                            <div class="card shadow-sm border-0">
-                                <div class="card-header bg-white">
+                            <div class="card soft-card mb-3">
+                                <div class="card-header fw-semibold">
                                     <h5 class="mb-0">
                                         Today's Classes
                                     </h5>
@@ -109,6 +109,8 @@
                                                 <td>Mathematics</td>
                                                 <td>Mr. Smith</td>
                                             </tr>
+                                            
+                                            
                                             
                                         </tbody>
                                     </table>

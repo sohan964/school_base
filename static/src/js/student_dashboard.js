@@ -188,10 +188,29 @@ export class SchoolStudentDashboard extends Component{
         });
         const averagePercentage = subjectResults.length ? (totalPercentage / subjectResults.length).toFixed(2) : 0;
 
-        console.log("Subject Results:", subjectResults);
-        console.log("Average Marks:", averagePercentage);
         this.state.resultStats.subjectResults = subjectResults;
         this.state.resultStats.averagePercentage = averagePercentage;
+
+    }
+
+    getTodaysRoutine = async () =>{
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const todayName = days[new Date().getDay()];
+
+        // Format today's date (YYYY-MM-DD)
+        // const today = new Date().toISOString().split('T')[0];
+
+
+        let domain = [
+            ['department_id','=', this.state.academicStats.department[0]],
+            ['class_id', '=', this.state.academicStats.class[0]],
+            ['section_id', '=', this.state.academicStats.section[0]],
+            ['day_id.name', '=', todayName],
+            ['year_id', '=', this.state.academic_year.id]
+        ]
+        
+        const data = await this.orm.searchRead("school.teacher.assignment",domain, ['slot_id', 'subject_id', 'teacher_id'])
+        console.log(data);
 
     }
 }
