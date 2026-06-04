@@ -172,3 +172,13 @@ class SchoolExamResultLine(models.Model):
     )
 
     marks_obtained = fields.Float(string="Obtained Marks")
+
+    subject_id = fields.Many2one(
+        related="result_id.subject_id",
+        store=True
+    )
+
+    full_marks = fields.Float(
+        related="result_id.exam_line_id.full_marks",
+        store=True
+    )

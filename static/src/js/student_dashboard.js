@@ -33,9 +33,15 @@ export class SchoolStudentDashboard extends Component{
             subjectStats:{
                 subjects:[],
                 totalSubject: 0,
+            },
+            examStats:{
+                exams:[],
+                totalExam: 0,
+            },
+            resultStats:{
+                subjectResults:[],
+                averagePercentage: 0,
             }
-            
-
         })
         
 
@@ -46,6 +52,8 @@ export class SchoolStudentDashboard extends Component{
             await this.getStudentAttendances();
             await this.getAcademicStats();
             await this.getStudentSubjects();
+            await this.getUpcomingExams();
+            await this.getExamResults();
         })
 
 
@@ -124,8 +132,67 @@ export class SchoolStudentDashboard extends Component{
         console.log(this.state.subjectStats);
 
     }
-    getUpComingExams = async () =>{
-        // let domain = [['department_ids', 'in', this.]]
+    getUpcomingExams = async () =>{
+        const today = new Date();
+        const startDate = today.toISOString().split('T')[0];
+        const endDateObj = new Date(
+            today.getFullYear(),
+            today.getMonth() + 1,
+            10
+        );
+        const endDate = endDateObj.toISOString().split('T')[0];
+        
+        const domain = [
+            ['department_id', '=', this.state.academicStats.department[0]],
+            ['class_id', '=', this.state.academicStats.class[0]],
+            ['exam_date', '>=', startDate],
+            ['exam_date', '<=', endDate]
+        ]
+
+        const data = await this.orm.searchRead("school.exam.line", domain,
+            [
+                'display_name',
+                'subject_id',
+                'exam_date',
+                'full_marks',
+                'exam_time_slot_id'
+            ]
+        )
+        this.state.examStats.totalExam = data.length;
+        this.state.examStats.exams = data;
+        
+        // console.log(this.state.examStats.exams)
+
+    }
+
+    getExamResults = async () =>{
+        let domain = [
+            ['student_id', '=', this.state.studentInfo.student_id],
+            ['result_id.year_id', '=', this.state.academic_year.id ]
+        ]
+
+        const data = await this.orm.searchRead("school.exam.result.line", domain, ['subject_id','marks_obtained', 'full_marks'])
+        console.log(data);
+        let totalPercentage = 0;
+
+        const subjectResults = data.map(line =>{
+            const percentage = line.full_marks > 0 ? (line.marks_obtained / line.full_marks) * 100 : 0;
+            totalPercentage += percentage;
+            return {
+                subject_id: line.subject_id[0],
+                subject_name: line.subject_id[1],
+                obtained: line.marks_obtained,
+                full_marks: line.full_marks,
+                percentage: percentage.toFixed(2)
+            };
+        });
+        const averagePercentage = subjectResults.length ? (totalPercentage / subjectResults.length).toFixed(2) : 0;
+
+        console.log("Subject Results:", subjectResults);
+        console.log("Average Marks:", averagePercentage);
+        this.state.resultStats.subjectResults = subjectResults;
+        this.state.resultStats.averagePercentage = averagePercentage;
+
     }
 }
 

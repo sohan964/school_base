@@ -39,6 +39,7 @@
                                     <field name="enrollment_id" column_invisible="True"/>
                                     <field name="student_id"/>
                                     <field name="marks_obtained"/>
+                                    <field name="full_marks"/>
                                 </list>
                             </field>
                         </page>

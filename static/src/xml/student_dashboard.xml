@@ -66,13 +66,13 @@
                         <KpiCard t-props="{
                             bg: 'bg-success',
                             name: 'Average Marks',
-                            value: '5%',
+                            value: state.resultStats.averagePercentage +'%',
                             icon: 'bi-award'
                         }"/>
                         <KpiCard t-props="{
                             bg: 'bg-warning',
                             name: 'Upcoming Exams',
-                            value: '5%',
+                            value: state.examStats.totalExam,
                             icon: 'bi-pencil-square'
                         }"/>
 
