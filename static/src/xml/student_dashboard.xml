@@ -88,14 +88,22 @@
                     <div class="row g-3 mb-4">
                         <!-- Today's Classes -->
                         <div class="col-lg-8">
-                            <div class="card soft-card mb-3">
-                                <div class="card-header fw-semibold">
+                            <div class="card soft-card border-0">
+
+                                <div class="card-header fw-semibold d-flex justify-content-between align-items-center">
                                     <h5 class="mb-0">
                                         Today's Classes
                                     </h5>
+
+                                    <span class="badge  text-white bg-primary">
+                                        <t t-esc="state.routineStats.today"/>
+                                    </span>
                                 </div>
+
                                 <div class="card-body p-0">
+
                                     <table class="table table-hover mb-0">
+
                                         <thead>
                                             <tr>
                                                 <th>Time</th>
@@ -104,55 +112,264 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>09:00 - 09:45</td>
-                                                <td>Mathematics</td>
-                                                <td>Mr. Smith</td>
+                                            <tr t-if="!state.routineStats.routine.length">
+                                                <td colspan="3" class="text-center text-muted">
+                                                    No classes scheduled today
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                t-foreach="state.routineStats.routine"
+                                                t-as="routine"
+                                                t-key="routine.id"
+                                            >
+                                                <td>
+                                                    <t t-esc="routine.slot_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="routine.subject_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="routine.teacher_id[1]"/>
+                                                </td>
                                             </tr>
                                             
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6 mb-2">
+                                    <div class="card soft-card p-3 text-center">
+                                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        Upcoming Exams
+                                    </h5>
+
+                                    <span class="badge text-white bg-primary">
+                                        <t t-esc="state.examStats.totalExam"/>
+                                    </span>
+                                </div>
+
+                                <div class="card-body p-0">
+
+                                    <table class="table table-hover mb-0">
+
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Date</th>
+                                                <th>Time Slot</th>
+                                                <th>Full Marks</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr t-if="!state.examStats.exams.length">
+                                                <td colspan="4" class="text-center text-muted">
+                                                    No upcoming exams
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                t-foreach="state.examStats.exams"
+                                                t-as="exam"
+                                                t-key="exam.id"
+                                            >
+                                                <td>
+                                                    <t t-esc="exam.subject_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.exam_date"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.exam_time_slot_id ? exam.exam_time_slot_id[1] : ''"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.full_marks"/>
+                                                </td>
+                                            </tr>
                                             
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <div class="card soft-card p-3 text-center">
+                                        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        Upcoming Exams
+                                    </h5>
+
+                                    <span class="badge text-white bg-primary">
+                                        <t t-esc="state.examStats.totalExam"/>
+                                    </span>
+                                </div>
+
+                                <div class="card-body p-0">
+
+                                    <table class="table table-hover mb-0">
+
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Date</th>
+                                                <th>Time Slot</th>
+                                                <th>Full Marks</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr t-if="!state.examStats.exams.length">
+                                                <td colspan="4" class="text-center text-muted">
+                                                    No upcoming exams
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                t-foreach="state.examStats.exams"
+                                                t-as="exam"
+                                                t-key="exam.id"
+                                            >
+                                                <td>
+                                                    <t t-esc="exam.subject_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.exam_date"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.exam_time_slot_id ? exam.exam_time_slot_id[1] : ''"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.full_marks"/>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="card soft-card mb-2 border-0">
+                                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        Attendance Summary 
+                                    </h5>
+
+                                    <span class="badge text-white bg-primary">
+                                        <t t-esc="state.attendanceStats.attendancePercentage"/>%
+                                    </span>
+                                </div>
+                                <ChartRenderer t-props="{
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ['Present', 'Absent', 'Late'],
+                                            datasets: [{
+                                                label: 'Attendance ' + state.attendanceStats.total,
+                                                data: [
+                                                    state.attendanceStats.present,
+                                                    state.attendanceStats.late,
+                                                    state.attendanceStats.absent
+                                                ],
+                                                backgroundColor: [
+                                                    '#28a745',
+                                                    '#dc3545',
+                                                    '#ffc107'
+                                                ]
+                                            }]
+                                        },
+                                        options: {
+                                            plugins: {
+                                                legend: { position: 'bottom' },
+                                                title: { display: true, text: 'Attendance Summary', position: 'bottom'}
+                                            }
+                                        }
+                                    }"/>
+                            </div>
+                            <div class="card soft-card border-0">
+
+                                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">
+                                        Upcoming Exams
+                                    </h5>
+
+                                    <span class="badge text-white bg-primary">
+                                        <t t-esc="state.examStats.totalExam"/>
+                                    </span>
+                                </div>
+
+                                <div class="card-body p-0">
+
+                                    <table class="table table-hover mb-0">
+
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Date</th>
+                                                <th>Time Slot</th>
+                                                <th>Full Marks</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr t-if="!state.examStats.exams.length">
+                                                <td colspan="4" class="text-center text-muted">
+                                                    No upcoming exams
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                t-foreach="state.examStats.exams"
+                                                t-as="exam"
+                                                t-key="exam.id"
+                                            >
+                                                <td>
+                                                    <t t-esc="exam.subject_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.exam_date"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.exam_time_slot_id ? exam.exam_time_slot_id[1] : ''"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="exam.full_marks"/>
+                                                </td>
+                                            </tr>
                                             
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <!-- Upcoming Exams -->
-                        <div class="col-lg-4">
-                            <div class="card shadow-sm border-0 h-100">
-                                <div class="card-header bg-white">
-                                    <h5 class="mb-0">
-                            Upcoming Exams
-                        </h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <strong>Mathematics</strong>
-                                        <br/>
-                                        <small>25 May 2026</small>
-                                    </div>
-                                    <div class="mb-3">
-                                        <strong>Science</strong>
-                                        <br/>
-                                        <small>28 May 2026</small>
-                                    </div>
-                                    <div>
-                                        <strong>English</strong>
-                                        <br/>
-                                        <small>30 May 2026</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    
                     <!-- Attendance + Results -->
                     <div class="row g-3">
                         <div class="col-lg-6">
                             <div class="card shadow-sm border-0">
                                 <div class="card-header bg-white">
                                     <h5 class="mb-0">
-                            Attendance Summary
-                        </h5>
+                                        Attendance Summary
+                                    </h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between mb-2">

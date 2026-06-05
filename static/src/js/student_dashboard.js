@@ -2,6 +2,7 @@ import {registry} from "@web/core/registry"
 import { Component, useState, onWillStart } from "@odoo/owl"
 import {useService} from "@web/core/utils/hooks"
 import {KpiCard} from "../components/kpi_card/kpi_card"
+import {ChartRenderer} from "../components/chart_renderer/chart_renderer"
 import {user} from "@web/core/user"
 export class SchoolStudentDashboard extends Component{
     setup(){
@@ -41,6 +42,11 @@ export class SchoolStudentDashboard extends Component{
             resultStats:{
                 subjectResults:[],
                 averagePercentage: 0,
+            },
+            routineStats:{
+                today:"",
+                routine: []
+
             }
         })
         
@@ -54,6 +60,7 @@ export class SchoolStudentDashboard extends Component{
             await this.getStudentSubjects();
             await this.getUpcomingExams();
             await this.getExamResults();
+            await this.getTodaysRoutine();
         })
 
 
@@ -132,6 +139,7 @@ export class SchoolStudentDashboard extends Component{
         console.log(this.state.subjectStats);
 
     }
+
     getUpcomingExams = async () =>{
         const today = new Date();
         const startDate = today.toISOString().split('T')[0];
@@ -199,7 +207,7 @@ export class SchoolStudentDashboard extends Component{
 
         // Format today's date (YYYY-MM-DD)
         // const today = new Date().toISOString().split('T')[0];
-
+        this.state.routineStats.today = todayName
 
         let domain = [
             ['department_id','=', this.state.academicStats.department[0]],
@@ -209,14 +217,13 @@ export class SchoolStudentDashboard extends Component{
             ['year_id', '=', this.state.academic_year.id]
         ]
         
-        const data = await this.orm.searchRead("school.teacher.assignment",domain, ['slot_id', 'subject_id', 'teacher_id'])
-        console.log(data);
-
+        const data = await this.orm.searchRead("school.teacher.assignment",domain, ['slot_id', 'subject_id', 'teacher_id']);
+        this.state.routineStats.routine = data;
     }
 }
 
 SchoolStudentDashboard.template = "school_base.SchoolStudentDashboard"
 SchoolStudentDashboard.components = {
-    KpiCard
+    KpiCard, ChartRenderer
 }
 registry.category("actions").add("school_base.student_dashboard", SchoolStudentDashboard)
