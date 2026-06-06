@@ -26,4 +26,31 @@
             [('teacher_id.user_id', '=', user.id)]
         </field>
     </record>
+
+    <record id="rule_student_own_attendance" model="ir.rule">
+        <field name="name">Student: Own Attendances</field>
+        <field name="model_id" ref="model_school_student_attendance" />
+        <field name="groups" eval="[(4, ref('school_base.group_school_student'))]" />
+        <field name="domain_force">
+            [('attendance_line_ids.student_id.user_id', '=', user.id)]
+        </field>
+    </record>
+
+    <record id="rule_student_own_attendance_line" model="ir.rule">
+        <field name="name">Student: Own Attendance line</field>
+        <field name="model_id" ref="model_school_student_attendance_line" />
+        <field name="groups" eval="[(4, ref('school_base.group_school_student'))]" />
+        <field name="domain_force">
+            [('student_id.user_id', '=', user.id)]
+        </field>
+    </record>
+
+    <record id="rule_student_own_course_schedule" model="ir.rule">
+        <field name="name">Student: Own class Routines</field>
+        <field name="model_id" ref="model_school_teacher_assignment" />
+        <field name="groups" eval="[(4, ref('school_base.group_school_student'))]" />
+        <field name="domain_force">
+            [('student_user_ids', 'in', [user.id])]
+        </field>
+    </record>
 </odoo>

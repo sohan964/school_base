@@ -5,63 +5,63 @@
                 <div class="col-12 col-md-10 mx-auto p-4">
                     <!-- Header -->
                     <div class="card soft-card shadow-sm border-0 mb-4">
-        <div class="card-body d-flex align-items-center">
+                        <div class="card-body d-flex align-items-center">
 
-            <img
-                t-att-src="state.studentInfo.image
-                    ? 'data:image/jpeg;base64,' + state.studentInfo.image
-                    : 'https://via.placeholder.com/60'"
-                class="rounded-circle border shadow-sm me-3"
-                width="60"
-                height="60"
-            />
+                            <img
+                                t-att-src="state.studentInfo.image
+                                    ? 'data:image/jpeg;base64,' + state.studentInfo.image
+                                    : 'https://via.placeholder.com/60'"
+                                class="rounded-circle border shadow-sm me-3"
+                                width="60"
+                                height="60"
+                            />
 
-            <div class="flex-grow-1">
+                            <div class="flex-grow-1">
 
-                <h2 class="fw-bold mb-1">
-                    Welcome Back,
-                    <span t-esc="state.studentInfo.name"/> 👋
-                </h2>
+                                <h2 class="fw-bold mb-1">
+                                    Welcome Back,
+                                    <span t-esc="state.studentInfo.name"/> 👋
+                                </h2>
 
-                <p class="text-muted mb-1">
-                    <span t-esc="state.studentInfo.email"/>
-                </p>
+                                <p class="text-muted mb-1">
+                                    <span t-esc="state.studentInfo.email"/>
+                                </p>
 
-                <div class="d-flex flex-wrap gap-2 mt-2">
+                                <div class="d-flex flex-wrap gap-2 mt-2">
 
-                    <span class="badge bg-primary text-white">
-                        Dept:
-                        <t t-esc="state.academicStats.department[1]"/>
-                    </span>
+                                    <span class="badge bg-primary text-white">
+                                        Dept:
+                                        <t t-esc="state.academicStats.department[1]"/>
+                                    </span>
 
-                    <span class="badge bg-info text-white">
-                        Class:
-                        <t t-esc="state.academicStats.class[1]"/>
-                    </span>
+                                    <span class="badge bg-info text-white">
+                                        Class:
+                                        <t t-esc="state.academicStats.class[1]"/>
+                                    </span>
 
-                    <span class="badge bg-warning text-dark">
-                        Section:
-                        <t t-esc="state.academicStats.section[1]"/>
-                    </span>
+                                    <span class="badge bg-warning text-white">
+                                        Section:
+                                        <t t-esc="state.academicStats.section[1]"/>
+                                    </span>
 
-                    <span
-                        t-if="state.studentInfo.active "
-                        class="badge bg-success text-white">
-                        Active
-                    </span>
+                                    <span
+                                        t-if="state.studentInfo.active "
+                                        class="badge bg-success text-white">
+                                        Active
+                                    </span>
 
-                    <span
-                        t-if="!state.studentInfo.active"
-                        class="badge bg-danger text-white">
-                        Inactive
-                    </span>
+                                    <span
+                                        t-if="!state.studentInfo.active"
+                                        class="badge bg-danger text-white">
+                                        Inactive
+                                    </span>
 
-                </div>
+                                </div>
 
-            </div>
+                            </div>
 
-        </div>
-    </div>
+                        </div>
+                    </div>
                         <!-- ACADEMIC YEAR -->
                         <div class="card soft-card mb-3 shadow-sm">
                             <div class="card-body d-flex flex-wrap align-items-center justify-content-between">
@@ -320,8 +320,8 @@
                                                 label: 'Attendance ' + state.attendanceStats.total,
                                                 data: [
                                                     state.attendanceStats.present,
-                                                    state.attendanceStats.late,
-                                                    state.attendanceStats.absent
+                                                    state.attendanceStats.absent,
+                                                    state.attendanceStats.late
                                                 ],
                                                 backgroundColor: [
                                                     '#28a745',

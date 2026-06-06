@@ -228,10 +228,9 @@ export class SchoolStudentDashboard extends Component{
         const data = await this.orm.searchRead("school.teacher.assignment",domain, ['day_id','slot_id', 'subject_id', 'teacher_id']);
         this.state.routineStats.routine = data;
     }
+
     onRoutineViewChange = async (ev) => {
-
         this.state.routineStats.viewMode = ev.target.value;
-
         await this.getTodaysRoutine();
     }
 }

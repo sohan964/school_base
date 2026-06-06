@@ -151,8 +151,26 @@ class SchoolTeacherAssignment(models.Model):
                     "This class and section already has a subject at this day and time slot!"
                 )
 
+    # this is for student get rutine record rules
+    student_user_ids = fields.Many2many(
+        "res.users",
+        compute="_compute_student_user_ids",
+        store=True,
+    )
     
-    
+    @api.depends('class_id', 'section_id', 'year_id')
+    def _compute_student_user_ids(self):
+        Enrollment = self.env['school.student.enrollment']
+
+        for rec in self:
+            enrollments = Enrollment.search([
+                ('class_id', '=', rec.class_id.id),
+                ('section_id', '=', rec.section_id.id),
+                ('year_id', '=', rec.year_id.id),
+            ])
+
+            rec.student_user_ids = enrollments.mapped('student_id.user_id')
+        
     # _sql_constraints = [
 
     #     # 1. Teacher cannot be in two places at same time
