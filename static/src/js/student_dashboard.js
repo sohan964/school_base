@@ -45,7 +45,8 @@ export class SchoolStudentDashboard extends Component{
             },
             routineStats:{
                 today:"",
-                routine: []
+                routine: [],
+                 viewMode: "today",
 
             }
         })
@@ -213,12 +214,25 @@ export class SchoolStudentDashboard extends Component{
             ['department_id','=', this.state.academicStats.department[0]],
             ['class_id', '=', this.state.academicStats.class[0]],
             ['section_id', '=', this.state.academicStats.section[0]],
-            ['day_id.name', '=', todayName],
             ['year_id', '=', this.state.academic_year.id]
         ]
+
+        // Apply day filter only for Today view
+        if (this.state.routineStats.viewMode === "today") {
+            domain.push(
+                ['day_id.name', '=', todayName]
+            );
+        }
+
         
-        const data = await this.orm.searchRead("school.teacher.assignment",domain, ['slot_id', 'subject_id', 'teacher_id']);
+        const data = await this.orm.searchRead("school.teacher.assignment",domain, ['day_id','slot_id', 'subject_id', 'teacher_id']);
         this.state.routineStats.routine = data;
+    }
+    onRoutineViewChange = async (ev) => {
+
+        this.state.routineStats.viewMode = ev.target.value;
+
+        await this.getTodaysRoutine();
     }
 }
 
