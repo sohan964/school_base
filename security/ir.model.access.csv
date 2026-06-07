@@ -15,6 +15,7 @@ school_base.access_school_class_teacher,access.school.class.teacher,school_base.
 school_base.access_school_class_student,access.school.class.student,school_base.model_school_class,school_base.group_school_student,1,0,0,0
 school_base.access_school_class_section,access.school.class.section,school_base.model_school_class_section,school_base.group_school_admin,1,1,1,1
 school_base.access_school_class_section_teacher,access.school.class.section.teacher,school_base.model_school_class_section,school_base.group_school_teacher,1,0,0,0
+school_base.access_school_class_section_student,access.school.class.section.student,school_base.model_school_class_section,school_base.group_school_student,1,0,0,0
 school_base.access_school_class_subject,access.school.class_subject,school_base.model_school_class_subject,school_base.group_school_admin,1,1,1,1
 school_base.access_school_class_subject_teacher,access.school.class_subject_teacher,school_base.model_school_class_subject,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_class_subject_student,access.school.class_subject_student,school_base.model_school_class_subject,school_base.group_school_student,1,0,0,0
