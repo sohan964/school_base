@@ -98,6 +98,7 @@
           name="Results"
           parent="menu_school_exam"
           action="action_school_exam_result"/>
+        
         <!-- CONFIGURATION -->
         <menuitem id="menu_school_configuration"
           name="Configuration"
@@ -115,5 +116,10 @@
           name="Exam Time Slots"
           parent="menu_school_configuration"
           action="action_school_exam_time_slot"/>
+        <menuitem id="menu_school_grade" 
+          name="Grades"
+          parent="menu_school_configuration"
+          action="action_school_grade"
+        />
     </data>
 </odoo>

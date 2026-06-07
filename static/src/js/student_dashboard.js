@@ -88,12 +88,12 @@ export class SchoolStudentDashboard extends Component{
         let domain = [['user_id', '=', this.userId]]
         const data = await this.orm.searchRead("school.student", domain, ['name', 'code','gender', 'admission_date', 'active', 'email', 'image'])
         
-        this.state.studentInfo.name = data[0].name
-        this.state.studentInfo.student_id = data[0].id
-        this.state.studentInfo.email = data[0].email
-        this.state.studentInfo.image = data[0].image
-        this.state.studentInfo.active = data[0].active
-        this.state.studentInfo.code = data[0].code
+        this.state.studentInfo.name = data[0]?.name
+        this.state.studentInfo.student_id = data[0]?.id
+        this.state.studentInfo.email = data[0]?.email
+        this.state.studentInfo.image = data[0]?.image
+        this.state.studentInfo.active = data[0]?.active
+        this.state.studentInfo.code = data[0]?.code
     }
 
     getStudentAttendances = async () =>{
@@ -125,19 +125,19 @@ export class SchoolStudentDashboard extends Component{
     getAcademicStats = async () =>{
         let domain = [['student_id', '=', this.state.studentInfo.student_id], ['year_id', '=', this.state.academic_year.id]]
         const data = await this.orm.searchRead("school.student.enrollment", domain, ['class_id', 'department_id', 'section_id']);
-        this.state.academicStats.class = data[0].class_id
-        this.state.academicStats.department = data[0].department_id
-        this.state.academicStats.section = data[0].section_id
+        this.state.academicStats.class = data[0]?.class_id
+        this.state.academicStats.department = data[0]?.department_id
+        this.state.academicStats.section = data[0]?.section_id
         
     }
 
     getStudentSubjects = async () =>{
-        let domain = [['department_ids', 'in', this.state.academicStats.department[0]],['class_ids', 'in', this.state.academicStats.class[0]]]
+        let domain = [['department_ids', 'in', this.state.academicStats?.department[0]],['class_ids', 'in', this.state.academicStats?.class[0]]]
         const data = await this.orm.searchRead('school.class.subject', domain, ['name', 'code'])
-        const total = data.length
+        const total = data?.length
         this.state.subjectStats.totalSubject = total;
         this.state.subjectStats.subjects = data;
-        console.log(this.state.subjectStats);
+        
 
     }
 

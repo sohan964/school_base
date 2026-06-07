@@ -182,3 +182,13 @@ class SchoolExamResultLine(models.Model):
         related="result_id.exam_line_id.full_marks",
         store=True
     )
+
+class SchoolGrade(models.Model):
+    _name = "school.grade"
+    _description = "Grade Configuration"
+
+    name = fields.Char(required=True)      # A+, A, A-
+    min_mark = fields.Float(required=True)
+    max_mark = fields.Float(required=True)
+    gpa = fields.Float(required=True)
+    remarks = fields.Char()
