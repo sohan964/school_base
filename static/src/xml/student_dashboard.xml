@@ -263,34 +263,66 @@
 
                                             <span class="badge text-white bg-primary">
                                                 Avg: <t t-esc="state.resultStats.averagePercentage"/>%
+                                                |
+                                                GPA: <t t-esc="state.resultStats.averageGPA"/>
                                             </span>
                                         </div>
 
-                                        <div class="card-body">
+                                        <div class="card-body p-0">
 
-                                            <div
-                                                t-foreach="state.resultStats.subjectResults"
-                                                t-as="result"
-                                                t-key="result.subject_id"
-                                                class="d-flex justify-content-between mb-2"
-                                            >
-                                                <span>
-                                                    <t t-esc="result.subject_name"/>
-                                                </span>
+                                            <table class="table table-hover mb-0">
 
-                                                <strong>
-                                                    <t t-esc="result.obtained"/> /
-                                                    <t t-esc="result.full_marks"/>
-                                                    (<t t-esc="result.percentage"/>%)
-                                                </strong>
-                                            </div>
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Subject</th>
+                                                        <th>Marks</th>
+                                                        <th>%</th>
+                                                        <th>Grade</th>
+                                                        <th>GPA</th>
+                                                    </tr>
+                                                </thead>
 
-                                            <div
-                                                t-if="!state.resultStats.subjectResults.length"
-                                                class="text-center text-muted"
-                                            >
-                                                No results found
-                                            </div>
+                                                <tbody>
+
+                                                    <tr t-if="!state.resultStats.subjectResults.length">
+                                                        <td colspan="5" class="text-center text-muted">
+                                                            No results found
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr
+                                                        t-foreach="state.resultStats.subjectResults"
+                                                        t-as="result"
+                                                        t-key="result.subject_id"
+                                                    >
+                                                        <td>
+                                                            <t t-esc="result.subject_name"/>
+                                                        </td>
+
+                                                        <td>
+                                                            <t t-esc="result.obtained"/> /
+                                                            <t t-esc="result.full_marks"/>
+                                                        </td>
+
+                                                        <td>
+                                                            <t t-esc="result.percentage"/>%
+                                                        </td>
+
+                                                        <td>
+                                                            <span class="badge bg-success">
+                                                                <t t-esc="result.grade"/>
+                                                            </span>
+                                                        </td>
+
+                                                        <td>
+                                                            <t t-esc="result.gpa"/>
+                                                        </td>
+
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
 
                                         </div>
 

@@ -42,6 +42,7 @@ export class SchoolStudentDashboard extends Component{
             resultStats:{
                 subjectResults:[],
                 averagePercentage: 0,
+                averageGPA:0,
             },
             routineStats:{
                 today:"",
@@ -181,25 +182,32 @@ export class SchoolStudentDashboard extends Component{
         ]
 
         const data = await this.orm.searchRead("school.exam.result.line", domain, ['subject_id','marks_obtained', 'full_marks'])
-        console.log(data);
+        const grades = await this.orm.searchRead('school.grade',[],['name', 'min_mark', 'max_mark', 'gpa'])
         let totalPercentage = 0;
 
         const subjectResults = data.map(line =>{
             const percentage = line.full_marks > 0 ? (line.marks_obtained / line.full_marks) * 100 : 0;
             totalPercentage += percentage;
+
+            const grade = grades.find(g => percentage>=g.min_mark && percentage<=g.max_mark);
+
             return {
                 subject_id: line.subject_id[0],
                 subject_name: line.subject_id[1],
                 obtained: line.marks_obtained,
                 full_marks: line.full_marks,
-                percentage: percentage.toFixed(2)
+                percentage: percentage.toFixed(2),
+                grade: grade ? grade.name: '-',
+                gpa: grade ? grade.gpa : 0,
             };
         });
         const averagePercentage = subjectResults.length ? (totalPercentage / subjectResults.length).toFixed(2) : 0;
 
+        const averageRes = grades.find(g=>averagePercentage >=g.min_mark && averagePercentage<=g.max_mark);
+
         this.state.resultStats.subjectResults = subjectResults;
         this.state.resultStats.averagePercentage = averagePercentage;
-
+        this.state.resultStats.averageGPA = averageRes.gpa;
     }
 
     getTodaysRoutine = async () =>{

@@ -1,4 +1,47 @@
 <odoo>
+     <!-- List View -->
+    <record id="view_school_exam_time_slot_list" model="ir.ui.view">
+        <field name="name">school.exam.time.slot.list</field>
+        <field name="model">school.exam.time.slot</field>
+        <field name="arch" type="xml">
+            <list string="Exam Time Slots">
+                <field name="name"/>
+                <field name="start_time" widget="float_time"/>
+                <field name="end_time" widget="float_time"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_school_exam_time_slot_form" model="ir.ui.view">
+        <field name="name">school.exam.time.slot.form</field>
+        <field name="model">school.exam.time.slot</field>
+        <field name="arch" type="xml">
+            <form string="Exam Time Slot">
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <group string="Time Slot Information">
+                        <group>
+                            <field name="start_time" widget="float_time"/>
+                            <field name="end_time" widget="float_time"/>
+                        </group>
+
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
     <record id="action_school_exam_time_slot" model="ir.actions.act_window">
         <field name="name">Exam Time Slot</field>
         <field name="res_model">school.exam.time.slot</field>
