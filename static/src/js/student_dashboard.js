@@ -43,6 +43,8 @@ export class SchoolStudentDashboard extends Component{
                 subjectResults:[],
                 averagePercentage: 0,
                 averageGPA:0,
+                exams: [],
+                selectedExamId: null,
             },
             routineStats:{
                 today:"",
@@ -61,6 +63,7 @@ export class SchoolStudentDashboard extends Component{
             await this.getAcademicStats();
             await this.getStudentSubjects();
             await this.getUpcomingExams();
+            await this.getAvailableExams();
             await this.getExamResults();
             await this.getTodaysRoutine();
         })
@@ -175,11 +178,43 @@ export class SchoolStudentDashboard extends Component{
 
     }
 
+    getAvailableExams = async () => {
+        const domain = [
+            ['year_id', '=', this.state.academic_year.id]
+        ];
+
+        const exams = await this.orm.searchRead(
+            "school.exam",
+            domain,
+            ['name']
+        );
+
+        this.state.resultStats.exams = exams;
+    }
+
+    //filter exam result on dropdown 
+    onExamChange = async (ev) => {
+        this.state.resultStats.selectedExamId =
+            ev.target.value
+                ? parseInt(ev.target.value)
+                : null;
+
+        await this.getExamResults();
+    }
+
     getExamResults = async () =>{
         let domain = [
             ['student_id', '=', this.state.studentInfo.student_id],
             ['result_id.year_id', '=', this.state.academic_year.id ]
         ]
+
+        if (this.state.resultStats.selectedExamId) {
+            domain.push([
+                'result_id.exam_id',
+                '=',
+                this.state.resultStats.selectedExamId
+            ]);
+        }
 
         const data = await this.orm.searchRead("school.exam.result.line", domain, ['subject_id','marks_obtained', 'full_marks'])
         const grades = await this.orm.searchRead('school.grade',[],['name', 'min_mark', 'max_mark', 'gpa'])
