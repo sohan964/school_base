@@ -1,0 +1,378 @@
+<odoo>
+
+    <template id="student_result_report">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.external_layout">
+
+                    <style>
+
+                        .result-sheet{
+                            position: relative;
+                            width: 100%;
+                            min-height: 1000px;
+                            border: 4px solid #4da3ff;
+                            padding: 25px;
+                            box-sizing: border-box;
+                            font-family: "Times New Roman", serif;
+                            font-size: 14px;
+                        }
+
+                        .header-title{
+                            text-align:center;
+                            font-size:32px;
+                            font-weight:bold;
+                            color:#4b2e83;
+                            margin-bottom:10px;
+                        }
+
+                        .exam-title{
+                            text-align:center;
+                            font-size:24px;
+                            margin-top:20px;
+                            margin-bottom:5px;
+                        }
+
+                        .transcript-title{
+                            text-align:center;
+                            text-decoration:underline;
+                            color:#4b2e83;
+                            font-size:28px;
+                            margin-bottom:20px;
+                        }
+
+                        .grade-table{
+                            font-size:11px;
+                        }
+
+                        .student-info td{
+                            padding:8px;
+                            border:none !important;
+                        }
+
+                        .result-table th,
+                        .result-table td{
+                            padding:8px;
+                            text-align:center;
+                            vertical-align:middle;
+                        }
+
+                        .result-table th{
+                            background:#f3f3f3;
+                        }
+
+                        .summary-table td{
+                            padding:8px;
+                        }
+
+                        .signature-area{
+                            margin-top:80px;
+                        }
+
+                    </style>
+
+                    <div class="page">
+
+                        <div class="result-sheet">
+
+                            <!-- HEADER -->
+
+                            <div class="row">
+
+                                <div class="col-8">
+
+                                    <div class="header-title">
+                                        School Management System
+                                    </div>
+
+                                </div>
+
+                                <div class="col-4">
+
+                                    <table class="table table-bordered grade-table text-center">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Grade</th>
+                                                <th>Marks</th>
+                                                <th>GPA</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr
+                                                t-foreach="env['school.grade'].search([], order='max_mark desc')"
+                                                t-as="grade"
+                                            >
+                                                <td>
+                                                    <t t-esc="grade.name"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="grade.min_mark"/> -
+                                                    <t t-esc="grade.max_mark"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="grade.gpa"/>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <!-- EXAM TITLE -->
+
+                            <div class="exam-title">
+                                <span t-esc="exam.name"/>
+                            </div>
+
+                            <div class="transcript-title">
+                                ACADEMIC TRANSCRIPT
+                            </div>
+
+                            <!-- STUDENT INFO -->
+
+                            <table class="table student-info">
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td width="20%">
+                                            <strong>Student Name</strong>
+                                        </td>
+
+                                        <td width="30%">
+                                            <span t-esc="doc.name"/>
+                                        </td>
+
+                                        <td width="20%">
+                                            <strong>Student Code</strong>
+                                        </td>
+
+                                        <td width="30%">
+                                            <span t-esc="doc.code"/>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>Date of Birth</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="doc.date_of_birth"/>
+                                        </td>
+
+                                        <td>
+                                            <strong>Roll No</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="roll_no"/>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>Department</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="department.name"/>
+                                        </td>
+
+                                        <td>
+                                            <strong>Class</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="class_obj.name"/>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>Section</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="section.name"/>
+                                        </td>
+
+                                        <td>
+                                            <strong>Academic Year</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="year.name"/>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                            <!-- RESULT TABLE -->
+
+                            <table class="table table-bordered result-table">
+
+                                <thead>
+
+                                    <tr>
+                                        <th style="width:8%;">SL</th>
+                                        <th>Subject</th>
+                                        <th>Marks</th>
+                                        <th>%</th>
+                                        <th>Grade</th>
+                                        <th>GPA</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr
+                                        t-foreach="subjects"
+                                        t-as="subject"
+                                        t-key="subject['subject']"
+                                    >
+
+                                        <td>
+                                            <span t-esc="subjects.index(subject)+1"/>
+                                        </td>
+
+                                        <td style="text-align:left;">
+                                            <t t-esc="subject['subject']"/>
+                                        </td>
+
+                                        <td>
+                                            <t t-esc="subject['obtained']"/>
+                                            /
+                                            <t t-esc="subject['full_marks']"/>
+                                        </td>
+
+                                        <td>
+                                            <t t-esc="subject['percentage']"/>%
+                                        </td>
+
+                                        <td>
+                                            <t t-esc="subject['grade']"/>
+                                        </td>
+
+                                        <td>
+                                            <t t-esc="subject['gpa']"/>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                            <!-- SUMMARY -->
+
+                            <table class="table table-bordered summary-table">
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td width="70%">
+                                            <strong>Average Percentage</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="average_percentage"/>%
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>Average GPA</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="average_gpa"/>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>Overall Grade</strong>
+                                        </td>
+
+                                        <td>
+                                            <span t-esc="overall_grade"/>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                            <!-- SIGNATURE -->
+
+                            <div class="signature-area">
+
+                                <table style="width:100%;">
+
+                                    <tr>
+
+                                        <td style="text-align:left;">
+
+                                            ______________________
+                                            <br/>
+                                            Class Teacher
+
+                                        </td>
+
+                                        <td style="text-align:right;">
+
+                                            ______________________
+                                            <br/>
+                                            Principal
+
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </t>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>

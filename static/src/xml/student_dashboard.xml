@@ -169,9 +169,31 @@
                                             <h5 class="mb-0">
                                                 Upcoming Exams
                                             </h5>
-                                            <span class="badge text-white bg-primary">
-                                                <t t-esc="state.examStats.totalExam"/>
-                                            </span>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="badge text-white bg-primary">
+                                                    <t t-esc="state.examStats.totalExam"/>
+                                                </span>
+                                                <select class="form-select form-select-sm"
+                                                        style="width: 120px;"
+                                                        t-on-change="onExamRoutineChange">
+                                                        <option value="">
+                                                            Current Month
+                                                        </option>
+                                                        <option
+                                                            t-foreach="state.resultStats.exams"
+                                                            t-as="exam"
+                                                            t-key="exam.id"
+                                                            t-att-value="exam.id">
+                                                            <t t-esc="exam.name"/>
+                                                        </option>
+                                                </select>
+                                                <button
+                                                    class="btn btn-primary btn-sm"
+                                                    style="padding:2px 8px;font-size:12px;"
+                                                    t-on-click="downloadExamRoutine">
+                                                    Print
+                                                </button>
+                                            </div>
                                         </div>
                                         <div class="card-body p-0">
                                             <table class="table table-hover mb-0">
@@ -216,18 +238,11 @@
                                     <div class="card soft-card border-0">
                                         <div class="card-header bg-white d-flex justify-content-between align-items-center">
                                             <h5 class="mb-0">
-                                                Recent Results
+                                                Results
                                             </h5>
                                             <div class="d-flex align-items-center gap-2">
-                                                <span class="badge text-white bg-primary">
-                                                    Avg:
-                                                    <t t-esc="state.resultStats.averagePercentage"/>%
-                                                    |
-                                                    GPA:
-                                                    <t t-esc="state.resultStats.averageGPA"/>
-                                                </span>
                                                 <select class="form-select form-select-sm"
-                                                    style="width: 180px;"
+                                                    style="width: 120px;"
                                                     t-on-change="onExamChange">
                                                     <option value="">
                                                         All Exams
@@ -240,12 +255,12 @@
                                                         <t t-esc="exam.name"/>
                                                     </option>
                                                 </select>
+                                                
                                                 <button
                                                     class="btn btn-primary btn-sm"
-                                                    t-on-click="viewResult">
-
-                                                    View Result
-
+                                                    style="padding:2px 8px;font-size:12px;"
+                                                    t-on-click="downloadResult">
+                                                    Print
                                                 </button>
                                             </div>
                                         </div>

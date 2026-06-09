@@ -34,6 +34,8 @@
         "views/school_grade_views.xml",
         "views/school_department_views.xml",
         "views/academic_year_views.xml",
+        'reports/student_result_action.xml',
+        'reports/student_result_report.xml',
         "views/school_base_menu.xml",
     ],
     "assets" :{

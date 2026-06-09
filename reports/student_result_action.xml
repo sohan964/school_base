@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_report_student_result"
+            model="ir.actions.report">
+        <field name="name">Student Result</field>
+        <field name="model">school.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">school_base.student_result_report</field>
+        <field name="report_file">school_base.student_result_report</field>
+    </record>
+</odoo>

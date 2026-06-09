@@ -35,9 +35,11 @@ export class SchoolStudentDashboard extends Component{
                 subjects:[],
                 totalSubject: 0,
             },
-            examStats:{
-                exams:[],
+            
+            examStats: {
                 totalExam: 0,
+                exams: [],
+                selectedExamId: null,
             },
             resultStats:{
                 subjectResults:[],
@@ -62,8 +64,9 @@ export class SchoolStudentDashboard extends Component{
             await this.getStudentAttendances();
             await this.getAcademicStats();
             await this.getStudentSubjects();
-            await this.getUpcomingExams();
             await this.getAvailableExams();
+            await this.getUpcomingExams();
+            
             await this.getExamResults();
             await this.getTodaysRoutine();
         })
@@ -145,38 +148,67 @@ export class SchoolStudentDashboard extends Component{
 
     }
 
-    getUpcomingExams = async () =>{
+    onExamRoutineChange = async (ev) => {
+        this.state.examStats.selectedExamId =
+            ev.target.value
+                ? parseInt(ev.target.value)
+                : null;
+
+        await this.getUpcomingExams();
+    }
+
+    getUpcomingExams = async () => {
+
         const today = new Date();
+
         const startDate = today.toISOString().split('T')[0];
+
         const endDateObj = new Date(
             today.getFullYear(),
             today.getMonth() + 1,
             10
         );
+
         const endDate = endDateObj.toISOString().split('T')[0];
-        
-        const domain = [
+
+        let domain = [
             ['department_id', '=', this.state.academicStats.department[0]],
             ['class_id', '=', this.state.academicStats.class[0]],
-            ['exam_date', '>=', startDate],
-            ['exam_date', '<=', endDate]
-        ]
+        ];
 
-        const data = await this.orm.searchRead("school.exam.line", domain,
+        if (this.state.examStats.selectedExamId) {
+
+            domain.push([
+                'exam_id',
+                '=',
+                this.state.examStats.selectedExamId
+            ]);
+
+        } else {
+
+            domain.push(
+                ['exam_date', '>=', startDate],
+                ['exam_date', '<=', endDate]
+            );
+
+        }
+
+        const data = await this.orm.searchRead(
+            "school.exam.line",
+            domain,
             [
-                'display_name',
+                'exam_id',
                 'subject_id',
                 'exam_date',
                 'full_marks',
                 'exam_time_slot_id'
             ]
-        )
+        );
+
         this.state.examStats.totalExam = data.length;
         this.state.examStats.exams = data;
-        
-        // console.log(this.state.examStats.exams)
-
     }
+    
 
     getAvailableExams = async () => {
         const domain = [
@@ -198,7 +230,6 @@ export class SchoolStudentDashboard extends Component{
             ev.target.value
                 ? parseInt(ev.target.value)
                 : null;
-
         await this.getExamResults();
     }
 
@@ -243,6 +274,21 @@ export class SchoolStudentDashboard extends Component{
         this.state.resultStats.subjectResults = subjectResults;
         this.state.resultStats.averagePercentage = averagePercentage;
         this.state.resultStats.averageGPA = averageRes.gpa;
+    }
+
+    downloadResult = () => {
+
+        const examId = this.state.resultStats.selectedExamId;
+
+        if (!examId) {
+            alert("Please select an exam");
+            return;
+        }
+
+        window.open(
+            `/student/result/pdf/${examId}`,
+            "_blank"
+        );
     }
 
     getTodaysRoutine = async () =>{

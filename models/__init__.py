@@ -6,3 +6,4 @@ from . import school_academic
 from . import school_attendance
 from . import school_exam
 from . import school_exam_result
+from . import student_result_report
