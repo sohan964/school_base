@@ -208,7 +208,15 @@ export class SchoolStudentDashboard extends Component{
         this.state.examStats.totalExam = data.length;
         this.state.examStats.exams = data;
     }
-    
+    downloadExamRoutine = () => {
+
+        let examId = this.state.examStats.selectedExamId || 0;
+
+        window.open(
+            `/student/exam-routine/pdf/${examId}`,
+            '_blank'
+        );
+    }
 
     getAvailableExams = async () => {
         const domain = [
@@ -319,8 +327,17 @@ export class SchoolStudentDashboard extends Component{
     }
 
     onRoutineViewChange = async (ev) => {
-        this.state.routineStats.viewMode = ev.target.value;
-        await this.getTodaysRoutine();
+            this.state.routineStats.viewMode = ev.target.value;
+            await this.getTodaysRoutine();
+        }
+        downloadRoutine = () => {
+        const mode =
+            this.state.routineStats.viewMode || 'today';
+
+        window.open(
+            `/student/routine/pdf/${mode}`,
+            '_blank'
+        );
     }
 }
 

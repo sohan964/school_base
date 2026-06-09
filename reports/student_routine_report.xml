@@ -1,0 +1,119 @@
+<odoo>
+        <template id="student_routine_report">
+
+    <t t-call="web.html_container">
+
+        <t t-foreach="docs" t-as="doc">
+
+            <t t-call="web.external_layout">
+
+                <div class="page">
+
+                    <h2 style="text-align:center;">
+                        Class Routine
+                    </h2>
+
+                    <h4 style="text-align:center;">
+                        <t t-if="view_mode == 'today'">
+                            Today's Routine
+                        </t>
+
+                        <t t-if="view_mode == 'week'">
+                            Weekly Routine
+                        </t>
+                    </h4>
+
+                    <br/>
+
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <td><strong>Student</strong></td>
+                            <td>
+                                <span t-esc="doc.name"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Class</strong></td>
+                            <td>
+                                <span t-esc="enrollment.class_id.name"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Section</strong></td>
+                            <td>
+                                <span t-esc="enrollment.section_id.name"/>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <br/>
+
+                    <table class="table table-bordered">
+
+                        <thead>
+
+                            <tr>
+
+                                <th t-if="view_mode == 'week'">
+                                    Day
+                                </th>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Teacher
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr
+                                t-foreach="routines"
+                                t-as="routine"
+                                t-key="routine.id">
+
+                                <td t-if="view_mode == 'week'">
+                                    <span t-esc="routine.day_id.name"/>
+                                </td>
+
+                                <td>
+                                    <span t-esc="routine.slot_id.name"/>
+                                </td>
+
+                                <td>
+                                    <span t-esc="routine.subject_id.name"/>
+                                </td>
+
+                                <td>
+                                    <span t-esc="routine.teacher_id.name"/>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </t>
+
+        </t>
+
+    </t>
+
+</template>
+</odoo>

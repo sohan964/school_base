@@ -1,0 +1,129 @@
+<odoo>
+
+    <template id="student_exam_routine_report">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="doc">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+    <h2 style="text-align:center;">
+        Exam Routine
+    </h2>
+
+    <br/>
+
+    <table class="table table-bordered">
+
+        <tr>
+            <td><strong>Student</strong></td>
+            <td>
+                <span t-esc="doc.name"/>
+            </td>
+
+            <td><strong>Roll No</strong></td>
+            <td>
+                <span t-esc="enrollment.roll_no"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td><strong>Department</strong></td>
+            <td>
+                <span t-esc="enrollment.department_id.name"/>
+            </td>
+
+            <td><strong>Class</strong></td>
+            <td>
+                <span t-esc="enrollment.class_id.name"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td><strong>Section</strong></td>
+            <td>
+                <span t-esc="enrollment.section_id.name"/>
+            </td>
+
+            <td><strong>Academic Year</strong></td>
+            <td>
+                <span t-esc="enrollment.year_id.name"/>
+            </td>
+        </tr>
+
+    </table>
+
+    <br/>
+
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+                <th>SL</th>
+                <th>Subject</th>
+                <th>Exam</th>
+                <th>Date</th>
+                <th>Time Slot</th>
+                <th>Full Marks</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr t-if="not exam_lines">
+                <td colspan="6" style="text-align:center;">
+                    No Exam Routine Found
+                </td>
+            </tr>
+
+            <tr
+                t-foreach="exam_lines"
+                t-as="line"
+                t-key="line.id">
+
+                <td>
+                    <span t-esc="line.id"/>
+                </td>
+
+                <td>
+                    <span t-esc="line.subject_id.name"/>
+                </td>
+
+                <td>
+                    <span t-esc="line.exam_id.name"/>
+                </td>
+
+                <td>
+                    <span t-esc="line.exam_date"/>
+                </td>
+
+                <td>
+                    <span t-esc="line.exam_time_slot_id.name"/>
+                </td>
+
+                <td>
+                    <span t-esc="line.full_marks"/>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+                </t>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>

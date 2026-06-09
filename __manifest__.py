@@ -36,6 +36,10 @@
         "views/academic_year_views.xml",
         'reports/student_result_action.xml',
         'reports/student_result_report.xml',
+        'reports/student_exam_routine_action.xml',
+        "reports/student_exam_routine_report.xml",
+        "reports/student_routine_action.xml",
+        "reports/student_routine_report.xml",
         "views/school_base_menu.xml",
     ],
     "assets" :{
