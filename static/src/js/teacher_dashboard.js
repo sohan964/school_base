@@ -21,8 +21,11 @@ export class SchoolTeacherDashboard extends Component {
             teacherroutine: [],
             schedules: {
                 total: 0,
+                totalToday: 0,
                 taken: 0,
-                pending: 0
+                pending: 0,
+                viewMode: "today",
+                today:""
             },
             chartData:{},
             all_student:0,
@@ -85,14 +88,29 @@ export class SchoolTeacherDashboard extends Component {
     getTeacherRoutine = async () => {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const todayName = days[new Date().getDay()];
-        let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['day_id.name', '=', todayName], ['year_id','=', this.state.accademic_year.id]]
-        const data = await this.orm.searchRead("school.teacher.assignment", domain, ['display_name', 'class_id', 'section_id', 'subject_id'])
+        this.state.schedules.today = todayName
+        let domain = [
+            ['teacher_id', '=', this.state.teacherinfo.teacher_id],
+            ['year_id', '=', this.state.accademic_year.id]
+        ];
+        if (this.state.schedules.viewMode === "today") {
+            domain.push(
+                ['day_id.name', '=', todayName]
+            );
+        }
+
+        const data = await this.orm.searchRead("school.teacher.assignment", domain, ['display_name', 'class_id', 'section_id', 'subject_id', 'day_id', 'slot_id'])
         // console.log(data)
 
         this.state.teacherroutine = data
 
         this.state.schedules.total = data.length
-        console.log(this.state.teacherroutine)
+        
+    }
+    onRoutineViewChange = async (ev) => {
+        this.state.schedules.viewMode =
+            ev.target.value;
+        await this.getTeacherRoutine();
     }
 
     getTeacherYearlyActivities = async ()=>{
@@ -115,10 +133,17 @@ export class SchoolTeacherDashboard extends Component {
 
     getTakenClasses = async () => {
         const today = new Date().toISOString().split('T')[0];
-        let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['date', '=', today]]
-        const data = await this.orm.searchCount('school.student.attendance', domain)
+        let domain1 = [['teacher_id', '=', this.state.teacherinfo.teacher_id], ['date', '=', today]]
+        let domain2 = [
+            ['teacher_id', '=', this.state.teacherinfo.teacher_id],
+            ['year_id', '=', this.state.accademic_year.id],
+            ['day_id.name', '=', this.state.schedules.today]
+        ];
+        const totalToday = await this.orm.searchCount("school.teacher.assignment", domain2)
+        const data = await this.orm.searchCount('school.student.attendance', domain1)
+        this.state.schedules.totalToday = totalToday
         this.state.schedules.taken = data
-        this.state.schedules.pending = this.state.schedules.total - data
+        this.state.schedules.pending = this.state.schedules.totalToday - data
     }
 
 

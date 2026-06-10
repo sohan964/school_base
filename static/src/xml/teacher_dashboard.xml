@@ -46,18 +46,126 @@
                         <!-- LEFT: Schedule -->
                         <div class="col-lg-6">
                             <div class="card soft-card mb-3">
-                                <div class="card-header fw-semibold">Today's Schedule</div>
-                                <div class="p-3">
-                                    <t t-foreach="state.teacherroutine" t-as="routine" t-key="routine.id">
-                                        <div class="d-flex align-items-center justify-content-between bg-light border rounded px-3 py-2 mb-2">
-                                            <div class="d-flex align-items-center">
-                                                <i class="bi bi-clock text-primary me-2"></i>
-                                                <span class="fw-medium" t-esc="routine.display_name"/>
-                                            </div>
-                                        </div>
-                                    </t>
-                                </div>
-                            </div>
+
+    <div class="card-header d-flex justify-content-between align-items-center">
+
+        <span class="fw-semibold">
+
+            <t t-if="state.schedules.viewMode === 'today'">
+                <t t-esc="state.schedules.today"/>'s Schedule
+            </t>
+
+            <t t-if="state.schedules.viewMode === 'week'">
+                Weekly Schedule
+            </t>
+
+        </span>
+
+        <select
+            class="form-select form-select-sm"
+            style="width:120px;"
+            t-on-change="onRoutineViewChange">
+
+            <option value="today">
+                Today
+            </option>
+
+            <option value="week">
+                This Week
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="card-body p-0">
+
+        <table class="table table-hover mb-0">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th t-if="state.schedules.viewMode === 'week'">
+                        Day
+                    </th>
+
+                    <th>
+                        Class
+                    </th>
+
+                    <th>
+                        Section
+                    </th>
+
+                    <th>
+                        Subject
+                    </th>
+                    <th>
+                        Time
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr t-if="!state.teacherroutine.length">
+
+                    <td
+                        t-att-colspan="state.schedules.viewMode === 'week' ? 5 : 4"
+                        class="text-center text-muted">
+
+                        No Schedule Found
+
+                    </td>
+
+                </tr>
+
+                <tr
+                    t-foreach="state.teacherroutine"
+                    t-as="routine"
+                    t-key="routine.id">
+
+                    <td t-if="state.schedules.viewMode === 'week'">
+
+                        <t t-esc="routine.day_id[1]"/>
+
+                    </td>
+
+                    <td>
+
+                        <t t-esc="routine.class_id[1]"/>
+
+                    </td>
+
+                    <td>
+
+                        <t t-esc="routine.section_id[1]"/>
+
+                    </td>
+
+                    <td>
+
+                        <t t-esc="routine.subject_id[1]"/>
+
+                    </td>
+                    <td>
+
+                        <t t-esc="routine.slot_id[1]"/>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
                             <div>
                                 <div class="card soft-card  text-center">
                                     <h2 class="fw-bold" t-esc="state.all_student +' Students'"></h2>
@@ -127,7 +235,7 @@
                                                         <div>
                                                             <h6 class="text-white mb-1">Scheduled</h6>
                                                             <h2 class="fw-bold  mb-0">
-                                                                <span class="text-white-100" t-esc="state.schedules.total"></span>
+                                                                <span class="text-white-100" t-esc="state.schedules.totalToday"></span>
                                                             </h2>
                                                         </div>
                                                         <div class="opacity-50">
@@ -171,7 +279,7 @@
                                                         data: {
                                                             labels: ['Taken', 'Pending'],
                                                             datasets: [{
-                                                                label: 'Total Class ' + state.schedules.total,
+                                                                label: 'Total Class ' + state.schedules.totalToday,
                                                                 data: [state.schedules.taken, state.schedules.pending],
                                                                 backgroundColor: [
                                                                     '#28a745',
