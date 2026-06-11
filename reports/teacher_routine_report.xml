@@ -1,0 +1,98 @@
+<odoo>
+
+    <template id="school_base.teacher_routine_report">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="teacher">
+
+                <t t-call="web.external_layout">
+
+                    <div class="page">
+
+                        <h2 style="text-align:center;">
+                            Teacher Routine
+                        </h2>
+
+                        <h4 style="text-align:center;">
+
+                            <t t-if="view_mode == 'today'">
+                                Today's Schedule
+                            </t>
+
+                            <t t-if="view_mode == 'week'">
+                                Weekly Schedule
+                            </t>
+
+                        </h4>
+
+                        <br/>
+
+                        <p>
+                            <strong>Teacher:</strong>
+                            <span t-esc="teacher.name"/>
+                        </p>
+
+                        <table class="table table-bordered">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th t-if="view_mode == 'week'">
+                                        Day
+                                    </th>
+
+                                    <th>Time</th>
+                                    <th>Class</th>
+                                    <th>Section</th>
+                                    <th>Subject</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr
+                                    t-foreach="routines"
+                                    t-as="routine"
+                                    t-key="routine.id">
+
+                                    <td t-if="view_mode == 'week'">
+                                        <span t-esc="routine.day_id.name"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-esc="routine.slot_id.name"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-esc="routine.class_id.name"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-esc="routine.section_id.name"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-esc="routine.subject_id.name"/>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </t>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>

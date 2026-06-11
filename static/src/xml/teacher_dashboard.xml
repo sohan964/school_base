@@ -46,126 +46,131 @@
                         <!-- LEFT: Schedule -->
                         <div class="col-lg-6">
                             <div class="card soft-card mb-3">
+                                <div class="card-header d-flex justify-content-between align-items-center">
 
-    <div class="card-header d-flex justify-content-between align-items-center">
+                                    <span class="fw-semibold">
 
-        <span class="fw-semibold">
+                                        <t t-if="state.schedules.viewMode === 'today'">
+                                            <t t-esc="state.schedules.today"/>'s Schedule
+                                        </t>
 
-            <t t-if="state.schedules.viewMode === 'today'">
-                <t t-esc="state.schedules.today"/>'s Schedule
-            </t>
+                                        <t t-if="state.schedules.viewMode === 'week'">
+                                            Weekly Schedule
+                                        </t>
 
-            <t t-if="state.schedules.viewMode === 'week'">
-                Weekly Schedule
-            </t>
+                                    </span>
 
-        </span>
+                                    <div class="d-flex align-items-center gap-2">
 
-        <select
-            class="form-select form-select-sm"
-            style="width:120px;"
-            t-on-change="onRoutineViewChange">
+                                        <select
+                                            class="form-select form-select-sm"
+                                            style="width:120px;"
+                                            t-on-change="onRoutineViewChange">
 
-            <option value="today">
-                Today
-            </option>
+                                            <option value="today">Today</option>
+                                            <option value="week">This Week</option>
 
-            <option value="week">
-                This Week
-            </option>
+                                        </select>
 
-        </select>
+                                        <button
+                                            class="btn btn-primary btn-sm"
+                                            style="padding:2px 8px;font-size:12px;"
+                                            t-on-click="downloadRoutine">
+                                            Print
+                                        </button>
 
-    </div>
+                                    </div>
 
-    <div class="card-body p-0">
+                                </div>
 
-        <table class="table table-hover mb-0">
+                                <div class="card-body p-0">
 
-            <thead class="table-light">
+                                    <table class="table table-hover mb-0">
 
-                <tr>
+                                        <thead class="table-light">
 
-                    <th t-if="state.schedules.viewMode === 'week'">
-                        Day
-                    </th>
+                                            <tr>
 
-                    <th>
-                        Class
-                    </th>
+                                                <th t-if="state.schedules.viewMode === 'week'">
+                                                    Day
+                                                </th>
 
-                    <th>
-                        Section
-                    </th>
+                                                <th>
+                                                    Class
+                                                </th>
 
-                    <th>
-                        Subject
-                    </th>
-                    <th>
-                        Time
-                    </th>
+                                                <th>
+                                                    Section
+                                                </th>
 
-                </tr>
+                                                <th>
+                                                    Subject
+                                                </th>
+                                                <th>
+                                                    Time
+                                                </th>
 
-            </thead>
+                                            </tr>
 
-            <tbody>
+                                        </thead>
 
-                <tr t-if="!state.teacherroutine.length">
+                                        <tbody>
 
-                    <td
-                        t-att-colspan="state.schedules.viewMode === 'week' ? 5 : 4"
-                        class="text-center text-muted">
+                                            <tr t-if="!state.teacherroutine.length">
 
-                        No Schedule Found
+                                                <td
+                                                    t-att-colspan="state.schedules.viewMode === 'week' ? 5 : 4"
+                                                    class="text-center text-muted">
 
-                    </td>
+                                                    No Schedule Found
 
-                </tr>
+                                                </td>
 
-                <tr
-                    t-foreach="state.teacherroutine"
-                    t-as="routine"
-                    t-key="routine.id">
+                                            </tr>
 
-                    <td t-if="state.schedules.viewMode === 'week'">
+                                            <tr
+                                                t-foreach="state.teacherroutine"
+                                                t-as="routine"
+                                                t-key="routine.id">
 
-                        <t t-esc="routine.day_id[1]"/>
+                                                <td t-if="state.schedules.viewMode === 'week'">
 
-                    </td>
+                                                    <t t-esc="routine.day_id[1]"/>
 
-                    <td>
+                                                </td>
 
-                        <t t-esc="routine.class_id[1]"/>
+                                                <td>
 
-                    </td>
+                                                    <t t-esc="routine.class_id[1]"/>
 
-                    <td>
+                                                </td>
 
-                        <t t-esc="routine.section_id[1]"/>
+                                                <td>
 
-                    </td>
+                                                    <t t-esc="routine.section_id[1]"/>
 
-                    <td>
+                                                </td>
 
-                        <t t-esc="routine.subject_id[1]"/>
+                                                <td>
 
-                    </td>
-                    <td>
+                                                    <t t-esc="routine.subject_id[1]"/>
 
-                        <t t-esc="routine.slot_id[1]"/>
+                                                </td>
+                                                <td>
 
-                    </td>
+                                                    <t t-esc="routine.slot_id[1]"/>
 
-                </tr>
+                                                </td>
 
-            </tbody>
+                                            </tr>
 
-        </table>
+                                        </tbody>
 
-    </div>
+                                    </table>
 
-</div>
+                                </div>
+
+                            </div>
                             <div>
                                 <div class="card soft-card  text-center">
                                     <h2 class="fw-bold" t-esc="state.all_student +' Students'"></h2>

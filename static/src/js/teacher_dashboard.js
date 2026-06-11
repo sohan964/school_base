@@ -85,6 +85,8 @@ export class SchoolTeacherDashboard extends Component {
         console.log(this.state.accademic_year)
     };
 
+
+
     getTeacherRoutine = async () => {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const todayName = days[new Date().getDay()];
@@ -112,6 +114,18 @@ export class SchoolTeacherDashboard extends Component {
             ev.target.value;
         await this.getTeacherRoutine();
     }
+    
+    downloadRoutine = () => {
+        const mode =
+            this.state.schedules.viewMode || "today";
+        window.open(
+            `/teacher/routine/pdf/${mode}`,
+            "_blank"
+        );
+    }
+
+
+
 
     getTeacherYearlyActivities = async ()=>{
         let domain = [['teacher_id', '=', this.state.teacherinfo.teacher_id]]
