@@ -32,7 +32,13 @@ export class SchoolTeacherDashboard extends Component {
             accademic_year:{},
             teacher_activities:{
                 subjects:[]
-            }
+            },
+            teacherExamStats: {
+                exams: [],
+                examOptions: [],
+                total: 0,
+                selectedExamId: null,
+            },
         })
 
         this.orm = useService("orm");
@@ -45,6 +51,8 @@ export class SchoolTeacherDashboard extends Component {
             await this.getClassStudentCounts()
             this.prepareChartData()
             await this.getTeacherYearlyActivities()
+            await this.getTeacherExamOptions()
+            await this.getTeacherExamRoutine()
         })
     }
 
@@ -161,7 +169,6 @@ export class SchoolTeacherDashboard extends Component {
     }
 
 
-
     getClassStudentCounts = async () => {
         const routine = this.state.teacherroutine
         console.log("routine", routine)
@@ -238,6 +245,140 @@ export class SchoolTeacherDashboard extends Component {
         console.log(finalResult)
         this.state.classStudentStats = finalResult
     }
+
+    // exam start
+    getTeacherExamRoutine = async () => {
+
+        const assignments = await this.orm.searchRead(
+            "school.teacher.assignment",
+            [
+                ['teacher_id', '=', this.state.teacherinfo.teacher_id],
+                ['year_id', '=', this.state.accademic_year.id]
+            ],
+            [
+                'class_id',
+                'subject_id'
+            ]
+        );
+
+        const subjectIds = [
+            ...new Set(
+                assignments.map(a => a.subject_id[0])
+            )
+        ];
+
+        const classIds = [
+            ...new Set(
+                assignments.map(a => a.class_id[0])
+            )
+        ];
+
+        if (!subjectIds.length) {
+            this.state.teacherExamStats.exams = [];
+            this.state.teacherExamStats.total = 0;
+            return;
+        }
+
+        let domain = [
+            ['subject_id', 'in', subjectIds],
+            ['class_id', 'in', classIds]
+        ];
+
+        if (this.state.teacherExamStats.selectedExamId) {
+
+            domain.push([
+                'exam_id',
+                '=',
+                this.state.teacherExamStats.selectedExamId
+            ]);
+
+        } else {
+
+            const today = new Date();
+
+            const startDate =
+                today.toISOString().split('T')[0];
+
+            const endDateObj = new Date(
+                today.getFullYear(),
+                today.getMonth() + 1,
+                10
+            );
+
+            const endDate =
+                endDateObj.toISOString().split('T')[0];
+
+            domain.push(
+                ['exam_date', '>=', startDate]
+            );
+
+            domain.push(
+                ['exam_date', '<=', endDate]
+            );
+        }
+
+        const data = await this.orm.searchRead(
+            "school.exam.line",
+            domain,
+            [
+                'exam_id',
+                'class_id',
+                'subject_id',
+                'exam_date',
+                'full_marks',
+                'exam_time_slot_id'
+            ]
+        );
+
+        const filteredData = data.filter(exam =>
+            assignments.some(a =>
+                a.class_id[0] === exam.class_id[0] &&
+                a.subject_id[0] === exam.subject_id[0]
+            )
+        );
+
+        this.state.teacherExamStats.exams = filteredData;
+        this.state.teacherExamStats.total = filteredData.length;
+    }
+
+    getExamRoutines = async () =>{
+        const today = new Date();
+        const startDate = today.toISOString().split('T')[0];
+        const endDateObj = new Date(
+            today.getFullYear(),
+            today.getMonth() + 1,
+            10
+        );
+
+        const endDate = endDateObj.toDateString().split('T')[0];
+        let domain = [
+            []
+        ]
+    }
+
+    getTeacherExamOptions = async () => {
+
+        const exams = await this.orm.searchRead(
+            "school.exam",
+            [
+                ['year_id', '=', this.state.accademic_year.id]
+            ],
+            ['name']
+        );
+
+        this.state.teacherExamStats.examOptions = exams;
+    }
+
+    onTeacherExamChange = async (ev) => {
+
+        this.state.teacherExamStats.selectedExamId =
+            ev.target.value
+                ? parseInt(ev.target.value)
+                : null;
+
+        await this.getTeacherExamRoutine();
+    }
+    // exam end
 
     prepareChartData = () => {
 
