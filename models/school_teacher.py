@@ -1,4 +1,5 @@
-from odoo import fields, models
+from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 
 class SchoolTeacher(models.Model):
@@ -32,6 +33,32 @@ class SchoolTeacher(models.Model):
     image = fields.Image(string="Image")
     active = fields.Boolean(string="Active", default=True)
 
-    _sql_constraints = [
-        ("code_unique", "unique(code)", "Employee code must be unique."),
-    ]
+    @api.constrains('user_id')
+    def _check_duplicate_user(self):
+        for rec in self:
+            if not rec.user_id:
+                continue
+
+            domain = [
+                ('id', '!=', rec.id),
+                ('user_id', '=', rec.user_id.id),
+            ]
+
+            if self.search_count(domain):
+                raise ValidationError(
+                    "This user is already assigned to another teacher."
+                )
+
+    @api.onchange('user_id')
+    def _onchange_user_id(self):
+        for rec in self:
+            if not rec.user_id:
+                continue
+
+            rec.name = rec.user_id.name or ""
+            rec.email = rec.user_id.email or ""
+
+            if hasattr(rec.user_id, 'phone'):
+                rec.phone = rec.user_id.phone or ""
+
+            rec.image = rec.user_id.image_1920

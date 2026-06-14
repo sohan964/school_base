@@ -25,10 +25,35 @@ class SchoolStudent(models.Model):
     image = fields.Image(string="Photo")
     active = fields.Boolean(string="Active", default=True)
 
-    _sql_constraints = [
-        ("student_code_unique", "unique(code)", "Student code must be unique."),
-    ]
+    @api.onchange('user_id')
+    def _onchange_user_id(self):
+        for rec in self:
+            if not rec.user_id:
+                continue
 
+            rec.name = rec.user_id.name or ""
+            rec.email = rec.user_id.email or ""
+
+            # phone/mobile
+            rec.phone = (
+                rec.user_id.phone
+                
+                or ""
+            )
+
+            # user avatar
+            rec.image = rec.user_id.image_1920
+
+    _unique_student_user = models.Constraint(
+        'UNIQUE(user_id)',
+        'This user is already assigned to another student.'
+    )
+
+    _unique_student_code = models.Constraint(
+        'UNIQUE(code)',
+        'Student code must be unique.'
+    )
+    
 
 # student enrollment to the class
 class SchoolStudentEnrollment(models.Model):
