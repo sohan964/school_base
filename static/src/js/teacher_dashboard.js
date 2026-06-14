@@ -378,6 +378,16 @@ export class SchoolTeacherDashboard extends Component {
 
         await this.getTeacherExamRoutine();
     }
+
+    // exam routine download
+    downloadExamRoutine = () => {
+        const examId =
+            this.state.teacherExamStats.selectedExamId || 0;
+        window.open(
+            `/teacher/exam/routine/pdf/${examId}`,
+            "_blank"
+        );
+    }
     // exam end
 
     prepareChartData = () => {

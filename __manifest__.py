@@ -42,6 +42,8 @@
         "reports/student_routine_report.xml",
         "reports/teacher_routine_action.xml",
         "reports/teacher_routine_report.xml",
+        "reports/teacher_exam_routine_action.xml",
+        "reports/teacher_exam_routine_report.xml",
         "views/school_base_menu.xml",
     ],
     "assets" :{

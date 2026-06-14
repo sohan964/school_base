@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record
+            id="action_report_teacher_exam_routine"
+            model="ir.actions.report">
+            <field name="name">Teacher Exam Routine</field>
+            <field name="model">school.teacher</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">school_base.teacher_exam_routine_report</field>
+            <field name="report_file">school_base.teacher_exam_routine_report</field>
+        </record>
+    </data>
+</odoo>

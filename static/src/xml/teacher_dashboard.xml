@@ -335,6 +335,12 @@
                                             </option>
 
                                         </select>
+                                        <button
+                                            class="btn btn-primary btn-sm"
+                                            style="padding:2px 8px;font-size:12px;"
+                                            t-on-click="downloadExamRoutine">
+                                            Print
+                                        </button>
 
                                     </div>
 
