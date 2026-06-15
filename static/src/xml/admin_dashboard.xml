@@ -88,17 +88,125 @@
                                 </div>
                             </div>
                             <!-- teacher alart -->
-                            <div class="card soft-card mb-3">
-                                <div class="card-header d-flex justify-content-between">
-                                    Pending Work / Alerts
-                                    <span class="text-primary">View All</span>
+                            <div class="card soft-card border-0">
+
+                                <div class="card-header d-flex justify-content-between align-items-center">
+
+                                    <h5 class="mb-0">
+                                        Current Classes
+                                    </h5>
+
+                                    <div class="d-flex gap-2">
+
+                                        <!-- Day -->
+
+                                        <select
+                                            class="form-select form-select-sm"
+                                            style="width:140px;"
+                                            t-on-change="onDayChange">
+
+                                            <option
+                                                t-foreach="state.adminRoutineStats.days"
+                                                t-as="day"
+                                                t-key="day.id"
+                                                t-att-value="day.id"
+                                                t-att-selected="day.id === state.adminRoutineStats.dayId">
+
+                                                <t t-esc="day.name"/>
+
+                                            </option>
+
+                                        </select>
+
+                                        <!-- Slot -->
+
+                                        <select
+                                            class="form-select form-select-sm"
+                                            style="width:170px;"
+                                            t-on-change="onSlotChange">
+
+                                            <option
+                                                t-foreach="state.adminRoutineStats.slots"
+                                                t-as="slot"
+                                                t-key="slot.id"
+                                                t-att-value="slot.id"
+                                                t-att-selected="slot.id === state.adminRoutineStats.slotId">
+
+                                                <t t-esc="slot.name"/>
+
+                                            </option>
+
+                                        </select>
+
+                                        <span class="badge bg-primary">
+
+                                            <t t-esc="state.adminRoutineStats.total"/>
+
+                                        </span>
+
+                                    </div>
+
                                 </div>
-                                <div class="p-3">
-                                    <div class="alert-item">❌ 3 Classes without Teacher</div>
-                                    <div class="alert-item">❌ 6 Attendance Pending</div>
-                                    <div class="alert-item">❌ 5 Students without Enrollment</div>
-                                    <div class="alert-item">❌ 2 Exams Missing</div>
+
+                                <div class="card-body p-0">
+
+                                    <table class="table table-hover mb-0">
+
+                                        <thead>
+
+                                            <tr>
+                                                <th>Teacher</th>
+                                                <th>Subject</th>
+                                                <th>Class</th>
+                                                <th>Section</th>
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr
+                                                t-if="!state.adminRoutineStats.routines.length">
+
+                                                <td
+                                                    colspan="4"
+                                                    class="text-center text-muted">
+
+                                                    No classes found
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr
+                                                t-foreach="state.adminRoutineStats.routines"
+                                                t-as="routine"
+                                                t-key="routine.id">
+
+                                                <td>
+                                                    <t t-esc="routine.teacher_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="routine.subject_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="routine.class_id[1]"/>
+                                                </td>
+
+                                                <td>
+                                                    <t t-esc="routine.section_id[1]"/>
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
                                 </div>
+
                             </div>
                         </div>
                         <!-- right columns -->
