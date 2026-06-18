@@ -58,3 +58,4 @@ school_base.access_school_exam_time_slot_student,access.school.exam.time.slot.st
 school_base.access_school_grade,access_school_grade,school_base.model_school_grade,school_base.group_school_admin,1,1,1,1
 school_base.access_school_grade_teacher,access.school.grade.teacher,school_base.model_school_grade,school_base.group_school_teacher,1,0,0,0
 school_base.access_school_grade_student,access.school.grade.student,school_base.model_school_grade,school_base.group_school_student,1,0,0,0
+school_base.access_school_tuition_fee,access.school.tuition.fee,school_base.model_school_tuition_fee,school_base.group_school_admin,1,1,1,1

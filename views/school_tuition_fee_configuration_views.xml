@@ -1,0 +1,67 @@
+<odoo>
+
+    <!-- List View -->
+    <record id="view_school_tuition_fee_list" model="ir.ui.view">
+        <field name="name">school.tuition.fee.list</field>
+        <field name="model">school.tuition.fee</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="year_id"/>
+                <field name="department_id"/>
+                <field name="class_id"/>
+                <field name="monthly_fee"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_school_tuition_fee_form" model="ir.ui.view">
+        <field name="name">school.tuition.fee.form</field>
+        <field name="model">school.tuition.fee</field>
+        <field name="arch" type="xml">
+            <form string="Tuition Fee Configuration">
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            Tuition Fee Setup
+                        </h1>
+                    </div>
+
+                    <group string="Academic Information">
+
+                        <group>
+                            <field name="year_id"/>
+                            <field name="department_id"/>
+                        </group>
+
+                        <group>
+                            <field name="class_id"/>
+                            <field name="monthly_fee"/>
+                        </group>
+
+                    </group>
+
+                    <group string="Status">
+                        <field name="active"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_tuition_fee_config" model="ir.actions.act_window">
+        <field name="name">Tuiton Fee Configuration</field>
+        <field name="res_model">school.tuition.fee</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new monthly fees
+            </p>
+        </field>
+    </record>
+
+</odoo>

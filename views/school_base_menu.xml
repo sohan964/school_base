@@ -121,5 +121,22 @@
           parent="menu_school_configuration"
           action="action_school_grade"
         />
+
+        <menuitem
+            id="menu_school_fees"
+            name="Fees"
+            parent="menu_school_configuration"
+            sequence="6"
+        />
+
+        <!-- Tuition Fee Configuration -->
+        <menuitem
+            id="menu_school_tuition_fee"
+            name="Fee Configuration"
+            parent="menu_school_fees"
+            action="action_school_tuition_fee_config"
+            sequence="1"
+        />
+
     </data>
 </odoo>

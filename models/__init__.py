@@ -11,3 +11,4 @@ from . import student_exam_routine_report
 from . import student_routine_report
 from . import teacher_routine_report
 from . import teacher_exam_routine_report
+from . import school_tuition_fee

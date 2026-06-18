@@ -44,6 +44,8 @@
         "reports/teacher_routine_report.xml",
         "reports/teacher_exam_routine_action.xml",
         "reports/teacher_exam_routine_report.xml",
+        # tuition fees management
+        "views/school_tuition_fee_configuration_views.xml",
         "views/school_base_menu.xml",
     ],
     "assets" :{

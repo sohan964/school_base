@@ -277,11 +277,11 @@ export class SchoolStudentDashboard extends Component{
         });
         const averagePercentage = subjectResults.length ? (totalPercentage / subjectResults.length).toFixed(2) : 0;
 
-        const averageRes = grades.find(g=>averagePercentage >=g.min_mark && averagePercentage<=g.max_mark);
+        const averageRes = grades?.find(g=>averagePercentage >=g.min_mark && averagePercentage<=g.max_mark);
 
         this.state.resultStats.subjectResults = subjectResults;
         this.state.resultStats.averagePercentage = averagePercentage;
-        this.state.resultStats.averageGPA = averageRes.gpa;
+        this.state.resultStats.averageGPA = averageRes?.gpa;
     }
 
     downloadResult = () => {
