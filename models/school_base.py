@@ -91,3 +91,28 @@ class SchoolExamTimeSlot(models.Model):
     start_time = fields.Float(required=True)
     end_time = fields.Float(required=True)
     active = fields.Boolean(default=True)
+
+class SchoolMonth(models.Model):
+    _name = "school.month"
+    _description = "School Month"
+    _order = "sequence"
+
+    name = fields.Char(required=True)
+
+    code = fields.Selection([
+        ('jan', 'January'),
+        ('feb', 'February'),
+        ('mar', 'March'),
+        ('apr', 'April'),
+        ('may', 'May'),
+        ('jun', 'June'),
+        ('jul', 'July'),
+        ('aug', 'August'),
+        ('sep', 'September'),
+        ('oct', 'October'),
+        ('nov', 'November'),
+        ('dec', 'December'),
+    ], required=True)
+
+    sequence = fields.Integer(required=True)
+    

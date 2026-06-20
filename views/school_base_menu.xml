@@ -98,6 +98,30 @@
           name="Results"
           parent="menu_school_exam"
           action="action_school_exam_result"/>
+
+
+          <!-- fees management -->
+        <menuitem
+            id="menu_school_fees"
+            name="Fees"
+            parent="menu_school_root"
+            sequence="30"
+        />
+        <menuitem
+            id="menu_school_tuition_fee"
+            name="Tuition Fee Setup"
+            parent="menu_school_fees"
+            action="action_school_tuition_fee_config"
+            sequence="1"
+        />
+
+        <menuitem
+            id="menu_school_fee_batch"
+            name="Fee Collection"
+            parent="menu_school_fees"
+            action="action_school_fee_batch"
+            sequence="2"
+        />
         
         <!-- CONFIGURATION -->
         <menuitem id="menu_school_configuration"
@@ -122,18 +146,19 @@
           action="action_school_grade"
         />
 
-        <menuitem
-            id="menu_school_fees"
-            name="Fees"
-            parent="menu_school_configuration"
-            sequence="6"
+        <menuitem id="menu_school_month" 
+          name="Months"
+          parent="menu_school_configuration"
+          action="action_school_month"
         />
+
+
 
         <!-- Tuition Fee Configuration -->
         <menuitem
             id="menu_school_tuition_fee"
             name="Fee Configuration"
-            parent="menu_school_fees"
+            parent="menu_school_configuration"
             action="action_school_tuition_fee_config"
             sequence="1"
         />

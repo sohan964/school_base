@@ -1,0 +1,49 @@
+<odoo>
+
+    <!-- List View -->
+    <record id="view_school_month_list" model="ir.ui.view">
+        <field name="name">school.month.list</field>
+        <field name="model">school.month</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="code"/>
+                
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_school_month_form" model="ir.ui.view">
+        <field name="name">school.month.form</field>
+        <field name="model">school.month</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+
+                        <group>
+                            <field name="sequence"/>
+                            
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_month" model="ir.actions.act_window">
+        <field name="name">Months</field>
+        <field name="res_model">school.month</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

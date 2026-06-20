@@ -34,6 +34,7 @@
         "views/school_grade_views.xml",
         "views/school_department_views.xml",
         "views/academic_year_views.xml",
+        "views/school_month_views.xml",
         'reports/student_result_action.xml',
         'reports/student_result_report.xml',
         'reports/student_exam_routine_action.xml',
@@ -46,6 +47,7 @@
         "reports/teacher_exam_routine_report.xml",
         # tuition fees management
         "views/school_tuition_fee_configuration_views.xml",
+        "views/school_fee_batch_views.xml",
         "views/school_base_menu.xml",
     ],
     "assets" :{

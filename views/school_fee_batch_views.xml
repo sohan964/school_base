@@ -1,0 +1,114 @@
+<odoo>
+
+    <!-- List View -->
+    <record id="view_school_fee_batch_list" model="ir.ui.view">
+        <field name="name">school.fee.batch.list</field>
+        <field name="model">school.fee.batch</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="year_id"/>
+                <field name="month_id"/>
+                <field name="last_date"/>
+                <field name="total_students"/>
+                <field name="total_amount"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_school_fee_batch_form" model="ir.ui.view">
+        <field name="name">school.fee.batch.form</field>
+        <field name="model">school.fee.batch</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <header>
+
+                    <button
+                        name="action_generate_students"
+                        string="Generate Students"
+                        type="object"
+                        class="btn-primary"
+                        invisible="state != 'draft'"
+                    />
+
+                    <field
+                        name="state"
+                        widget="statusbar"
+                    />
+
+                </header>
+
+                <sheet>
+
+                    <group>
+
+                        <group>
+                            <field name="name"/>
+                            <field name="year_id"/>
+                        </group>
+
+                        <group>
+                            <field name="month_id"/>
+                            <field name="last_date"/>
+                        </group>
+
+                    </group>
+
+                    <group>
+
+                        <group>
+                            <field name="total_students" readonly="1"/>
+                        </group>
+
+                        <group>
+                            <field name="total_amount" readonly="1"/>
+                        </group>
+
+                    </group>
+
+                    <notebook>
+
+                        <page string="Students">
+
+                            <field name="line_ids">
+
+                                <list editable="bottom">
+
+                                    <field name="student_id" readonly="1"/>
+                                    <field name="department_id" readonly="1"/>
+                                    <field name="class_id" readonly="1"/>
+
+                                    <field name="amount"/>
+
+                                    <field name="paid_amount"/>
+
+                                    <field name="due_amount"
+                                        readonly="1"/>
+
+                                    <field name="state"/>
+
+                                </list>
+
+                            </field>
+
+                        </page>
+
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_fee_batch" model="ir.actions.act_window">
+        <field name="name">Fee Batches</field>
+        <field name="res_model">school.fee.batch</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
