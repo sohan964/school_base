@@ -34,6 +34,21 @@
                         invisible="state != 'draft'"
                     />
 
+                    <button
+                        name="action_reset_to_draft"
+                        string="Reset To Draft"
+                        type="object"
+                        invisible="state != 'generated'"
+                    />
+
+                    <button
+                        name="action_close"
+                        string="Close"
+                        type="object"
+                        class="btn-success"
+                        invisible="state != 'generated'"
+                    />
+
                     <field
                         name="state"
                         widget="statusbar"
@@ -46,13 +61,16 @@
                     <group>
 
                         <group>
-                            <field name="name"/>
-                            <field name="year_id"/>
+                            <field
+                                name="name"
+                                readonly="state != 'draft'"
+                            />
+                            <field name="year_id" readonly="state != 'draft'"/>
                         </group>
 
                         <group>
-                            <field name="month_id"/>
-                            <field name="last_date"/>
+                            <field name="month_id" readonly="state != 'draft'"/>
+                            <field name="last_date" readonly="state != 'draft'"/>
                         </group>
 
                     </group>
@@ -75,20 +93,20 @@
 
                             <field name="line_ids">
 
-                                <list editable="bottom">
+                                <list editable="bottom" readonly="parent.state == 'closed'">
 
                                     <field name="student_id" readonly="1"/>
                                     <field name="department_id" readonly="1"/>
                                     <field name="class_id" readonly="1"/>
 
-                                    <field name="amount"/>
+                                    <field name="amount" readonly="1"/>
 
-                                    <field name="paid_amount"/>
+                                    <field name="paid_amount" readonly="1"/>
 
                                     <field name="due_amount"
                                         readonly="1"/>
 
-                                    <field name="state"/>
+                                    <field name="state" readonly="1"/>
 
                                 </list>
 

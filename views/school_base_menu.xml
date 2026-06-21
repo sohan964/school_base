@@ -105,7 +105,7 @@
             id="menu_school_fees"
             name="Fees"
             parent="menu_school_root"
-            sequence="30"
+            sequence="7"
         />
         <menuitem
             id="menu_school_tuition_fee"
@@ -127,7 +127,7 @@
         <menuitem id="menu_school_configuration"
           name="Configuration"
           parent="menu_school_root"
-          sequence="7"/>
+          sequence="8"/>
         <menuitem id="menu_school_weekly_day"
           name="Weekly Days"
           parent="menu_school_configuration"

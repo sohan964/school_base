@@ -1,5 +1,5 @@
 from odoo import models, api, fields
-
+from odoo.exceptions import ValidationError
 
 class SchoolTuitionFee(models.Model):
     _name = "school.tuition.fee"
@@ -134,6 +134,27 @@ class SchoolFeeBatch(models.Model):
 
         self.state = 'generated'
 
+    def action_reset_to_draft(self):
+        for rec in self:
+            if rec.state == 'closed':
+                raise ValidationError(
+                    "Closed batches cannot be reset to draft."
+                )
+
+            rec.state = 'draft'
+
+    def action_close(self):
+        self.state = 'closed'
+
+    def unlink(self):
+        for rec in self:
+            if rec.state != 'draft':
+                raise ValidationError(
+                    "Only draft batches can be deleted."
+                )
+        return super().unlink()
+    
+    
 
 
 # each student monthly fees.
