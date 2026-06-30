@@ -1,0 +1,54 @@
+<odoo>
+
+    <!-- List View -->
+    <record id="view_school_payment_method_list"
+            model="ir.ui.view">
+        <field name="name">school.payment.method.list</field>
+        <field name="model">school.payment.method</field>
+        <field name="arch" type="xml">
+            <list>
+                
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_school_payment_method_form"
+            model="ir.ui.view">
+        <field name="name">school.payment.method.form</field>
+        <field name="model">school.payment.method</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        
+                            
+                            <field name="active"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="notes"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_payment_method"
+            model="ir.actions.act_window">
+        <field name="name">Payment Methods</field>
+        <field name="res_model">school.payment.method</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

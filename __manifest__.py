@@ -49,6 +49,8 @@
         "views/school_tuition_fee_configuration_views.xml",
         "views/school_fee_batch_views.xml",
         "views/school_fee_batch_line_views.xml",
+        "views/school_payment_method_views.xml",
+        "views/school_fee_payment_views.xml",
         "views/school_base_menu.xml",
     ],
     "assets" :{

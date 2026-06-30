@@ -122,6 +122,20 @@
             action="action_school_fee_batch"
             sequence="2"
         />
+
+        <menuitem
+            id="menu_school_payment_method"
+            name="Payment Methods"
+            parent="menu_school_fees"
+            action="action_school_payment_method"
+            sequence="3"/>
+
+        <menuitem
+            id="menu_school_fee_payment"
+            name="Payments"
+            parent="menu_school_fees"
+            action="action_school_fee_payment"
+            sequence="4"/>
         
         <!-- CONFIGURATION -->
         <menuitem id="menu_school_configuration"

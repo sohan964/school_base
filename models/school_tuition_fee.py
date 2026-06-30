@@ -216,6 +216,13 @@ class SchoolFeeBatchLine(models.Model):
         ('paid', 'Paid')
     ], compute="_compute_state", store=True)
 
+    # payments for this fee
+    payment_ids = fields.One2many(
+        "school.fee.payment",
+        "fee_line_id",
+        string="Payments"
+    )
+
     @api.depends('amount', 'paid_amount')
     def _compute_due_amount(self):
         for rec in self:
