@@ -1,5 +1,5 @@
-from odoo import fields, models
-
+from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 class SchoolPaymentMethod(models.Model):
     _name = "school.payment.method"
@@ -54,6 +54,12 @@ class SchoolFeePayment(models.Model):
         readonly=True
     )
 
+    due_amount = fields.Monetary(
+        related="fee_line_id.due_amount",
+        store=True,
+        readonly=True
+    )
+
     payment_date = fields.Date(
         default=fields.Date.context_today,
         required=True
@@ -88,3 +94,51 @@ class SchoolFeePayment(models.Model):
         ],
         default="draft"
     )
+
+    @api.onchange("fee_line_id")
+    def _onchange_fee_line_id(self):
+        for rec in self:
+            if rec.fee_line_id:
+                rec.amount = rec.fee_line_id.due_amount
+            else:
+                rec.amount = 0.0
+
+    @api.onchange("amount")
+    def _onchange_amount(self):
+        if (
+            self.fee_line_id
+            and self.amount > self.fee_line_id.due_amount
+        ):
+            self.amount = self.fee_line_id.due_amount
+
+            return {
+                "warning": {
+                    "title": "Invalid Amount",
+                    "message": "Payment amount cannot be greater than the due amount.",
+                }
+            }
+        
+    
+    def action_confirm(self):
+        for rec in self:
+
+            if rec.state != "draft":
+                continue
+
+            if rec.amount <= 0:
+                raise ValidationError(
+                    "Payment amount must be greater than zero."
+                )
+
+            rec.fee_line_id.paid_amount += rec.amount
+
+            rec.state = "paid"
+
+
+    def action_cancel(self):
+        for rec in self:
+
+            if rec.state != "draft":
+                continue
+
+            rec.state = "cancel"

@@ -48,6 +48,7 @@
 
                             <field name="fee_line_id"
                                    readonly="1"/>
+                            <field name="due_amount" readonly="1"/>
 
                             <field name="payment_date"/>
 
@@ -57,7 +58,7 @@
 
                             <field name="payment_method_id"/>
 
-                            <field name="amount"/>
+                            <field name="amount" string="Pay Amount"/>
 
                             <field name="reference"/>
 
@@ -72,6 +73,8 @@
                         <field name="remarks"/>
 
                     </group>
+
+                    
 
                 </sheet>
 

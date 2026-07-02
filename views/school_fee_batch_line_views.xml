@@ -65,6 +65,80 @@
                         </group>
                     </group>
 
+                    <notebook>
+
+                    <page string="Payments">
+
+                        <field name="payment_ids"
+                               context="{'default_fee_line_id': id}">
+
+                            <list>
+
+                                <field name="name"/>
+
+                                <field name="payment_date"/>
+
+                                <field name="payment_method_id"/>
+
+                                <field name="amount"/>
+
+                                <field name="state"/>
+
+                            </list>
+
+                            <form>
+
+                                <sheet>
+
+                                    <group>
+
+                                        <group>
+
+                                            <field name="name"
+                                                   readonly="1"/>
+
+                                            <field name="fee_line_id"
+                                                   readonly="1"/>
+
+                                            <field name="student_id"
+                                                   readonly="1"/>
+                                            <field name="due_amount" readonly="1"/>
+
+                                            <field name="payment_date"/>
+
+                                        </group>
+
+                                        <group>
+
+                                            <field name="payment_method_id"/>
+
+                                            <field name="amount"/>
+
+                                            <field name="reference"/>
+
+                                            <field name="transaction_id"/>
+
+                                        </group>
+
+                                    </group>
+
+                                    <group>
+
+                                        <field name="remarks"/>
+
+                                    </group>
+
+                                </sheet>
+
+                            </form>
+
+                        </field>
+
+                    </page>
+
+                </notebook>
+
+
                 </sheet>
 
             </form>
