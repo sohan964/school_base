@@ -28,6 +28,22 @@
 
                 <header>
 
+                    <button
+                        name="action_confirm"
+                        string="Confirm"
+                        type="object"
+                        class="btn-primary"
+                        invisible="state != 'draft'"
+                    />
+
+                    <button
+                        name="action_cancel"
+                        string="Cancel"
+                        type="object"
+                        class="btn-secondary"
+                        invisible="state != 'draft'"
+                    />
+
                     <field
                         name="state"
                         widget="statusbar"
@@ -35,7 +51,7 @@
 
                 </header>
 
-                <sheet>
+                <sheet >
 
                     <group>
 
@@ -50,19 +66,19 @@
                                    readonly="1"/>
                             <field name="due_amount" readonly="1"/>
 
-                            <field name="payment_date"/>
+                            <field name="payment_date" readonly="state != 'draft'"/>
 
                         </group>
 
                         <group>
 
-                            <field name="payment_method_id"/>
+                            <field name="payment_method_id" readonly="state != 'draft'"/>
 
-                            <field name="amount" string="Pay Amount"/>
+                            <field name="amount" string="Pay Amount" readonly="state != 'draft'"/>
 
-                            <field name="reference"/>
+                            <field name="reference" readonly="state != 'draft'"/>
 
-                            <field name="transaction_id"/>
+                            <field name="transaction_id" readonly="state != 'draft'"/>
 
                         </group>
 
@@ -70,7 +86,7 @@
 
                     <group>
 
-                        <field name="remarks"/>
+                        <field name="remarks" readonly="state != 'draft'"/>
 
                     </group>
 

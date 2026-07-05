@@ -72,7 +72,7 @@
                         <field name="payment_ids"
                                context="{'default_fee_line_id': id}">
 
-                            <list>
+                            <list delete="0">
 
                                 <field name="name"/>
 
@@ -104,19 +104,19 @@
                                                    readonly="1"/>
                                             <field name="due_amount" readonly="1"/>
 
-                                            <field name="payment_date"/>
+                                            <field name="payment_date" readonly="state!='draft'"/>
 
                                         </group>
 
                                         <group>
 
-                                            <field name="payment_method_id"/>
+                                            <field name="payment_method_id" readonly="state != 'draft'"/>
 
-                                            <field name="amount"/>
+                                            <field name="amount" readonly="state != 'draft'"/>
 
-                                            <field name="reference"/>
+                                            <field name="reference" readonly="state != 'draft'"/>
 
-                                            <field name="transaction_id"/>
+                                            <field name="transaction_id" readonly="state != 'draft'"/>
 
                                         </group>
 
@@ -124,7 +124,7 @@
 
                                     <group>
 
-                                        <field name="remarks"/>
+                                        <field name="remarks" readonly="state != 'draft'"/>
 
                                     </group>
 

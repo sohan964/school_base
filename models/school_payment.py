@@ -117,6 +117,42 @@ class SchoolFeePayment(models.Model):
                     "message": "Payment amount cannot be greater than the due amount.",
                 }
             }
+    
+    @api.constrains("amount", "fee_line_id")
+    def _check_payment_amount(self):
+        for rec in self:
+            if rec.fee_line_id and rec.amount > rec.fee_line_id.due_amount:
+                raise ValidationError(
+                    "Payment amount cannot be greater than the due amount."
+                )
+            
+    @api.model_create_multi
+    def create(self, vals_list):
+
+        for vals in vals_list:
+            if vals.get("name", "New") == "New":
+                vals["name"] = self.env["ir.sequence"].next_by_code(
+                    "school.fee.payment"
+                ) or "New"
+
+        return super().create(vals_list)
+            
+    def write(self, vals):
+        for rec in self:
+            if rec.state != "draft":
+                raise ValidationError(
+                    "Only draft payments can be modified."
+                )
+
+        return super().write(vals)
+    
+    def unlink(self):
+        for rec in self:
+            if rec.state != "draft":
+                raise ValidationError(
+                    "Only draft payments can be deleted."
+                )
+        return super().unlink()
         
     
     def action_confirm(self):
@@ -129,9 +165,6 @@ class SchoolFeePayment(models.Model):
                 raise ValidationError(
                     "Payment amount must be greater than zero."
                 )
-
-            rec.fee_line_id.paid_amount += rec.amount
-
             rec.state = "paid"
 
 
@@ -140,5 +173,4 @@ class SchoolFeePayment(models.Model):
 
             if rec.state != "draft":
                 continue
-
             rec.state = "cancel"

@@ -196,8 +196,11 @@ class SchoolFeeBatchLine(models.Model):
     )
 
     paid_amount = fields.Monetary(
+        compute="_compute_paid_amount",
+        store=True,
         currency_field="currency_id"
     )
+    
 
     due_amount = fields.Monetary(
         compute="_compute_due_amount",
@@ -240,3 +243,15 @@ class SchoolFeeBatchLine(models.Model):
 
             else:
                 rec.state = 'partial'
+
+    @api.depends(
+        "payment_ids.amount",
+        "payment_ids.state",
+    )
+    def _compute_paid_amount(self):
+        for rec in self:
+            rec.paid_amount = sum(
+                rec.payment_ids.filtered(
+                    lambda p: p.state == "paid"
+                ).mapped("amount")
+            )
