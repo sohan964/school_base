@@ -136,6 +136,12 @@
             parent="menu_school_fees"
             action="action_school_fee_payment"
             sequence="4"/>
+        <menuitem
+            id="menu_school_fee_batch_line"
+            name="Student Fees"
+            parent="menu_school_fees"
+            action="action_school_fee_batch_line"
+            sequence="5"/>
         
         <!-- CONFIGURATION -->
         <menuitem id="menu_school_configuration"

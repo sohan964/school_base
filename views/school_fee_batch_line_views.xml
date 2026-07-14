@@ -152,10 +152,5 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem
-        id="menu_school_fee_batch_line"
-        name="Student Fees"
-        parent="menu_school_fees"
-        action="action_school_fee_batch_line"
-        sequence="4"/>
+    
 </odoo>
