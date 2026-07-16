@@ -53,6 +53,10 @@ export class SchoolStudentDashboard extends Component{
                 routine: [],
                  viewMode: "today",
 
+            },
+            paymentStats:{
+                dues:[],
+                totalDue:0
             }
         })
         
@@ -69,6 +73,7 @@ export class SchoolStudentDashboard extends Component{
             
             await this.getExamResults();
             await this.getTodaysRoutine();
+            await this.getStudentfees();
         })
 
 
@@ -325,6 +330,23 @@ export class SchoolStudentDashboard extends Component{
         const data = await this.orm.searchRead("school.teacher.assignment",domain, ['day_id','slot_id', 'subject_id', 'teacher_id']);
         this.state.routineStats.routine = data;
     }
+
+    // get my payments and dues
+    getStudentfees = async() => {
+        let domain = [
+            ['student_id', '=', this.state.studentInfo.student_id],
+            ['state', 'in', ['unpaid', 'partial']]
+        ]
+
+        const data = await this.orm.searchRead("school.fee.batch.line", domain, ['batch_id', 'due_amount', 'paid_amount', 'state'])
+        console.log("this is the problem",data)
+        this.state.paymentStats.dues = data;
+        this.state.totalDue = data.reduce(
+            (total, line) => total + line.due_amount,
+            0
+        );
+    }
+
 
     onRoutineViewChange = async (ev) => {
             this.state.routineStats.viewMode = ev.target.value;

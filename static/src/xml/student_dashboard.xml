@@ -182,16 +182,16 @@
                                                 <select class="form-select form-select-sm"
                                                         style="width: 120px;"
                                                         t-on-change="onExamRoutineChange">
-                                                        <option value="">
+                                                    <option value="">
                                                             Current Month
                                                         </option>
-                                                        <option
+                                                    <option
                                                             t-foreach="state.resultStats.exams"
                                                             t-as="exam"
                                                             t-key="exam.id"
                                                             t-att-value="exam.id">
-                                                            <t t-esc="exam.name"/>
-                                                        </option>
+                                                        <t t-esc="exam.name"/>
+                                                    </option>
                                                 </select>
                                                 <button
                                                     class="btn btn-primary btn-sm"
@@ -261,7 +261,6 @@
                                                         <t t-esc="exam.name"/>
                                                     </option>
                                                 </select>
-                                                
                                                 <button
                                                     class="btn btn-primary btn-sm"
                                                     style="padding:2px 8px;font-size:12px;"
@@ -377,6 +376,113 @@
                                         <span class="text-warning" t-esc="state.attendanceStats.late"/>
                                     </div>
                                 </div>
+                            </div>
+                            <!-- about payments -->
+                            <div class="card my-2 soft-card border-0">
+
+                                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+
+                                    <h5 class="mb-0">
+                                        Outstanding Fees
+                                    </h5>
+
+                                    <span class="badge bg-danger">
+                                        Total Due:
+                                        <t t-esc="state.paymentStats.totalDue"/>
+                                    </span>
+
+                                </div>
+
+                                <div class="card-body p-0">
+
+                                    <div class="table-responsive">
+
+                                        <table class="table table-hover align-middle mb-0">
+
+                                            <thead class="table-light">
+
+                                                <tr>
+                                                    <th>Month</th>
+                                                    <th class="text-end">Total</th>
+                                                    <th class="text-end">Paid</th>
+                                                    <th class="text-end">Due</th>
+                                                    <th class="text-center">Status</th>
+                                                    <th class="text-center">Action</th>
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr t-if="!state.paymentStats.dues.length">
+                                                    <td colspan="6"
+                                                        class="text-center text-muted py-4">
+                                                        No outstanding fees found.
+                                                    </td>
+                                                </tr>
+
+                                                <tr
+                                                    t-foreach="state.paymentStats.dues"
+                                                    t-as="fee"
+                                                    t-key="fee.id">
+
+                                                    <td>
+                                                        <t t-esc="fee.batch_id[1]"/>
+                                                    </td>
+
+                                                    <td class="text-end">
+                                                        
+                                                        <t t-esc="fee.paid_amount + fee.due_amount"/>
+                                                    </td>
+
+                                                    <td class="text-end text-success fw-semibold">
+                                                        
+                                                        <t t-esc="fee.paid_amount"/>
+                                                    </td>
+
+                                                    <td class="text-end text-danger fw-semibold">
+                                                        
+                                                        <t t-esc="fee.due_amount"/>
+                                                    </td>
+
+                                                    <td class="text-center">
+
+                                                        <span
+                                                            t-att-class="{
+                                                                'badge bg-danger': fee.state === 'unpaid',
+                                                                'badge bg-warning text-dark': fee.state === 'partial'
+                                                            }">
+
+                                                            <t t-esc="fee.state"/>
+
+                                                        </span>
+
+                                                    </td>
+
+                                                    <td class="text-center">
+
+                                                        <button
+                                                            class="btn btn-success btn-sm"
+                                                            style="padding:2px 8px;font-size:12px;">
+
+                                                            <!-- <i class="bi bi-credit-card me-1"/> -->
+
+                                                            Pay
+
+                                                        </button>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
