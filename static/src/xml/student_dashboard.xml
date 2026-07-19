@@ -463,6 +463,7 @@
 
                                                         <button
                                                             class="btn btn-success btn-sm"
+                                                            t-on-click="() => this.openPaymentDialog(fee)"
                                                             style="padding:2px 8px;font-size:12px;">
 
                                                             <!-- <i class="bi bi-credit-card me-1"/> -->

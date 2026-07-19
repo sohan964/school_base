@@ -3,6 +3,7 @@ import { Component, useState, onWillStart } from "@odoo/owl"
 import {useService} from "@web/core/utils/hooks"
 import {KpiCard} from "../components/kpi_card/kpi_card"
 import {ChartRenderer} from "../components/chart_renderer/chart_renderer"
+import { PaymentDialog } from "../components/payment_dialog/payment_dialog"
 import {user} from "@web/core/user"
 export class SchoolStudentDashboard extends Component{
     setup(){
@@ -62,6 +63,8 @@ export class SchoolStudentDashboard extends Component{
         
 
         this.orm = useService("orm");
+        this.dialog = useService("dialog");
+
         onWillStart(async ()=>{
             await this.getAccademicYear();
             await this.getStudentInfo();
@@ -345,6 +348,14 @@ export class SchoolStudentDashboard extends Component{
             (total, line) => total + line.due_amount,
             0
         );
+    }
+
+    //open payment wizard form
+    openPaymentDialog(fee) {
+        this.dialog.add(PaymentDialog, {
+            fee: fee,
+            studentName: this.state.studentInfo.name,
+        });
     }
 
 
