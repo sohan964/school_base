@@ -51,6 +51,10 @@
         "views/school_fee_batch_line_views.xml",
         "views/school_payment_method_views.xml",
         "views/school_fee_payment_views.xml",
+
+        #bkash integration
+        "views/res_config_settings_views.xml",
+
         "views/school_base_menu.xml",
     ],
     "assets" :{

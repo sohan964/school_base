@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="res_config_settings_view_form_bkash_demo" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.school.base</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="School Base" name="schoo_base">
+                    <block title="Sandbox Configuration">
+                        <setting string="Base URL"><field name="bkash_base_url"/></setting>
+                        <setting string="Username"><field name="bkash_username"/></setting>
+                        <setting string="Password"><field name="bkash_password" password="True"/></setting>
+                        <setting string="App Key"><field name="bkash_app_key"/></setting>
+                        <setting string="App Secret"><field name="bkash_app_secret" password="True"/></setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
