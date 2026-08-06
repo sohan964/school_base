@@ -34,14 +34,11 @@
 
                     <select class="form-select" t-on-change="onMethodChange">
                         <option value="">Select Payment Method</option>
-                        
                         <option
                             t-foreach="state.paymentMethods"
                             t-as="method"
                             t-key="method.id"
-                            t-att-value="method.id"
-
-                        >   
+                            t-att-value="method.code">
                             <t t-esc="method.name"/>
                         </option>
                     </select>

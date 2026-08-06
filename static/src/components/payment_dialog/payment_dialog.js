@@ -16,7 +16,7 @@ export class PaymentDialog extends Component {
 
     setup() {
         this.state = useState({
-            paymentMethod: "",
+            paymentMethod: null,
             amountToPay: this.props.fee.due_amount,
             paymentMethods: []
         });
@@ -49,30 +49,55 @@ export class PaymentDialog extends Component {
     }
 
     onMethodChange(ev) {
-        this.state.paymentMethod = ev.target.value;
+
+        const methodCode = ev.target.value;
+
+        this.state.paymentMethod =
+            this.state.paymentMethods.find(
+                method => method.code === methodCode
+            ) || null;
     }
 
     onAmountChange(ev) {
         this.state.amountToPay = parseFloat(ev.target.value) || 0;
     }
 
-    payNow() {
+    async payNow() {
+
         if (!this.state.paymentMethod) {
-            alert("Please select a payment method");
-            return;
-        }
-        if (this.state.amountToPay <= 0 || this.state.amountToPay > this.dueAmount) {
-            alert("Please enter a valid amount");
+            alert("Please select a payment method.");
             return;
         }
 
-        console.log("Paying", {
-            fee_line_id: this.props.fee.id,
-            amount: this.state.amountToPay,
-            method: this.state.paymentMethod,
-        });
+        if (
+            this.state.amountToPay <= 0 ||
+            this.state.amountToPay > this.dueAmount
+        ) {
+            alert("Please enter a valid amount.");
+            return;
+        }
 
-        // TODO: call this.orm.call(...) here to create the payment record
+        const result = await this.orm.call(
+            "school.fee.payment",
+            "student_pay_fee",
+            [
+                {
+                    fee_line_id: this.props.fee.id,
+                    payment_method_id: this.state.paymentMethod.id,
+                    amount: this.state.amountToPay,
+                }
+            ]
+        );
+
+        console.log(result);
+
+        if (
+            result.success &&
+            result.redirect_url
+        ) {
+            window.location.href = result.redirect_url;
+            return;
+        }
 
         this.props.close();
     }

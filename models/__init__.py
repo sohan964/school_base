@@ -14,3 +14,4 @@ from . import teacher_exam_routine_report
 from . import school_tuition_fee
 from . import school_payment
 from . import res_config_settings
+from . import school_bkash_payment

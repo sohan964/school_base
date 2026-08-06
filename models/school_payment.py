@@ -1,5 +1,7 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
+
+from ..services.bkash_api import BkashAPI
 
 class SchoolPaymentMethod(models.Model):
     _name = "school.payment.method"
@@ -174,3 +176,101 @@ class SchoolFeePayment(models.Model):
             if rec.state != "draft":
                 continue
             rec.state = "cancel"
+
+
+
+    # this are about payment by student dashboard
+    
+    @api.model
+    def student_pay_fee(self, values):
+        """
+        Entry point for student online payment.
+        """
+
+        fee_line_id = values.get("fee_line_id")
+        payment_method_id = values.get("payment_method_id")
+        amount = values.get("amount")
+
+        fee_line = self.env["school.fee.batch.line"].browse(
+            fee_line_id
+        )
+
+        if not fee_line.exists():
+            raise ValidationError(
+                _("Fee line not found.")
+            )
+
+        if amount <= 0:
+            raise ValidationError(
+                _("Amount must be greater than zero.")
+            )
+
+        if amount > fee_line.due_amount:
+            raise ValidationError(
+                _("Amount cannot be greater than due amount.")
+            )
+
+        payment_method = self.env[
+            "school.payment.method"
+        ].browse(payment_method_id)
+
+        payment = self.create({
+            "fee_line_id": fee_line.id,
+            "payment_method_id": payment_method.id,
+            "amount": amount,
+        })
+
+        if payment_method.code == "bkash":
+            return payment._start_bkash_payment()
+
+        return {
+            "success": True,
+            "payment_id": payment.id,
+            "message": "Payment created successfully.",
+        }
+
+
+    def _start_bkash_payment(self):
+        self.ensure_one()
+
+        api = BkashAPI(self.env)
+
+        callback_url = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("web.base.url")
+            + "/bkash/callback"
+        )
+
+        merchant_invoice = self.name
+
+        result = api.create_payment(
+            amount=self.amount,
+            payer_reference="",
+            merchant_invoice=merchant_invoice,
+            callback_url=callback_url,
+        )
+
+        if result.get("statusCode") != "0000":
+            raise ValidationError(
+                result.get("statusMessage")
+            )
+
+        bkash_payment = self.env[
+            "school.bkash.payment"
+        ].create({
+            "fee_payment_id": self.id,
+            "amount": self.amount,
+            "payer_reference": self.student_id.phone or "",
+            "merchant_invoice": merchant_invoice,
+            "callback_url": callback_url,
+            "bkash_payment_id": result.get("paymentID"),
+            "bkash_url": result.get("bkashURL"),
+            "status": "pending",
+            "create_response": str(result),
+        })
+
+        return {
+            "success": True,
+            "redirect_url": bkash_payment.bkash_url,
+        }
