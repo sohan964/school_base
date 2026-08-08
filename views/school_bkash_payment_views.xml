@@ -1,0 +1,65 @@
+<odoo>
+    <record id="view_school_bkash_payment_list" model="ir.ui.view">
+        <field name="name">school.bkash.payment.list</field>
+        <field name="model">school.bkash.payment</field>
+        <field name="arch" type="xml">
+            <list string="bKash Transactions">
+                <field name="fee_payment_id" readonly="1"/>
+                <field name="bkash_payment_id" readonly="1"/>
+                <field name="amount" readonly="1"/>
+                <field name="currency_id" readonly="1"/>
+                <field name="payer_reference" readonly="1"/>
+                <field name="merchant_invoice" readonly="1"/>
+                <field name="trx_id" readonly="1"/>
+                <field name="status" readonly="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_school_bkash_payment_form" model="ir.ui.view">
+        <field name="name">school.bkash.payment.form</field>
+        <field name="model">school.bkash.payment</field>
+        <field name="arch" type="xml">
+            <form string="bKash Transaction">
+                <sheet>
+                    <group>
+                        <field name="fee_payment_id" readonly="1"/>
+                        <field name="bkash_payment_id" readonly="1"/>
+                        <field name="bkash_url" readonly="1"/>
+                        <field name="trx_id" readonly="1"/>
+                        <field name="amount" readonly="1"/>
+                        <field name="currency_id" readonly="1"/>
+                        <field name="payer_reference" readonly="1"/>
+                        <field name="merchant_invoice" readonly="1"/>
+                        <field name="callback_url" readonly="1"/>
+                        <field name="status" readonly="1"/>
+                    </group>
+
+                    <group>
+                        <field name="create_response" readonly="1"/>
+                        <field name="execute_response" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_school_bkash_payment" model="ir.actions.act_window">
+        <field name="name">bKash Transactions</field>
+        <field name="res_model">school.bkash.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bKash transactions found.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_school_bkash_payment"
+        name="bKash Transactions"
+        parent="menu_school_fees"
+        action="action_school_bkash_payment"
+        sequence="20"
+    />
+</odoo>

@@ -246,7 +246,7 @@ class SchoolFeePayment(models.Model):
 
         result = api.create_payment(
             amount=self.amount,
-            payer_reference="",
+            payer_reference=merchant_invoice,
             merchant_invoice=merchant_invoice,
             callback_url=callback_url,
         )
@@ -261,7 +261,7 @@ class SchoolFeePayment(models.Model):
         ].create({
             "fee_payment_id": self.id,
             "amount": self.amount,
-            "payer_reference": self.student_id.phone or "",
+            "payer_reference": merchant_invoice,
             "merchant_invoice": merchant_invoice,
             "callback_url": callback_url,
             "bkash_payment_id": result.get("paymentID"),

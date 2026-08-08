@@ -37,7 +37,10 @@ class SchoolBkashPayment(models.Model):
         store=True,
     )
 
-    payer_reference = fields.Char()
+    payer_reference = fields.Char(
+        string="Payer Reference",
+        readonly=True,
+    )
 
     merchant_invoice = fields.Char()
 
@@ -53,5 +56,5 @@ class SchoolBkashPayment(models.Model):
         default="draft",
     )
 
-    create_response = fields.Text()
+
     execute_response = fields.Text()
