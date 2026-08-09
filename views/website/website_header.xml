@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template
+        id="school_website_header"
+        name="School Website Header"
+    >
+
+        <!-- ===================================================== -->
+        <!-- TOP INFORMATION BAR -->
+        <!-- ===================================================== -->
+
+        <div class="bg-dark text-white d-none d-lg-block">
+
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center py-2 small">
+
+                    <!-- Contact Information -->
+
+                    <div class="d-flex align-items-center gap-4">
+
+                        <span class="text-nowrap">
+                            <i class="fa fa-phone me-1"/>
+                            +880 1XXX-XXXXXX
+                        </span>
+
+                        <span class="text-nowrap">
+                            <i class="fa fa-envelope me-1"/>
+                            info@greenfield.edu.bd
+                        </span>
+
+                        <span class="text-nowrap">
+                            <i class="fa fa-map-marker me-1"/>
+                            Dhaka, Bangladesh
+                        </span>
+
+                    </div>
+
+
+                    <!-- Right Information -->
+
+                    <div class="d-flex align-items-center gap-4">
+
+                        <span class="text-nowrap">
+                            Academic Year 2026
+                        </span>
+
+                        <a
+                            href="/web/login"
+                            class="text-white text-decoration-none text-nowrap"
+                        >
+                            <i class="fa fa-user me-1"/>
+                            Student Portal
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================================================== -->
+        <!-- MAIN NAVBAR -->
+        <!-- ===================================================== -->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+
+            <div class="container">
+
+
+                <!-- ================================================= -->
+                <!-- SCHOOL BRAND -->
+                <!-- ================================================= -->
+
+                <a
+                    class="navbar-brand d-flex align-items-center me-3"
+                    href="/"
+                >
+
+                    <!-- Logo -->
+
+                    <img
+                        t-att-src="'/web/image/res.company/%s/logo' % website.company_id.id"
+                        t-att-alt="website.company_id.name"
+                        class="me-2"
+                        style="height:44px;width:auto;"
+                    />
+
+
+                    <!-- School Information -->
+
+                    <div class="lh-sm">
+
+                        <div class="fw-bold fs-5 text-dark text-nowrap">
+                            Greenfield Academy
+                        </div>
+
+                        <small class="text-muted d-none d-sm-block">
+                            Learn • Grow • Lead
+                        </small>
+
+                    </div>
+
+                </a>
+
+
+                <!-- ================================================= -->
+                <!-- MOBILE TOGGLE -->
+                <!-- ================================================= -->
+
+                <button
+                    class="navbar-toggler ms-auto"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#schoolNavbar"
+                    aria-controls="schoolNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+
+                    <span class="navbar-toggler-icon"/>
+
+                </button>
+
+
+                <!-- ================================================= -->
+                <!-- NAVIGATION -->
+                <!-- ================================================= -->
+
+                <div
+                    class="collapse navbar-collapse"
+                    id="schoolNavbar"
+                >
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+                        <!-- HOME -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link active fw-semibold text-nowrap"
+                                href="/"
+                            >
+                                Home
+                            </a>
+
+                        </li>
+
+
+                        <!-- ABOUT -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle text-nowrap"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                About
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/about"
+                                    >
+                                        About School
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/principal-message"
+                                    >
+                                        Principal's Message
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/mission-vision"
+                                    >
+                                        Mission &amp; Vision
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/faculty"
+                                    >
+                                        Faculty &amp; Staff
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- ACADEMICS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle text-nowrap"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Academics
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/academics"
+                                    >
+                                        Academic Programs
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/departments"
+                                    >
+                                        Departments
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/academic-calendar"
+                                    >
+                                        Academic Calendar
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- ADMISSIONS -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link text-nowrap"
+                                href="/admissions"
+                            >
+                                Admissions
+                            </a>
+
+                        </li>
+
+
+                        <!-- CAMPUS LIFE -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle text-nowrap"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Campus Life
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/campus-life"
+                                    >
+                                        Campus Life
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/clubs"
+                                    >
+                                        Clubs &amp; Activities
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/sports"
+                                    >
+                                        Sports
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="/facilities"
+                                    >
+                                        Facilities
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- NEWS -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link text-nowrap"
+                                href="/news"
+                            >
+                                News &amp; Events
+                            </a>
+
+                        </li>
+
+
+                        <!-- CONTACT -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link text-nowrap"
+                                href="/contact"
+                            >
+                                Contact
+                            </a>
+
+                        </li>
+
+
+                        <!-- STUDENT PORTAL -->
+
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                            <a
+                                href="/web/login"
+                                class="btn btn-outline-primary text-nowrap w-100"
+                            >
+
+                                <i class="fa fa-user me-1"/>
+
+                                Student Portal
+
+                            </a>
+
+                        </li>
+
+
+                        <!-- APPLY NOW -->
+
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                            <a
+                                href="/admissions"
+                                class="btn btn-primary text-nowrap w-100"
+                            >
+                                Apply Now
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </template>
+
+</odoo>

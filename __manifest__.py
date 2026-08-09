@@ -6,7 +6,7 @@
     "author": "Your Name",
     "category": "Education",
     "license": "LGPL-3",
-    "depends": ["base", "mail", 'web'],
+    "depends": ["base", "mail", 'web','website'],
     "data": [
         "security/school_base_groups.xml",
         "security/school_record_rules.xml",
@@ -55,6 +55,11 @@
 
         #bkash integration
         "views/res_config_settings_views.xml",
+
+        #website parts
+        "views/website/website_header.xml",
+        "views/website/website_layout.xml",
+        "views/website/website_home.xml",
 
         "views/school_base_menu.xml",
     ],

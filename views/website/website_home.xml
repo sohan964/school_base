@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template
+        id="website_home"
+        name="School Website Home"
+    >
+
+        <t t-call="website.layout">
+            <t t-call="school_base.school_website_header"/>
+
+            <div id="wrap">
+
+                <!-- HERO -->
+                <section class="py-5 bg-light">
+
+                    <div class="container py-5">
+
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-7">
+
+                                <span class="badge bg-primary mb-3">
+                                    Welcome to Our School
+                                </span>
+
+                                <h1 class="display-3 fw-bold">
+                                    Inspiring Minds.
+                                    <br/>
+                                    <span class="text-primary">
+                                        Shaping Futures.
+                                    </span>
+                                </h1>
+
+                                <p class="lead text-muted mt-4">
+                                    A place where curiosity becomes knowledge,
+                                    students discover their potential, and
+                                    every learner is prepared for a brighter future.
+                                </p>
+
+                                <div class="mt-4">
+
+                                    <a
+                                        href="/admissions"
+                                        class="btn btn-primary btn-lg me-2"
+                                    >
+                                        Apply for Admission
+                                    </a>
+
+                                    <a
+                                        href="/about"
+                                        class="btn btn-outline-dark btn-lg"
+                                    >
+                                        Discover Our School
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                                <div class="p-5 bg-white rounded-4 shadow">
+
+                                    <div class="text-center">
+
+                                        <div
+                                            class="display-1 text-primary mb-3"
+                                        >
+                                            🎓
+                                        </div>
+
+                                        <h3 class="fw-bold">
+                                            Excellence in Education
+                                        </h3>
+
+                                        <p class="text-muted">
+                                            Learn. Grow. Lead.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- QUICK INTRO -->
+                <section class="py-5">
+
+                    <div class="container py-4">
+
+                        <div class="row text-center g-4">
+
+                            <div class="col-md-4">
+
+                                <div class="p-4">
+
+                                    <h2 class="fw-bold text-primary">
+                                        20+
+                                    </h2>
+
+                                    <p class="text-muted mb-0">
+                                        Years of Educational Excellence
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="p-4">
+
+                                    <h2 class="fw-bold text-primary">
+                                        1,500+
+                                    </h2>
+
+                                    <p class="text-muted mb-0">
+                                        Students
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="p-4">
+
+                                    <h2 class="fw-bold text-primary">
+                                        100+
+                                    </h2>
+
+                                    <p class="text-muted mb-0">
+                                        Dedicated Teachers
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- WHY CHOOSE US -->
+                <section class="py-5 bg-light">
+
+                    <div class="container py-5">
+
+                        <div class="text-center mb-5">
+
+                            <span class="text-primary fw-semibold">
+                                WHY CHOOSE US
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2">
+                                Education Beyond the Classroom
+                            </h2>
+
+                            <p class="text-muted mx-auto"
+                               style="max-width: 700px;">
+
+                                We combine strong academics, supportive
+                                teachers, and meaningful student experiences
+                                to create an environment where learners thrive.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="row g-4">
+
+                            <div class="col-md-4">
+
+                                <div class="card border-0 shadow-sm h-100">
+
+                                    <div class="card-body p-4">
+
+                                        <div class="fs-1 mb-3">
+                                            📚
+                                        </div>
+
+                                        <h4 class="fw-bold">
+                                            Strong Academics
+                                        </h4>
+
+                                        <p class="text-muted">
+                                            A structured academic environment
+                                            designed to develop knowledge,
+                                            creativity, and critical thinking.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <div class="card border-0 shadow-sm h-100">
+
+                                    <div class="card-body p-4">
+
+                                        <div class="fs-1 mb-3">
+                                            👩‍🏫
+                                        </div>
+
+                                        <h4 class="fw-bold">
+                                            Dedicated Teachers
+                                        </h4>
+
+                                        <p class="text-muted">
+                                            Experienced educators who guide
+                                            students and support their academic
+                                            and personal development.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <div class="card border-0 shadow-sm h-100">
+
+                                    <div class="card-body p-4">
+
+                                        <div class="fs-1 mb-3">
+                                            🌱
+                                        </div>
+
+                                        <h4 class="fw-bold">
+                                            Student Growth
+                                        </h4>
+
+                                        <p class="text-muted">
+                                            Opportunities for students to
+                                            develop confidence, leadership,
+                                            collaboration, and life skills.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ACADEMIC PROGRAMS -->
+                <section class="py-5">
+
+                    <div class="container py-5">
+
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-6">
+
+                                <span class="text-primary fw-semibold">
+                                    OUR ACADEMICS
+                                </span>
+
+                                <h2 class="display-6 fw-bold mt-2">
+                                    Learning Designed for Every Stage
+                                </h2>
+
+                                <p class="text-muted mt-3">
+                                    Our academic programs are designed to
+                                    support students at every stage of their
+                                    educational journey.
+                                </p>
+
+                                <a
+                                    href="/academics"
+                                    class="btn btn-dark mt-3"
+                                >
+                                    Explore Academics
+                                </a>
+
+                            </div>
+
+
+                            <div class="col-lg-6 mt-4 mt-lg-0">
+
+                                <div class="row g-3">
+
+                                    <div class="col-6">
+
+                                        <div class="p-4 bg-light rounded-4">
+
+                                            <h5 class="fw-bold">
+                                                Primary
+                                            </h5>
+
+                                            <p class="small text-muted mb-0">
+                                                Building strong foundations.
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-6">
+
+                                        <div class="p-4 bg-light rounded-4">
+
+                                            <h5 class="fw-bold">
+                                                Secondary
+                                            </h5>
+
+                                            <p class="small text-muted mb-0">
+                                                Developing knowledge and skills.
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-6">
+
+                                        <div class="p-4 bg-light rounded-4">
+
+                                            <h5 class="fw-bold">
+                                                Higher Education
+                                            </h5>
+
+                                            <p class="small text-muted mb-0">
+                                                Preparing students for the future.
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-6">
+
+                                        <div class="p-4 bg-light rounded-4">
+
+                                            <h5 class="fw-bold">
+                                                Activities
+                                            </h5>
+
+                                            <p class="small text-muted mb-0">
+                                                Learning beyond academics.
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ADMISSION CTA -->
+                <section class="py-5 bg-primary text-white">
+
+                    <div class="container py-5">
+
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-8">
+
+                                <h2 class="display-6 fw-bold">
+                                    Give Your Child a Stronger Future
+                                </h2>
+
+                                <p class="lead mb-0">
+                                    Discover our programs and begin your
+                                    admission journey today.
+                                </p>
+
+                            </div>
+
+                            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+
+                                <a
+                                    href="/admissions"
+                                    class="btn btn-light btn-lg"
+                                >
+                                    Start Admission
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

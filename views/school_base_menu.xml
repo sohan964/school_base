@@ -142,6 +142,13 @@
             parent="menu_school_fees"
             action="action_school_fee_batch_line"
             sequence="5"/>
+        <menuitem
+            id="menu_school_bkash_payment"
+            name="bKash Transactions"
+            parent="menu_school_fees"
+            action="action_school_bkash_payment"
+            sequence="6"
+        />
         
         <!-- CONFIGURATION -->
         <menuitem id="menu_school_configuration"
