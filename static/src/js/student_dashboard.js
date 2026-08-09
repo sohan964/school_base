@@ -342,9 +342,10 @@ export class SchoolStudentDashboard extends Component{
         ]
 
         const data = await this.orm.searchRead("school.fee.batch.line", domain, ['batch_id', 'due_amount', 'paid_amount', 'state'])
-        console.log("this is the problem",data)
+        
         this.state.paymentStats.dues = data;
-        this.state.totalDue = data.reduce(
+        
+        this.state.paymentStats.totalDue = data.reduce(
             (total, line) => total + line.due_amount,
             0
         );
