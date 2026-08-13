@@ -58,7 +58,7 @@
 
         #website parts
         "views/website/website_header.xml",
-        "views/website/website_layout.xml",
+        # "views/website/website_layout.xml",
         "views/website/website_home.xml",
 
         "views/school_base_menu.xml",
@@ -73,7 +73,12 @@
             'school_base/static/src/components/**/*.css',
             'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css',
 
-        ]
+        ],
+        "web.assets_frontend": [
+            'school_base/static/src/js/*.js',
+           
+        ],
+
     },
     "installable": True,
     "application": True,
