@@ -190,5 +190,15 @@
             sequence="1"
         />
 
+        <!-- events -->
+
+        <menuitem
+            id="school_event_menu"
+            name="News &amp; Events"
+            parent="menu_school_root"
+            action="school_event_action"
+            sequence="9"
+        />
+
     </data>
 </odoo>

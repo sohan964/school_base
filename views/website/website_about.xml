@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- =========================================================
+         ABOUT US PAGE
+    ========================================================== -->
+
+    <template
+        id="website_about"
+        name="School About Us"
+    >
+
+        <t t-call="website.layout">
+
+            <!-- =================================================
+                 ABOUT HERO
+            ================================================== -->
+
+            <section
+                class="position-relative overflow-hidden text-white"
+                style="
+                    min-height: 420px;
+                    background-image:
+                        linear-gradient(
+                            rgba(0, 0, 0, 0.45),
+                            rgba(0, 0, 0, 0.45)
+                        ),
+                        url('/school_base/static/src/img/school-hero.webp');
+                    background-size: cover;
+                    background-position: center;
+                "
+            >
+
+                <div
+                    class="container position-relative d-flex align-items-center justify-content-center text-center"
+                    style="min-height: 420px;"
+                >
+
+                    <div>
+
+                        <!-- Small Label -->
+
+                        <div
+                            class="text-uppercase fw-semibold small mb-3"
+                            style="letter-spacing: 4px;"
+                        >
+                            Greenfield Academy
+                        </div>
+
+
+                        <!-- Main Heading -->
+
+                        <h1 class="display-3 fw-bold mb-3">
+                            About Our School
+                        </h1>
+
+
+                        <!-- Description -->
+
+                        <p
+                            class="lead text-white-50 mb-4 mx-auto"
+                            style="max-width: 700px;"
+                        >
+                            Inspiring young minds to learn, grow,
+                            and lead with confidence.
+                        </p>
+
+
+                        <!-- Breadcrumb -->
+
+                        <div class="small">
+
+                            <a
+                                href="/"
+                                class="text-white text-decoration-none"
+                            >
+                                Home
+                            </a>
+
+                            <span class="mx-2">
+                                /
+                            </span>
+
+                            <span class="text-white-50">
+                                About Us
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ABOUT INTRO
+            ================================================== -->
+
+            <section class="bg-white py-5">
+
+                <div class="container py-lg-4">
+
+                    <div class="row align-items-center g-5">
+
+                        <!-- IMAGE -->
+
+                        <div class="col-lg-6">
+
+                            <img
+                                src="/school_base/static/src/img/school-hero.webp"
+                                alt="Greenfield Academy Campus"
+                                class="img-fluid rounded-3 shadow-sm w-100"
+                                style="
+                                    height: 450px;
+                                    object-fit: cover;
+                                "
+                            />
+
+                        </div>
+
+
+                        <!-- CONTENT -->
+
+                        <div class="col-lg-6">
+
+                            <span
+                                class="text-uppercase text-primary fw-semibold small"
+                                style="letter-spacing: 3px;"
+                            >
+                                Who We Are
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2 mb-4">
+                                A Place Where Every Student Can Grow
+                            </h2>
+
+                            <p class="text-muted">
+                                Greenfield Academy is committed to
+                                creating a supportive and inspiring
+                                environment where students can develop
+                                their knowledge, skills, character,
+                                and confidence.
+                            </p>
+
+                            <p class="text-muted">
+                                Through dedicated teachers, meaningful
+                                learning experiences, and a strong
+                                sense of community, we prepare students
+                                to face the future with curiosity,
+                                responsibility, and purpose.
+                            </p>
+
+                            <div class="mt-4">
+
+                                <a
+                                    href="/academics"
+                                    class="btn btn-primary px-4"
+                                >
+                                    Explore Academics
+                                    <i class="fa fa-arrow-right ms-2"/>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================================
+                MISSION & VISION
+            ========================================================== -->
+
+            <section
+                class="position-relative py-5 overflow-hidden"
+                style="
+                    background-image:
+                        linear-gradient(
+                            rgba(0, 0, 0, 0.30),
+                            rgba(0, 0, 0, 0.30)
+                        ),
+                        url('/school_base/static/src/img/school-hero.webp');
+                    background-size: cover;
+                    background-position: center;
+                    background-attachment: fixed;
+                "
+            >
+
+                <div class="container position-relative py-lg-4">
+
+                    <!-- SECTION HEADING -->
+
+                    <div class="text-center mb-5">
+
+                        <span
+                            class="text-uppercase text-primary fw-semibold small"
+                            style="letter-spacing: 3px;"
+                        >
+                            What Drives Us
+                        </span>
+
+                        <h2 class="display-6 text-white fw-bold mt-2">
+                            Our Mission &amp; Vision
+                        </h2>
+
+                        <p
+                            class="text-muted text-white mx-auto mb-0"
+                            style="max-width: 700px;"
+                        >
+                            We believe education is about more than academic
+                            achievement. It is about preparing students for
+                            life, leadership, and a changing world.
+                        </p>
+
+                    </div>
+
+
+                    <!-- MISSION / VISION -->
+
+                    <div class="row g-4 justify-content-center">
+
+                        <!-- MISSION -->
+
+                        <div class="col-lg-5">
+
+                            <div class="bg-white rounded-3 shadow-sm p-4 p-lg-5 h-100">
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 65px;
+                                        height: 65px;
+                                    "
+                                >
+
+                                    <i class="fa fa-bullseye fs-4"/>
+
+                                </div>
+
+                                <h3 class="h3 fw-bold mb-3">
+                                    Our Mission
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    To provide a supportive and engaging learning
+                                    environment where every student can discover
+                                    their potential, develop strong character, and
+                                    gain the knowledge and skills needed to make a
+                                    positive contribution to society.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- VISION -->
+
+                        <div class="col-lg-5">
+
+                            <div class="bg-white rounded-3 shadow-sm p-4 p-lg-5 h-100">
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 65px;
+                                        height: 65px;
+                                    "
+                                >
+
+                                    <i class="fa fa-eye fs-4"/>
+
+                                </div>
+
+                                <h3 class="h3 fw-bold mb-3">
+                                    Our Vision
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    To become a leading educational institution
+                                    where students are inspired to think
+                                    creatively, act responsibly, embrace
+                                    diversity, and confidently shape a better
+                                    future.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================================
+                PRINCIPAL'S MESSAGE
+            ========================================================== -->
+
+            <section class="bg-white py-5">
+
+                <div class="container py-lg-4">
+
+                    <div class="row align-items-center g-5">
+
+                        <!-- PRINCIPAL IMAGE -->
+
+                        <div class="col-lg-5">
+
+                            <div class="position-relative">
+
+                                <img
+                                    src="/school_base/static/src/img/school-hero.webp"
+                                    alt="Principal of Greenfield Academy"
+                                    class="img-fluid rounded-3 shadow-sm w-100"
+                                    style="
+                                        height: 520px;
+                                        object-fit: cover;
+                                    "
+                                />
+
+                                <!-- NAME CARD -->
+
+                                <div
+                                    class="position-absolute bottom-0 start-0 m-3 bg-white rounded-3 shadow-sm px-4 py-3"
+                                >
+
+                                    <div class="fw-bold">
+                                        Dr. Sarah Rahman
+                                    </div>
+
+                                    <div class="small text-muted">
+                                        Principal
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="col-lg-7">
+
+                            <span
+                                class="text-uppercase text-primary fw-semibold small"
+                                style="letter-spacing: 3px;"
+                            >
+                                Leadership
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2 mb-4">
+                                A Message From Our Principal
+                            </h2>
+
+                            <div class="text-muted">
+
+                                <p class="lead">
+                                    Welcome to Greenfield Academy.
+                                </p>
+
+                                <p>
+                                    Education is one of the most powerful journeys
+                                    a young person can undertake. At Greenfield
+                                    Academy, we strive to make that journey
+                                    meaningful, inspiring, and rewarding for every
+                                    student.
+                                </p>
+
+                                <p>
+                                    Our dedicated teachers work closely with
+                                    students to encourage curiosity, creativity,
+                                    responsibility, and a lifelong love of learning.
+                                    We believe that every student has unique
+                                    strengths and deserves the opportunity to
+                                    discover and develop them.
+                                </p>
+
+                                <p>
+                                    Together with our parents and wider community,
+                                    we are committed to creating an environment
+                                    where students feel supported, respected, and
+                                    confident about their future.
+                                </p>
+
+                            </div>
+
+
+                            <!-- SIGNATURE -->
+
+                            <div class="mt-4">
+
+                                <div
+                                    class="fw-bold fs-5"
+                                >
+                                    Dr. Sarah Rahman
+                                </div>
+
+                                <div class="small text-muted">
+                                    Principal, Greenfield Academy
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================================
+                OUR CORE VALUES
+            ========================================================== -->
+
+            <section
+                class="position-relative py-5 overflow-hidden"
+                style="
+                    background-image:
+                        linear-gradient(
+                            rgba(0, 0, 0, 0.30),
+                            rgba(0, 0, 0, 0.30)
+                        ),
+                        url('/school_base/static/src/img/school-hero.webp');
+                    background-size: cover;
+                    background-position: center;
+                    background-attachment: fixed;
+                "
+            >
+
+                <div class="container position-relative py-lg-4">
+
+                    <!-- SECTION HEADER -->
+
+                    <div class="text-center text-white mb-5">
+
+                        <span
+                            class="text-uppercase text-primary fw-semibold small"
+                            style="letter-spacing: 3px;"
+                        >
+                            What We Believe In
+                        </span>
+
+                        <h2 class="display-6 fw-bold mt-2 mb-3">
+                            Our Core Values
+                        </h2>
+
+                        <p
+                            class="text-muted text-white mx-auto mb-0"
+                            style="max-width: 700px;"
+                        >
+                            Our values guide the way we teach, learn, work
+                            together, and prepare students for the future.
+                        </p>
+
+                    </div>
+
+
+                  
+
+                    <!-- =========================================================
+                        VALUES
+                    ========================================================== -->
+
+                    <div class="row g-4">
+
+                        <!-- RESPECT -->
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <div
+                                class="bg-white rounded-3 shadow-sm p-4 h-100"
+                            >
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 72px;
+                                        height: 72px;
+                                    "
+                                >
+
+                                    <i class="fa fa-heart fs-3"/>
+
+                                </div>
+
+                                <h3 class="h4 fw-bold">
+                                    Respect
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    We value every individual and encourage
+                                    kindness, empathy, and understanding within
+                                    our school community.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EXCELLENCE -->
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <div
+                                class="bg-white rounded-3 shadow-sm p-4 h-100"
+                            >
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 72px;
+                                        height: 72px;
+                                    "
+                                >
+
+                                    <i class="fa fa-trophy fs-3"/>
+
+                                </div>
+
+                                <h3 class="h4 fw-bold">
+                                    Excellence
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    We encourage students and staff to pursue
+                                    high standards and continuously strive to
+                                    improve.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- INTEGRITY -->
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <div
+                                class="bg-white rounded-3 shadow-sm p-4 h-100"
+                            >
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 72px;
+                                        height: 72px;
+                                    "
+                                >
+
+                                    <i class="fa fa-shield fs-3"/>
+
+                                </div>
+
+                                <h3 class="h4 fw-bold">
+                                    Integrity
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    We promote honesty, responsibility, and
+                                    ethical behavior in everything we do.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CURIOSITY -->
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <div
+                                class="bg-white rounded-3 shadow-sm p-4 h-100"
+                            >
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 72px;
+                                        height: 72px;
+                                    "
+                                >
+
+                                    <i class="fa fa-lightbulb-o fs-3"/>
+
+                                </div>
+
+                                <h3 class="h4 fw-bold">
+                                    Curiosity
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    We inspire students to ask questions,
+                                    explore ideas, and develop a lifelong love
+                                    of learning.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- COMMUNITY -->
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <div
+                                class="bg-white rounded-3 shadow-sm p-4 h-100"
+                            >
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 72px;
+                                        height: 72px;
+                                    "
+                                >
+
+                                    <i class="fa fa-users fs-3"/>
+
+                                </div>
+
+                                <h3 class="h4 fw-bold">
+                                    Community
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    We work together with students, families,
+                                    teachers, and the wider community to create
+                                    a supportive environment.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LEADERSHIP -->
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <div
+                                class="bg-white rounded-3 shadow-sm p-4 h-100"
+                            >
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-4"
+                                    style="
+                                        width: 72px;
+                                        height: 72px;
+                                    "
+                                >
+
+                                    <i class="fa fa-graduation-cap fs-3"/>
+
+                                </div>
+
+                                <h3 class="h4 fw-bold">
+                                    Leadership
+                                </h3>
+
+                                <p class="text-muted mb-0">
+                                    We empower students to take responsibility,
+                                    make thoughtful decisions, and become
+                                    positive leaders.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- =========================================================
+     ABOUT CTA
+========================================================== -->
+
+<section
+    class="position-relative py-5 text-white overflow-hidden"
+    style="
+        background-image:
+            linear-gradient(
+                rgba(0, 51, 102, 0.82),
+                rgba(0, 51, 102, 0.82)
+            ),
+            url('/school_base/static/src/img/school-hero.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    "
+>
+
+    <div class="container position-relative py-lg-5">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-8">
+
+                <!-- ICON -->
+
+                <div
+                    class="d-flex align-items-center justify-content-center bg-white bg-opacity-10 rounded-circle mx-auto mb-4"
+                    style="
+                        width: 75px;
+                        height: 75px;
+                    "
+                >
+
+                    <i class="fa fa-graduation-cap fs-2"/>
+
+                </div>
+
+
+                <!-- LABEL -->
+
+                <span
+                    class="text-uppercase fw-semibold small"
+                    style="letter-spacing: 3px;"
+                >
+                    Start Your Journey
+                </span>
+
+
+                <!-- HEADING -->
+
+                <h2 class="display-5 fw-bold mt-2 mb-3">
+                    Be Part of Our School Community
+                </h2>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="lead text-white-50 mb-4">
+                    Join a community where students are encouraged
+                    to learn with curiosity, grow with confidence,
+                    and lead with purpose.
+                </p>
+
+
+                <!-- BUTTONS -->
+
+                <div
+                    class="d-flex flex-column flex-sm-row justify-content-center gap-3"
+                >
+
+                    <a
+                        href="/admissions"
+                        class="btn btn-light btn-lg px-4"
+                    >
+                        Apply Now
+                        <i class="fa fa-arrow-right ms-2"/>
+                    </a>
+
+                    <a
+                        href="/contact"
+                        class="btn btn-outline-light btn-lg px-4"
+                    >
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+        </t>
+
+    </template>
+
+</odoo>

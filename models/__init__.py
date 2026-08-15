@@ -15,3 +15,4 @@ from . import school_tuition_fee
 from . import school_payment
 from . import res_config_settings
 from . import school_bkash_payment
+from . import school_event

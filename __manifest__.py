@@ -59,7 +59,13 @@
         #website parts
         "views/website/website_header.xml",
         # "views/website/website_layout.xml",
+        "views/website/website_footer.xml",
         "views/website/website_home.xml",
+        "views/website/website_about.xml",
+        
+
+        #events
+        "views/school_event_views.xml",
 
         "views/school_base_menu.xml",
     ],

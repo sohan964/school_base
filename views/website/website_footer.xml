@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template
+        id="school_website_footer"
+        inherit_id="website.layout"
+        name="School Website Footer"
+    >
+
+        <xpath expr="//footer" position="replace">
+
+            <footer class="bg-dark text-white">
+
+                <!-- =================================================
+                     MAIN FOOTER
+                ================================================== -->
+
+                <div class="container py-5">
+
+                    <div class="row g-5">
+
+                        <!-- SCHOOL INFO -->
+
+                        <div class="col-lg-4">
+
+                            <div class="d-flex align-items-center mb-3">
+
+                                <img
+                                    t-att-src="'/web/image/res.company/%s/logo' % website.company_id.id"
+                                    alt="School Logo"
+                                    class="img-fluid me-3"
+                                    style="
+                                        max-height: 55px;
+                                        max-width: 90px;
+                                    "
+                                />
+
+                                <div>
+
+                                    <div class="fw-bold fs-5">
+                                        Greenfield Academy
+                                    </div>
+
+                                    <div class="small text-white-50">
+                                        Learn • Grow • Lead
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <p class="text-white-50 mb-4">
+                                Empowering students with knowledge,
+                                character, and confidence to build
+                                a brighter future.
+                            </p>
+
+                            <!-- SOCIAL -->
+
+                            <div class="d-flex gap-2">
+
+                                <a
+                                    href="#"
+                                    class="btn btn-outline-light rounded-circle"
+                                    aria-label="Facebook"
+                                >
+                                    <i class="fa fa-facebook"/>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="btn btn-outline-light rounded-circle"
+                                    aria-label="Instagram"
+                                >
+                                    <i class="fa fa-instagram"/>
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="btn btn-outline-light rounded-circle"
+                                    aria-label="YouTube"
+                                >
+                                    <i class="fa fa-youtube-play"/>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- QUICK LINKS -->
+
+                        <div class="col-6 col-lg-2">
+
+                            <h5 class="fw-bold mb-4">
+                                Quick Links
+                            </h5>
+
+                            <ul class="list-unstyled">
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Home
+                                    </a>
+                                </li>
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/about"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        About Us
+                                    </a>
+                                </li>
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/academics"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Academics
+                                    </a>
+                                </li>
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/campus"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Campus Life
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        href="/contact"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Contact
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- ACADEMICS -->
+
+                        <div class="col-6 col-lg-2">
+
+                            <h5 class="fw-bold mb-4">
+                                Academics
+                            </h5>
+
+                            <ul class="list-unstyled">
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/academics"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Programs
+                                    </a>
+                                </li>
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/academics"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Subjects
+                                    </a>
+                                </li>
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/academics"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Examinations
+                                    </a>
+                                </li>
+
+                                <li class="mb-2">
+                                    <a
+                                        href="/admissions"
+                                        class="text-white-50 text-decoration-none"
+                                    >
+                                        Admissions
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- CONTACT -->
+
+                        <div class="col-lg-4">
+
+                            <h5 class="fw-bold mb-4">
+                                Contact Us
+                            </h5>
+
+                            <ul class="list-unstyled text-white-50">
+
+                                <li class="d-flex mb-3">
+
+                                    <i class="fa fa-map-marker me-3 mt-1"/>
+
+                                    <span>
+                                        Dhaka, Bangladesh
+                                    </span>
+
+                                </li>
+
+                                <li class="d-flex mb-3">
+
+                                    <i class="fa fa-phone me-3 mt-1"/>
+
+                                    <span>
+                                        +880 1XXX-XXXXXX
+                                    </span>
+
+                                </li>
+
+                                <li class="d-flex">
+
+                                    <i class="fa fa-envelope me-3 mt-1"/>
+
+                                    <span>
+                                        info@greenfield.edu.bd
+                                    </span>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     COPYRIGHT
+                ================================================== -->
+
+                <div class="border-top border-secondary">
+
+                    <div class="container py-3">
+
+                        <div
+                            class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2"
+                        >
+
+                            <div class="small text-white-50">
+
+                                © 2026 Greenfield Academy.
+                                All rights reserved.
+
+                            </div>
+
+                            <div class="d-flex gap-3 small">
+
+                                <a
+                                    href="#"
+                                    class="text-white-50 text-decoration-none"
+                                >
+                                    Privacy Policy
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="text-white-50 text-decoration-none"
+                                >
+                                    Terms &amp; Conditions
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </footer>
+
+        </xpath>
+
+    </template>
+
+</odoo>
