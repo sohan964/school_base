@@ -39,3 +39,47 @@ class SchoolWebsite(http.Controller):
         return request.render(
             "school_base.website_about"
         )
+
+    @http.route(
+        "/academics",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def academics(self):
+
+        classes = request.env["school.class"].sudo().search(
+            [
+                ("active", "=", True),
+            ],
+            order="name",
+        )
+
+        exams = request.env["school.exam"].sudo().search(
+            [
+                ("state", "in", ["running"]),
+            ],
+            order="date_start asc",
+        )
+
+        return request.render(
+            "school_base.website_academics",
+            {
+                "classes": classes,
+                "exams": exams,
+            }
+        )
+
+    @http.route(
+        "/school-test",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def school_test(self):
+        return request.render(
+            "school_base.school_website_test"
+        )
+
+    
+    

@@ -10,9 +10,11 @@
 
         <xpath expr="//div[@id='wrap']" position="replace">
 
-            <div id="wrap">
-
-                <!-- HERO SECTION -->
+            <div
+                id="wrap"
+                
+            >
+            <div class="oe_structure oe_empty">
                 <section class="bg-white">
 
                     <div class="container-fluid px-0">
@@ -184,6 +186,7 @@
                     </div>
 
                 </section>
+
                 <!-- =========================================================
                     SCHOOL HIGHLIGHTS
                 ========================================================== -->
@@ -1358,212 +1361,17 @@
                     </div>
 
                 </section>
-
+            </div>
                 <!-- =========================================================
                     NEWS & EVENTS
                 ========================================================== -->
-
-                <section class="bg-light py-5">
-
-                    <div class="container">
-
-                        <!-- SECTION HEADER -->
-
-                        <div class="row align-items-end mb-5">
-
-                            <div class="col-lg-8">
-
-                                <span
-                                    class="text-uppercase text-primary fw-semibold small"
-                                    style="letter-spacing: 3px;"
-                                >
-                                    Stay Connected
-                                </span>
-
-                                <h2 class="display-5 fw-bold mt-2 mb-3">
-                                    News &amp; Events
-                                </h2>
-
-                                <p class="lead text-muted mb-0">
-                                    Discover the latest news, events, announcements,
-                                    and activities happening at Greenfield Academy.
-                                </p>
-
-                            </div>
-
-                            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-
-                                <a
-                                    href="/news"
-                                    class="btn btn-outline-primary px-4"
-                                >
-                                    View All News
-                                    <i class="fa fa-arrow-right ms-2"/>
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- DYNAMIC EVENTS -->
-
-                        <div class="row g-4">
-
-                            <t t-foreach="events" t-as="event">
-
-                                <div class="col-md-6 col-lg-4">
-
-                                    <article
-                                        class="card h-100 border-0 shadow-sm overflow-hidden"
-                                    >
-
-                                        <!-- IMAGE -->
-
-                                        <t t-if="event.image">
-
-                                            <img
-                                                t-att-src="'/web/image/school.event/%s/image' % event.id"
-                                                t-att-alt="event.name"
-                                                class="card-img-top"
-                                                style="
-                                                    height: 230px;
-                                                    object-fit: cover;
-                                                "
-                                            />
-
-                                        </t>
-
-                                        <t t-else="">
-
-                                            <div
-                                                class="bg-secondary d-flex align-items-center justify-content-center"
-                                                style="height: 230px;"
-                                            >
-
-                                                <i class="fa fa-calendar text-white fs-1"/>
-
-                                            </div>
-
-                                        </t>
-
-
-                                        <!-- CONTENT -->
-
-                                        <div class="card-body p-4">
-
-                                            <!-- TYPE + DATE -->
-
-                                            <div class="d-flex align-items-center mb-3">
-
-                                                <span
-                                                    t-if="event.event_type == 'event'"
-                                                    class="badge bg-primary me-2"
-                                                >
-                                                    Event
-                                                </span>
-
-                                                <span
-                                                    t-if="event.event_type == 'news'"
-                                                    class="badge bg-success me-2"
-                                                >
-                                                    News
-                                                </span>
-
-                                                <span
-                                                    t-if="event.event_type == 'notice'"
-                                                    class="badge bg-warning text-dark me-2"
-                                                >
-                                                    Notice
-                                                </span>
-
-                                                <small
-                                                    class="text-muted"
-                                                    t-field="event.event_date"
-                                                />
-
-                                            </div>
-
-
-                                            <!-- TITLE -->
-
-                                            <h3
-                                                class="h4 fw-bold"
-                                                t-esc="event.name"
-                                            />
-
-
-                                            <!-- DESCRIPTION -->
-
-                                            <div
-                                                class="text-muted"
-                                                t-if="event.description"
-                                            >
-                                                <t
-                                                    t-out="event.description"
-                                                />
-                                            </div>
-
-
-                                            <!-- READ MORE -->
-
-                                            <a
-                                                href="/news"
-                                                class="text-primary fw-semibold text-decoration-none d-inline-block mt-3"
-                                            >
-
-                                                Read More
-
-                                                <i class="fa fa-arrow-right ms-1"/>
-
-                                            </a>
-
-                                        </div>
-
-                                    </article>
-
-                                </div>
-
-                            </t>
-
-
-                            <!-- NO EVENTS -->
-
-                            <t t-if="not events">
-
-                                <div class="col-12">
-
-                                    <div class="text-center py-5">
-
-                                        <i
-                                            class="fa fa-calendar-o text-muted fs-1 mb-3"
-                                        />
-
-                                        <h4 class="fw-semibold">
-                                            No news or events available
-                                        </h4>
-
-                                        <p class="text-muted mb-0">
-                                            Please check back soon for the latest
-                                            updates from our school.
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </t>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
+                
+                    <t t-call="school_base.school_website_events_section"/>
+                
                 <!-- =========================================================
                     ADMISSIONS CTA
                 ========================================================== -->
-
+                <div class="oe_structure oe_empty">
                 <section class="py-5 bg-primary text-white">
 
                     <div class="container">
@@ -1617,9 +1425,11 @@
 
                 </section>
 
-                
-
             </div>
+
+             
+            </div>
+            
 
         </xpath>
 

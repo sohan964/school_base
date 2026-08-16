@@ -52,7 +52,8 @@
         "views/school_payment_method_views.xml",
         "views/school_fee_payment_views.xml",
         "views/school_bkash_payment_views.xml",
-
+        #events model
+        "views/school_event_views.xml",
         #bkash integration
         "views/res_config_settings_views.xml",
 
@@ -62,10 +63,12 @@
         "views/website/website_footer.xml",
         "views/website/website_home.xml",
         "views/website/website_about.xml",
+        "views/website/website_test.xml",
+        "views/website/website_events.xml",
+        "views/website/website_academics.xml",
         
 
-        #events
-        "views/school_event_views.xml",
+        
 
         "views/school_base_menu.xml",
     ],
@@ -77,7 +80,7 @@
             'school_base/static/src/components/**/*.xml',
             'school_base/static/src/components/**/*.js',
             'school_base/static/src/components/**/*.css',
-            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css',
+            # 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css',
 
         ],
         "web.assets_frontend": [

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template
+        id="school_website_test"
+        name="School Website Test"
+    >
+
+        <t t-call="website.layout">
+
+            <div id="wrap" class="oe_structure oe_empty">
+
+                <section class="py-5 bg-primary text-white">
+                    <div class="container text-center">
+
+                        <h1 class="display-4 fw-bold">
+                            School Website Test
+                        </h1>
+
+                        <p class="lead">
+                            If you can edit this section and drag blocks here,
+                            the Website Builder is working correctly.
+                        </p>
+
+                    </div>
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

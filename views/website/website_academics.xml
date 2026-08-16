@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- =========================================================
+         ACADEMICS PAGE
+    ========================================================== -->
+
+    <template
+        id="website_academics"
+        name="School Academics"
+    >
+
+        <t t-call="website.layout">
+
+            <div id="wrap" class="" >
+
+                <!-- =================================================
+                     ACADEMICS HERO
+                ================================================== -->
+
+                <section
+                    class="position-relative overflow-hidden text-white oe_structure oe_empty"
+                    style="
+                        min-height: 450px;
+                        background-image:
+                            linear-gradient(
+                                rgba(0, 45, 90, 0.60),
+                                rgba(0, 45, 90, 0.60)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                    "
+                >
+
+                    <div
+                        class="container position-relative d-flex align-items-center justify-content-center text-center"
+                        style="min-height: 450px;"
+                    >
+
+                        <div>
+
+                            <!-- LABEL -->
+
+                            <div
+                                class="text-uppercase fw-semibold small mb-3"
+                                style="letter-spacing: 4px;"
+                            >
+                                Greenfield Academy
+                            </div>
+
+
+                            <!-- TITLE -->
+
+                            <h1 class="display-3 fw-bold mb-3">
+                                Academics
+                            </h1>
+
+
+                            <!-- DESCRIPTION -->
+
+                            <p
+                                class="lead text-white-50 mx-auto mb-4"
+                                style="max-width: 720px;"
+                            >
+                                Inspiring students through meaningful
+                                learning, strong academic foundations,
+                                and opportunities to discover their
+                                potential.
+                            </p>
+
+
+                            <!-- BREADCRUMB -->
+
+                            <div class="small">
+
+                                <a
+                                    href="/"
+                                    class="text-white text-decoration-none"
+                                >
+                                    Home
+                                </a>
+
+                                <span class="mx-2">
+                                    /
+                                </span>
+
+                                <span class="text-white-50">
+                                    Academics
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ACADEMIC OVERVIEW
+                ================================================== -->
+
+                <section class="bg-white py-5 oe_structure oe_empty">
+
+                    <div class="container py-lg-4">
+
+                        <div class="row align-items-center g-5">
+
+                            <!-- IMAGE -->
+
+                            <div class="col-lg-6">
+
+                                <img
+                                    src="/school_base/static/src/img/school-hero.webp"
+                                    alt="Students learning in classroom"
+                                    class="img-fluid rounded-3 shadow-sm w-100"
+                                    style="
+                                        height: 430px;
+                                        object-fit: cover;
+                                    "
+                                />
+
+                            </div>
+
+
+                            <!-- CONTENT -->
+
+                            <div class="col-lg-6">
+
+                                <span
+                                    class="text-uppercase text-primary fw-semibold small"
+                                    style="letter-spacing: 3px;"
+                                >
+                                    Learning at Greenfield
+                                </span>
+
+                                <h2 class="display-6 fw-bold mt-2 mb-4">
+                                    Building Strong Foundations for the Future
+                                </h2>
+
+                                <p class="text-muted">
+                                    Our academic programs are designed to
+                                    provide students with a strong foundation
+                                    in knowledge, critical thinking,
+                                    creativity, and communication.
+                                </p>
+
+                                <p class="text-muted">
+                                    We combine structured classroom learning
+                                    with practical activities, collaborative
+                                    projects, and opportunities for students
+                                    to explore their interests.
+                                </p>
+
+
+                                <!-- HIGHLIGHTS -->
+
+                                <div class="row g-3 mt-3">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-book"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Quality Curriculum
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-users"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Experienced Teachers
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-lightbulb-o"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Creative Learning
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-line-chart"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Student Development
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================================
+                    ACADEMIC PROGRAMS
+                ========================================================== -->
+
+                <section
+                    class="position-relative py-5 overflow-hidden oe_structure oe_empty"
+                    style="
+                        background-image:
+                            linear-gradient(
+                                rgba(0, 0, 0, 0.30),
+                                rgba(0, 0, 0, 0.30)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                    "
+                >
+
+                    <div class="container position-relative py-lg-4">
+
+                        <!-- SECTION HEADER -->
+
+                        <div class="text-center text-white mb-5">
+
+                            <span
+                                class="text-uppercase text-primary fw-semibold small"
+                                style="letter-spacing: 3px;"
+                            >
+                                Our Programs
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2 mb-3">
+                                Academic Programs
+                            </h2>
+
+                            <p
+                                class="text-muted text-white mx-auto mb-0"
+                                style="max-width: 700px;"
+                            >
+                                Our programs are designed to support students at
+                                every stage of their academic journey.
+                            </p>
+
+                        </div>
+
+
+                        <!-- PROGRAM CARDS -->
+
+                        <div class="row g-4">
+
+                            <!-- PRIMARY -->
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div
+                                    class="bg-white rounded-3 shadow-sm h-100 overflow-hidden"
+                                >
+
+                                    <div
+                                        class="bg-primary text-white p-4 text-center"
+                                    >
+
+                                        <div
+                                            class="d-flex align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-3"
+                                            style="
+                                                width: 70px;
+                                                height: 70px;
+                                            "
+                                        >
+                                            <i class="fa fa-child fs-3"/>
+                                        </div>
+
+                                        <h3 class="h4 fw-bold mb-0">
+                                            Primary School
+                                        </h3>
+
+                                    </div>
+
+
+                                    <div class="p-4">
+
+                                        <p class="text-muted">
+                                            Building strong foundations through
+                                            engaging lessons, creative activities,
+                                            and positive learning experiences.
+                                        </p>
+
+                                        <ul class="list-unstyled text-muted mb-0">
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Foundational Learning
+                                            </li>
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Language &amp; Literacy
+                                            </li>
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Mathematics &amp; Science
+                                            </li>
+
+                                            <li>
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Creative Activities
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SECONDARY -->
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div
+                                    class="bg-white rounded-3 shadow-sm h-100 overflow-hidden"
+                                >
+
+                                    <div
+                                        class="bg-primary text-white p-4 text-center"
+                                    >
+
+                                        <div
+                                            class="d-flex align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-3"
+                                            style="
+                                                width: 70px;
+                                                height: 70px;
+                                            "
+                                        >
+                                            <i class="fa fa-book fs-3"/>
+                                        </div>
+
+                                        <h3 class="h4 fw-bold mb-0">
+                                            Secondary School
+                                        </h3>
+
+                                    </div>
+
+
+                                    <div class="p-4">
+
+                                        <p class="text-muted">
+                                            Developing deeper knowledge, analytical
+                                            thinking, and the academic skills needed
+                                            for higher education.
+                                        </p>
+
+                                        <ul class="list-unstyled text-muted mb-0">
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Advanced Mathematics
+                                            </li>
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Science &amp; Technology
+                                            </li>
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Humanities
+                                            </li>
+
+                                            <li>
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Examination Preparation
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- HIGHER SECONDARY -->
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div
+                                    class="bg-white rounded-3 shadow-sm h-100 overflow-hidden"
+                                >
+
+                                    <div
+                                        class="bg-primary text-white p-4 text-center"
+                                    >
+
+                                        <div
+                                            class="d-flex align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-3"
+                                            style="
+                                                width: 70px;
+                                                height: 70px;
+                                            "
+                                        >
+                                            <i class="fa fa-graduation-cap fs-3"/>
+                                        </div>
+
+                                        <h3 class="h4 fw-bold mb-0">
+                                            Higher Secondary
+                                        </h3>
+
+                                    </div>
+
+
+                                    <div class="p-4">
+
+                                        <p class="text-muted">
+                                            Preparing students for university and
+                                            future careers through focused academic
+                                            pathways and independent learning.
+                                        </p>
+
+                                        <ul class="list-unstyled text-muted mb-0">
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Specialized Subjects
+                                            </li>
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                University Preparation
+                                            </li>
+
+                                            <li class="mb-2">
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Career Guidance
+                                            </li>
+
+                                            <li>
+                                                <i class="fa fa-check text-primary me-2"/>
+                                                Leadership Development
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================================
+                    SUBJECTS & CURRICULUM
+                ========================================================== -->
+
+                <section
+                    class="position-relative py-5 overflow-hidden"
+                    style="
+                        background-image:
+                            linear-gradient(
+                                rgba(0, 45, 90, 0.88),
+                                rgba(0, 45, 90, 0.88)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                    "
+                >
+
+                    <div class="container position-relative py-lg-4">
+
+                        <!-- SECTION HEADER -->
+
+                        <div class="text-center text-white mb-5">
+
+                            <span
+                                class="text-uppercase fw-semibold small"
+                                style="letter-spacing: 3px;"
+                            >
+                                What We Teach
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2 mb-3">
+                                Subjects &amp; Curriculum
+                            </h2>
+
+                            <p
+                                class="text-white-50 mx-auto mb-0"
+                                style="max-width: 700px;"
+                            >
+                                Explore the subjects offered across our academic
+                                programs and discover the areas in which our
+                                students develop their knowledge and skills.
+                            </p>
+
+                        </div>
+
+
+                        <!-- CLASSES -->
+
+                        <div class="row g-4">
+
+                            <t
+                                t-foreach="classes"
+                                t-as="school_class"
+                            >
+
+                                <div class="col-md-6 col-lg-4">
+
+                                    <div
+                                        class="bg-white rounded-3 shadow-sm h-100 p-4"
+                                    >
+
+                                        <!-- CLASS ICON -->
+
+                                        <div
+                                            class="d-flex align-items-center mb-4"
+                                        >
+
+                                            <div
+                                                class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle me-3"
+                                                style="
+                                                    width: 58px;
+                                                    height: 58px;
+                                                    flex-shrink: 0;
+                                                "
+                                            >
+
+                                                <i class="fa fa-graduation-cap fs-4"/>
+
+                                            </div>
+
+
+                                            <!-- CLASS NAME -->
+
+                                            <div>
+
+                                                <h3 class="h4 fw-bold mb-0">
+                                                    <t t-esc="school_class.name"/>
+                                                </h3>
+
+                                                <small class="text-muted">
+                                                    <t t-esc="school_class.code"/>
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- SUBJECTS -->
+
+                                        <div>
+
+                                            <div
+                                                class="small text-uppercase fw-semibold text-muted mb-3"
+                                                style="letter-spacing: 1px;"
+                                            >
+                                                Subjects
+                                            </div>
+
+
+                                            <div
+                                                t-if="school_class.id"
+                                                class="d-flex flex-wrap gap-2"
+                                            >
+
+                                                <t
+                                                    t-set="subjects"
+                                                    t-value="request.env['school.class.subject'].sudo().search([
+                                                        ('active', '=', True),
+                                                        ('class_ids', 'in', school_class.id)
+                                                    ], order='name')"
+                                                />
+
+
+                                                <t
+                                                    t-foreach="subjects"
+                                                    t-as="subject"
+                                                >
+
+                                                    <span
+                                                        class="badge bg-primary bg-opacity-10 text-primary px-3 py-2"
+                                                    >
+
+                                                        <i
+                                                            class="fa fa-book me-1"
+                                                        />
+
+                                                        <t t-esc="subject.name"/>
+
+                                                    </span>
+
+                                                </t>
+
+
+                                                <!-- NO SUBJECT -->
+
+                                                <t t-if="not subjects">
+
+                                                    <span class="text-muted small">
+                                                        Subjects will be announced soon.
+                                                    </span>
+
+                                                </t>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </t>
+
+
+                            <!-- NO CLASSES -->
+
+                            <t t-if="not classes">
+
+                                <div class="col-12">
+
+                                    <div class="text-center text-white py-5">
+
+                                        <i
+                                            class="fa fa-book fs-1 mb-3"
+                                        />
+
+                                        <h4 class="fw-semibold">
+                                            Academic programs are being prepared.
+                                        </h4>
+
+                                        <p class="text-white-50 mb-0">
+                                            Please check back soon for more information.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </t>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- =========================================================
+                    TEACHING & LEARNING
+                ========================================================== -->
+
+                <section
+                    class="position-relative py-5 overflow-hidden oe_structure oe_empty"
+                    style="
+                        background-image:
+                            linear-gradient(
+                                rgba(255, 255, 255, 0.92),
+                                rgba(255, 255, 255, 0.92)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                    "
+                >
+
+                    <div class="container position-relative py-lg-4">
+
+                        <!-- SECTION HEADER -->
+
+                        <div class="text-center mb-5">
+
+                            <span
+                                class="text-uppercase text-primary fw-semibold small"
+                                style="letter-spacing: 3px;"
+                            >
+                                Our Approach
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2 mb-3">
+                                Teaching &amp; Learning
+                            </h2>
+
+                            <p
+                                class="text-muted mx-auto mb-0"
+                                style="max-width: 700px;"
+                            >
+                                We create meaningful learning experiences that
+                                encourage students to think, explore, collaborate,
+                                and grow with confidence.
+                            </p>
+
+                        </div>
+
+
+                        <!-- LEARNING APPROACHES -->
+
+                        <div class="row g-4">
+
+                            <!-- STUDENT CENTERED -->
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="bg-white rounded-3 shadow-sm p-4 text-center h-100"
+                                >
+
+                                    <div
+                                        class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
+                                        style="
+                                            width: 70px;
+                                            height: 70px;
+                                        "
+                                    >
+
+                                        <i class="fa fa-user fs-3"/>
+
+                                    </div>
+
+                                    <h3 class="h4 fw-bold mb-3">
+                                        Student-Centered
+                                    </h3>
+
+                                    <p class="text-muted mb-0">
+                                        We recognize that every student learns
+                                        differently and encourage active
+                                        participation in the learning process.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- PRACTICAL LEARNING -->
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="bg-white rounded-3 shadow-sm p-4 text-center h-100"
+                                >
+
+                                    <div
+                                        class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
+                                        style="
+                                            width: 70px;
+                                            height: 70px;
+                                        "
+                                    >
+
+                                        <i class="fa fa-flask fs-3"/>
+
+                                    </div>
+
+                                    <h3 class="h4 fw-bold mb-3">
+                                        Practical Learning
+                                    </h3>
+
+                                    <p class="text-muted mb-0">
+                                        Students apply classroom knowledge through
+                                        activities, projects, experiments, and
+                                        real-world learning experiences.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- COLLABORATION -->
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="bg-white rounded-3 shadow-sm p-4 text-center h-100"
+                                >
+
+                                    <div
+                                        class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
+                                        style="
+                                            width: 70px;
+                                            height: 70px;
+                                        "
+                                    >
+
+                                        <i class="fa fa-users fs-3"/>
+
+                                    </div>
+
+                                    <h3 class="h4 fw-bold mb-3">
+                                        Collaboration
+                                    </h3>
+
+                                    <p class="text-muted mb-0">
+                                        Group activities and collaborative projects
+                                        help students develop communication,
+                                        teamwork, and leadership skills.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- TECHNOLOGY -->
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="bg-white rounded-3 shadow-sm p-4 text-center h-100"
+                                >
+
+                                    <div
+                                        class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4"
+                                        style="
+                                            width: 70px;
+                                            height: 70px;
+                                        "
+                                    >
+
+                                        <i class="fa fa-laptop fs-3"/>
+
+                                    </div>
+
+                                    <h3 class="h4 fw-bold mb-3">
+                                        Digital Learning
+                                    </h3>
+
+                                    <p class="text-muted mb-0">
+                                        We use appropriate technology and digital
+                                        resources to make learning more engaging
+                                        and accessible.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- =========================================================
+                    ASSESSMENT & EXAMINATION
+                ========================================================== -->
+
+                <section
+                    class="position-relative py-5 overflow-hidden"
+                    style="
+                        background-image:
+                            linear-gradient(
+                                rgba(0, 45, 90, 0.88),
+                                rgba(0, 45, 90, 0.88)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                    "
+                >
+
+                    <div class="container position-relative py-lg-4">
+
+                        <!-- SECTION HEADER -->
+
+                        <div class="text-center text-white mb-5">
+
+                            <span
+                                class="text-uppercase fw-semibold small"
+                                style="letter-spacing: 3px;"
+                            >
+                                Academic Evaluation
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2 mb-3">
+                                Assessment &amp; Examination
+                            </h2>
+
+                            <p
+                                class="text-white-50 mx-auto mb-0"
+                                style="max-width: 700px;"
+                            >
+                                Our assessment process helps measure student
+                                progress, identify areas for improvement, and
+                                support continuous academic development.
+                            </p>
+
+                        </div>
+
+
+                        <!-- EXAMS -->
+
+                        <div class="row g-4">
+
+                            <t
+                                t-foreach="exams"
+                                t-as="exam"
+                            >
+
+                                <div class="col-md-6 col-lg-4">
+
+                                    <div
+                                        class="bg-white rounded-3 shadow-sm h-100 overflow-hidden"
+                                    >
+
+                                        <!-- EXAM HEADER -->
+
+                                        <div class="p-4 border-bottom">
+
+                                            <div
+                                                class="d-flex justify-content-between align-items-start gap-3"
+                                            >
+
+                                                <div>
+
+                                                    <span
+                                                        class="badge bg-primary mb-2"
+                                                    >
+                                                        <t
+                                                            t-esc="exam.exam_type_id.name or 'Examination'"
+                                                        />
+                                                    </span>
+
+                                                    <h3 class="h4 fw-bold mb-1">
+                                                        <t t-esc="exam.name"/>
+                                                    </h3>
+
+                                                    <small class="text-muted">
+                                                        <i class="fa fa-calendar me-1"/>
+                                                        <t t-esc="exam.year_id.name"/>
+                                                    </small>
+
+                                                </div>
+
+
+                                                <div
+                                                    class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle flex-shrink-0"
+                                                    style="
+                                                        width: 52px;
+                                                        height: 52px;
+                                                    "
+                                                >
+
+                                                    <i class="fa fa-pencil fs-5"/>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- EXAM DETAILS -->
+
+                                        <div class="p-4">
+
+                                            <!-- DATE -->
+
+                                            <div class="d-flex align-items-start mb-3">
+
+                                                <div
+                                                    class="text-primary me-3"
+                                                    style="width: 24px;"
+                                                >
+                                                    <i class="fa fa-calendar"/>
+                                                </div>
+
+                                                <div>
+
+                                                    <div class="small text-muted">
+                                                        Examination Period
+                                                    </div>
+
+                                                    <div class="fw-semibold">
+
+                                                        <t
+                                                            t-esc="exam.date_start or 'TBA'"
+                                                        />
+
+                                                        <t t-if="exam.date_end">
+
+                                                            <span class="mx-1">
+                                                                -
+                                                            </span>
+
+                                                            <t
+                                                                t-esc="exam.date_end"
+                                                            />
+
+                                                        </t>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <!-- SUBJECTS -->
+
+                                            <div class="d-flex align-items-start">
+
+                                                <div
+                                                    class="text-primary me-3"
+                                                    style="width: 24px;"
+                                                >
+                                                    <i class="fa fa-book"/>
+                                                </div>
+
+                                                <div class="flex-grow-1">
+
+                                                    <div class="small text-muted mb-2">
+                                                        Subjects &amp; Classes
+                                                    </div>
+
+                                                    <div class="d-flex flex-wrap gap-2">
+
+                                                        <t
+                                                            t-foreach="exam.exam_line_ids"
+                                                            t-as="exam_line"
+                                                        >
+
+                                                            <span
+                                                                class="badge bg-light text-dark border"
+                                                            >
+
+                                                                <t
+                                                                    t-esc="exam_line.subject_id.name"
+                                                                />
+
+                                                                <t
+                                                                    t-if="exam_line.class_id"
+                                                                >
+
+                                                                    <span class="text-muted">
+                                                                        -
+                                                                    </span>
+
+                                                                    <t
+                                                                        t-esc="exam_line.class_id.name"
+                                                                    />
+
+                                                                </t>
+
+                                                            </span>
+
+                                                        </t>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </t>
+
+
+                            <!-- NO EXAMS -->
+
+                            <t t-if="not exams">
+
+                                <div class="col-12">
+
+                                    <div class="text-center text-white py-5">
+
+                                        <div
+                                            class="d-flex align-items-center justify-content-center bg-white bg-opacity-10 rounded-circle mx-auto mb-4"
+                                            style="
+                                                width: 75px;
+                                                height: 75px;
+                                            "
+                                        >
+
+                                            <i class="fa fa-calendar-o fs-2"/>
+
+                                        </div>
+
+                                        <h4 class="fw-semibold">
+                                            No Upcoming Examinations
+                                        </h4>
+
+                                        <p class="text-white-50 mb-0">
+                                            Examination schedules will be published
+                                            here when they are available.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </t>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- =========================================================
+                    ACADEMICS CTA
+                ========================================================== -->
+
+                <section
+                    class="position-relative py-5 text-white overflow-hidden oe_structure oe_empty"
+                    style="
+                        background-image:
+                            linear-gradient(
+                                rgba(0, 45, 90, 0.82),
+                                rgba(0, 45, 90, 0.82)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                    "
+                >
+
+                    <div class="container position-relative py-lg-5">
+
+                        <div class="row justify-content-center text-center">
+
+                            <div class="col-lg-8">
+
+                                <!-- ICON -->
+
+                                <div
+                                    class="d-flex align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4"
+                                    style="
+                                        width: 75px;
+                                        height: 75px;
+                                    "
+                                >
+
+                                    <i class="fa fa-graduation-cap fs-2"/>
+
+                                </div>
+
+
+                                <!-- LABEL -->
+
+                                <span
+                                    class="text-uppercase fw-semibold small"
+                                    style="letter-spacing: 3px;"
+                                >
+                                    Shape Your Future
+                                </span>
+
+
+                                <!-- HEADING -->
+
+                                <h2 class="display-5 fw-bold mt-2 mb-3">
+                                    Ready to Begin Your Learning Journey?
+                                </h2>
+
+
+                                <!-- DESCRIPTION -->
+
+                                <p class="lead text-white-50 mx-auto mb-4">
+                                    Discover our academic programs and find the
+                                    learning path that best supports your goals,
+                                    interests, and future ambitions.
+                                </p>
+
+
+                                <!-- BUTTONS -->
+
+                                <div
+                                    class="d-flex flex-column flex-sm-row justify-content-center gap-3"
+                                >
+
+                                    <a
+                                        href="/admissions"
+                                        class="btn btn-light btn-lg px-4"
+                                    >
+                                        Explore Admissions
+                                        <i class="fa fa-arrow-right ms-2"/>
+                                    </a>
+
+                                    <a
+                                        href="/contact"
+                                        class="btn btn-outline-light btn-lg px-4"
+                                    >
+                                        Contact Us
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

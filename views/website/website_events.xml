@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template
+        id="school_website_events_section"
+        name="School Website Events Section"
+    >
+
+        <section class="bg-light py-5">
+
+            <div class="container">
+
+                <div class="row align-items-end mb-5">
+
+                    <div class="col-lg-8">
+
+                        <span
+                            class="text-uppercase text-primary fw-semibold small"
+                            style="letter-spacing: 3px;"
+                        >
+                            Stay Connected
+                        </span>
+
+                        <h2 class="display-5 fw-bold mt-2 mb-3">
+                            News &amp; Events
+                        </h2>
+
+                        <p class="lead text-muted mb-0">
+                            Discover the latest news, events, announcements,
+                            and activities happening at Greenfield Academy.
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+
+                        <a
+                            href="/news"
+                            class="btn btn-outline-primary px-4"
+                        >
+                            View All News
+                            <i class="fa fa-arrow-right ms-2"/>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EVENTS -->
+
+                <div class="row g-4">
+
+                    <t
+                        t-foreach="events"
+                        t-as="event"
+                    >
+
+                        <div class="col-md-6 col-lg-4">
+
+                            <article
+                                class="card h-100 border-0 shadow-sm overflow-hidden"
+                            >
+
+                                <t t-if="event.image">
+
+                                    <img
+                                        t-att-src="'/web/image/school.event/%s/image' % event.id"
+                                        t-att-alt="event.name"
+                                        class="card-img-top"
+                                        style="
+                                            height: 230px;
+                                            object-fit: cover;
+                                        "
+                                    />
+
+                                </t>
+
+                                <t t-else="">
+
+                                    <div
+                                        class="bg-secondary d-flex align-items-center justify-content-center"
+                                        style="height: 230px;"
+                                    >
+
+                                        <i
+                                            class="fa fa-calendar text-white fs-1"
+                                        />
+
+                                    </div>
+
+                                </t>
+
+
+                                <div class="card-body p-4">
+
+                                    <div
+                                        class="d-flex align-items-center mb-3"
+                                    >
+
+                                        <span
+                                            t-if="event.event_type == 'event'"
+                                            class="badge bg-primary me-2"
+                                        >
+                                            Event
+                                        </span>
+
+                                        <span
+                                            t-if="event.event_type == 'news'"
+                                            class="badge bg-success me-2"
+                                        >
+                                            News
+                                        </span>
+
+                                        <span
+                                            t-if="event.event_type == 'notice'"
+                                            class="badge bg-warning text-dark me-2"
+                                        >
+                                            Notice
+                                        </span>
+
+                                        <small
+                                            class="text-muted"
+                                            t-field="event.event_date"
+                                        />
+
+                                    </div>
+
+
+                                    <h3
+                                        class="h4 fw-bold"
+                                        t-esc="event.name"
+                                    />
+
+
+                                    <div
+                                        class="text-muted"
+                                        t-if="event.description"
+                                    >
+                                        <t t-out="event.description"/>
+                                    </div>
+
+
+                                    <a
+                                        href="/news"
+                                        class="text-primary fw-semibold text-decoration-none d-inline-block mt-3"
+                                    >
+                                        Read More
+                                        <i class="fa fa-arrow-right ms-1"/>
+                                    </a>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </t>
+
+
+                    <t t-if="not events">
+
+                        <div class="col-12">
+
+                            <div class="text-center py-5">
+
+                                <i
+                                    class="fa fa-calendar-o text-muted fs-1 mb-3"
+                                />
+
+                                <h4 class="fw-semibold">
+                                    No news or events available
+                                </h4>
+
+                                <p class="text-muted mb-0">
+                                    Please check back soon for the latest
+                                    updates from our school.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </template>
+
+</odoo>
