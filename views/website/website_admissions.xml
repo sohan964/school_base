@@ -269,6 +269,753 @@
 
                 </section>
 
+
+                <!-- =================================================
+                     ADMISSION PROCESS
+                ================================================== -->
+
+                <section
+                    class="py-5 oe_structure"
+                    style="background-color: #f4f7fb;"
+                >
+
+                    <div class="container py-lg-5">
+
+                        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+
+                            <span
+                                class="text-uppercase text-primary fw-semibold small"
+                                style="letter-spacing: 3px;"
+                            >
+                                Your Path to Greenfield
+                            </span>
+
+                            <h2 class="display-6 fw-bold mt-2 mb-3">
+                                Admission Process
+                            </h2>
+
+                            <p class="text-muted mb-0">
+                                Follow these four simple steps to begin your child's
+                                journey at Greenfield Academy.
+                            </p>
+
+                        </div>
+
+                        <div class="position-relative">
+
+                            <div
+                                class="d-none d-lg-block position-absolute border-top border-2 border-primary opacity-25"
+                                style="top: 55px; left: 12.5%; right: 12.5%;"
+                            />
+
+                            <div class="row g-4 position-relative">
+
+                                <div class="col-md-6 col-lg-3">
+
+                                    <div class="text-center h-100 px-3">
+
+                                        <div
+                                            class="position-relative bg-white border border-primary border-opacity-25 rounded-circle shadow-sm d-inline-flex align-items-center justify-content-center mb-4"
+                                            style="width: 110px; height: 110px;"
+                                        >
+
+                                            <i class="fa fa-search fa-2x text-primary" aria-hidden="true"/>
+
+                                            <span
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                                            >
+                                                01
+                                            </span>
+
+                                        </div>
+
+                                        <h3 class="h5 fw-bold mb-3">
+                                            Explore
+                                        </h3>
+
+                                        <p class="text-muted small mb-0">
+                                            Discover our learning environment, academic
+                                            programs, and school community.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 col-lg-3">
+
+                                    <div class="text-center h-100 px-3">
+
+                                        <div
+                                            class="position-relative bg-white border border-primary border-opacity-25 rounded-circle shadow-sm d-inline-flex align-items-center justify-content-center mb-4"
+                                            style="width: 110px; height: 110px;"
+                                        >
+
+                                            <i class="fa fa-file-text-o fa-2x text-primary" aria-hidden="true"/>
+
+                                            <span
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                                            >
+                                                02
+                                            </span>
+
+                                        </div>
+
+                                        <h3 class="h5 fw-bold mb-3">
+                                            Submit Application
+                                        </h3>
+
+                                        <p class="text-muted small mb-0">
+                                            Contact our admissions team and submit the
+                                            requested application information.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 col-lg-3">
+
+                                    <div class="text-center h-100 px-3">
+
+                                        <div
+                                            class="position-relative bg-white border border-primary border-opacity-25 rounded-circle shadow-sm d-inline-flex align-items-center justify-content-center mb-4"
+                                            style="width: 110px; height: 110px;"
+                                        >
+
+                                            <i class="fa fa-clipboard fa-2x text-primary" aria-hidden="true"/>
+
+                                            <span
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                                            >
+                                                03
+                                            </span>
+
+                                        </div>
+
+                                        <h3 class="h5 fw-bold mb-3">
+                                            Review &amp; Assessment
+                                        </h3>
+
+                                        <p class="text-muted small mb-0">
+                                            Our admissions team reviews the application
+                                            and guides you through any assessment.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 col-lg-3">
+
+                                    <div class="text-center h-100 px-3">
+
+                                        <div
+                                            class="position-relative bg-white border border-primary border-opacity-25 rounded-circle shadow-sm d-inline-flex align-items-center justify-content-center mb-4"
+                                            style="width: 110px; height: 110px;"
+                                        >
+
+                                            <i class="fa fa-check-circle fa-2x text-primary" aria-hidden="true"/>
+
+                                            <span
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                                            >
+                                                04
+                                            </span>
+
+                                        </div>
+
+                                        <h3 class="h5 fw-bold mb-3">
+                                            Admission Confirmation
+                                        </h3>
+
+                                        <p class="text-muted small mb-0">
+                                            Receive the admission outcome and guidance
+                                            about the next steps for enrollment.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ADMISSION REQUIREMENTS
+                ================================================== -->
+
+                <section class="bg-white py-5 oe_structure">
+
+                    <div class="container py-lg-5">
+
+                        <div class="row align-items-end mb-5">
+
+                            <div class="col-lg-7">
+
+                                <span
+                                    class="text-uppercase text-primary fw-semibold small"
+                                    style="letter-spacing: 3px;"
+                                >
+                                    Prepare Your Documents
+                                </span>
+
+                                <h2 class="display-6 fw-bold mt-2 mb-3">
+                                    Admission Requirements
+                                </h2>
+
+                            </div>
+
+                            <div class="col-lg-5">
+
+                                <p class="text-muted mb-0">
+                                    The following general documents help our admissions
+                                    team process an application efficiently.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row g-4">
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="card h-100 border-0 shadow-sm rounded-3">
+
+                                    <div class="card-body d-flex p-4">
+
+                                        <div
+                                            class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center me-3"
+                                            style="width: 52px; height: 52px;"
+                                        >
+                                            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"/>
+                                        </div>
+
+                                        <div>
+                                            <h3 class="h6 fw-bold mb-2">Completed Application Form</h3>
+                                            <p class="text-muted small mb-0">
+                                                A completed application with the requested student and family details.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="card h-100 border-0 shadow-sm rounded-3">
+
+                                    <div class="card-body d-flex p-4">
+
+                                        <div
+                                            class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center me-3"
+                                            style="width: 52px; height: 52px;"
+                                        >
+                                            <i class="fa fa-id-card-o fa-lg" aria-hidden="true"/>
+                                        </div>
+
+                                        <div>
+                                            <h3 class="h6 fw-bold mb-2">Birth Certificate or Identification</h3>
+                                            <p class="text-muted small mb-0">
+                                                A copy of the student's birth certificate or identification document.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="card h-100 border-0 shadow-sm rounded-3">
+
+                                    <div class="card-body d-flex p-4">
+
+                                        <div
+                                            class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center me-3"
+                                            style="width: 52px; height: 52px;"
+                                        >
+                                            <i class="fa fa-book fa-lg" aria-hidden="true"/>
+                                        </div>
+
+                                        <div>
+                                            <h3 class="h6 fw-bold mb-2">Previous Academic Records</h3>
+                                            <p class="text-muted small mb-0">
+                                                Available reports or transcripts from the student's previous school.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="card h-100 border-0 shadow-sm rounded-3">
+
+                                    <div class="card-body d-flex p-4">
+
+                                        <div
+                                            class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center me-3"
+                                            style="width: 52px; height: 52px;"
+                                        >
+                                            <i class="fa fa-camera fa-lg" aria-hidden="true"/>
+                                        </div>
+
+                                        <div>
+                                            <h3 class="h6 fw-bold mb-2">Recent Photographs</h3>
+                                            <p class="text-muted small mb-0">
+                                                Recent passport-size photographs of the student.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="card h-100 border-0 shadow-sm rounded-3">
+
+                                    <div class="card-body d-flex p-4">
+
+                                        <div
+                                            class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center me-3"
+                                            style="width: 52px; height: 52px;"
+                                        >
+                                            <i class="fa fa-users fa-lg" aria-hidden="true"/>
+                                        </div>
+
+                                        <div>
+                                            <h3 class="h6 fw-bold mb-2">Parent or Guardian Identification</h3>
+                                            <p class="text-muted small mb-0">
+                                                A copy of a valid identification document for a parent or guardian.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+
+                                <div class="card h-100 border-0 shadow-sm rounded-3">
+
+                                    <div class="card-body d-flex p-4">
+
+                                        <div
+                                            class="flex-shrink-0 bg-primary bg-opacity-10 text-primary rounded-3 d-flex align-items-center justify-content-center me-3"
+                                            style="width: 52px; height: 52px;"
+                                        >
+                                            <i class="fa fa-exchange fa-lg" aria-hidden="true"/>
+                                        </div>
+
+                                        <div>
+                                            <h3 class="h6 fw-bold mb-2">Transfer Certificate</h3>
+                                            <p class="text-muted small mb-0">
+                                                A transfer certificate from the previous school, where applicable.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     IMPORTANT INFORMATION
+                ================================================== -->
+
+                <section
+                    class="py-5 text-white oe_structure"
+                    style="background-color: #123b63;"
+                >
+
+                    <div class="container py-lg-5">
+
+                        <div class="row align-items-center mb-5">
+
+                            <div class="col-lg-8">
+
+                                <span
+                                    class="text-uppercase fw-semibold small"
+                                    style="letter-spacing: 3px; color: #9fc5e8;"
+                                >
+                                    Before You Apply
+                                </span>
+
+                                <h2 class="display-6 fw-bold mt-2 mb-3">
+                                    Important Information
+                                </h2>
+
+                                <p class="text-white-50 mb-0">
+                                    Our admissions office can provide current guidance
+                                    for your child's application and entry level.
+                                </p>
+
+                            </div>
+
+                            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+
+                                <a href="/contact" class="btn btn-outline-light px-4 py-2">
+                                    Speak With Admissions
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row g-4">
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="h-100 rounded-3 border border-white border-opacity-25 p-4"
+                                    style="background-color: rgba(255, 255, 255, 0.08);"
+                                >
+
+                                    <i class="fa fa-graduation-cap fa-2x mb-4" style="color: #9fc5e8;" aria-hidden="true"/>
+                                    <h3 class="h5 fw-bold">Admission Eligibility</h3>
+                                    <p class="text-white-50 small mb-0">
+                                        Please contact the admissions office for current eligibility requirements.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="h-100 rounded-3 border border-white border-opacity-25 p-4"
+                                    style="background-color: rgba(255, 255, 255, 0.08);"
+                                >
+
+                                    <i class="fa fa-calendar fa-2x mb-4" style="color: #9fc5e8;" aria-hidden="true"/>
+                                    <h3 class="h5 fw-bold">Application Period</h3>
+                                    <p class="text-white-50 small mb-0">
+                                        Please contact the admissions office for current application dates.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="h-100 rounded-3 border border-white border-opacity-25 p-4"
+                                    style="background-color: rgba(255, 255, 255, 0.08);"
+                                >
+
+                                    <i class="fa fa-comments fa-2x mb-4" style="color: #9fc5e8;" aria-hidden="true"/>
+                                    <h3 class="h5 fw-bold">Assessment / Interview</h3>
+                                    <p class="text-white-50 small mb-0">
+                                        Our team will explain any assessment or interview relevant to the student's application.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+
+                                <div
+                                    class="h-100 rounded-3 border border-white border-opacity-25 p-4"
+                                    style="background-color: rgba(255, 255, 255, 0.08);"
+                                >
+
+                                    <i class="fa fa-folder-open fa-2x mb-4" style="color: #9fc5e8;" aria-hidden="true"/>
+                                    <h3 class="h5 fw-bold">Required Documents</h3>
+                                    <p class="text-white-50 small mb-0">
+                                        The admissions team will confirm which documents are required for your application.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     FREQUENTLY ASKED QUESTIONS
+                ================================================== -->
+
+                <section
+                    class="py-5 oe_structure"
+                    style="background-color: #f8f9fa;"
+                >
+
+                    <div class="container py-lg-5">
+
+                        <div class="row g-5">
+
+                            <div class="col-lg-4">
+
+                                <span
+                                    class="text-uppercase text-primary fw-semibold small"
+                                    style="letter-spacing: 3px;"
+                                >
+                                    Helpful Answers
+                                </span>
+
+                                <h2 class="display-6 fw-bold mt-2 mb-3">
+                                    Frequently Asked Questions
+                                </h2>
+
+                                <p class="text-muted mb-4">
+                                    Find quick guidance about applying to Greenfield Academy.
+                                    Our admissions team is available if you need more help.
+                                </p>
+
+                                <a href="/contact" class="btn btn-primary px-4">
+                                    Ask a Question
+                                </a>
+
+                            </div>
+
+                            <div class="col-lg-8">
+
+                                <div class="accordion shadow-sm" id="admissionsFaqAccordion">
+
+                                    <div class="accordion-item border-0 border-bottom">
+
+                                        <h3 class="accordion-header" id="admissionsFaqHeadingOne">
+                                            <button
+                                                class="accordion-button fw-semibold"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#admissionsFaqCollapseOne"
+                                                aria-expanded="true"
+                                                aria-controls="admissionsFaqCollapseOne"
+                                            >
+                                                How do I apply for admission?
+                                            </button>
+                                        </h3>
+
+                                        <div
+                                            id="admissionsFaqCollapseOne"
+                                            class="accordion-collapse collapse show"
+                                            aria-labelledby="admissionsFaqHeadingOne"
+                                            data-bs-parent="#admissionsFaqAccordion"
+                                        >
+                                            <div class="accordion-body text-muted">
+                                                Contact the admissions office to receive current application guidance and begin the process.
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="accordion-item border-0 border-bottom">
+
+                                        <h3 class="accordion-header" id="admissionsFaqHeadingTwo">
+                                            <button
+                                                class="accordion-button collapsed fw-semibold"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#admissionsFaqCollapseTwo"
+                                                aria-expanded="false"
+                                                aria-controls="admissionsFaqCollapseTwo"
+                                            >
+                                                What documents are required?
+                                            </button>
+                                        </h3>
+
+                                        <div
+                                            id="admissionsFaqCollapseTwo"
+                                            class="accordion-collapse collapse"
+                                            aria-labelledby="admissionsFaqHeadingTwo"
+                                            data-bs-parent="#admissionsFaqAccordion"
+                                        >
+                                            <div class="accordion-body text-muted">
+                                                Requirements generally include identification and academic records. Our team will confirm the documents relevant to the student's application.
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="accordion-item border-0 border-bottom">
+
+                                        <h3 class="accordion-header" id="admissionsFaqHeadingThree">
+                                            <button
+                                                class="accordion-button collapsed fw-semibold"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#admissionsFaqCollapseThree"
+                                                aria-expanded="false"
+                                                aria-controls="admissionsFaqCollapseThree"
+                                            >
+                                                Is there an admission assessment?
+                                            </button>
+                                        </h3>
+
+                                        <div
+                                            id="admissionsFaqCollapseThree"
+                                            class="accordion-collapse collapse"
+                                            aria-labelledby="admissionsFaqHeadingThree"
+                                            data-bs-parent="#admissionsFaqAccordion"
+                                        >
+                                            <div class="accordion-body text-muted">
+                                                Our admissions team will provide the relevant assessment information based on the student's application.
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="accordion-item border-0 border-bottom">
+
+                                        <h3 class="accordion-header" id="admissionsFaqHeadingFour">
+                                            <button
+                                                class="accordion-button collapsed fw-semibold"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#admissionsFaqCollapseFour"
+                                                aria-expanded="false"
+                                                aria-controls="admissionsFaqCollapseFour"
+                                            >
+                                                Can I visit the school before applying?
+                                            </button>
+                                        </h3>
+
+                                        <div
+                                            id="admissionsFaqCollapseFour"
+                                            class="accordion-collapse collapse"
+                                            aria-labelledby="admissionsFaqHeadingFour"
+                                            data-bs-parent="#admissionsFaqAccordion"
+                                        >
+                                            <div class="accordion-body text-muted">
+                                                Please contact the school to ask about available visit arrangements before submitting an application.
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="accordion-item border-0">
+
+                                        <h3 class="accordion-header" id="admissionsFaqHeadingFive">
+                                            <button
+                                                class="accordion-button collapsed fw-semibold"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#admissionsFaqCollapseFive"
+                                                aria-expanded="false"
+                                                aria-controls="admissionsFaqCollapseFive"
+                                            >
+                                                How can I contact the admissions office?
+                                            </button>
+                                        </h3>
+
+                                        <div
+                                            id="admissionsFaqCollapseFive"
+                                            class="accordion-collapse collapse"
+                                            aria-labelledby="admissionsFaqHeadingFive"
+                                            data-bs-parent="#admissionsFaqAccordion"
+                                        >
+                                            <div class="accordion-body text-muted">
+                                                Visit our <a href="/contact">contact page</a> to send an enquiry to the school team.
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     FINAL APPLICATION CTA
+                ================================================== -->
+
+                <section
+                    class="position-relative overflow-hidden py-5 text-white oe_structure"
+                    style="
+                        background-image:
+                            linear-gradient(
+                                rgba(0, 36, 72, 0.82),
+                                rgba(0, 36, 72, 0.82)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                    "
+                >
+
+                    <div class="container position-relative text-center py-lg-5">
+
+                        <div class="mx-auto" style="max-width: 760px;">
+
+                            <span
+                                class="text-uppercase fw-semibold small"
+                                style="letter-spacing: 3px; color: #b9d9f2;"
+                            >
+                                Admissions Are a Conversation Away
+                            </span>
+
+                            <h2 class="display-5 fw-bold mt-3 mb-3">
+                                Begin Your Journey With Us
+                            </h2>
+
+                            <p class="lead text-white-50 mb-4">
+                                Take the first step toward an inspiring educational
+                                experience at Greenfield Academy.
+                            </p>
+
+                            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+
+                                <a href="/contact" class="btn btn-primary btn-lg px-4">
+                                    Apply for Admission
+                                </a>
+
+                                <a href="/contact" class="btn btn-outline-light btn-lg px-4">
+                                    Contact Admissions
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
             </div>
 
         </t>
