@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- =========================================================
+         ADMISSIONS PAGE
+    ========================================================== -->
+
+    <template
+        id="website_admissions"
+        name="School Admissions"
+    >
+
+        <t t-call="website.layout">
+
+            <div id="wrap">
+
+                <!-- =================================================
+                     ADMISSIONS HERO
+                ================================================== -->
+
+                <section
+                    class="position-relative overflow-hidden text-white oe_structure oe_empty"
+                    style="
+                        min-height: 450px;
+                        background-image:
+                            linear-gradient(
+                                rgba(0, 45, 90, 0.58),
+                                rgba(0, 45, 90, 0.58)
+                            ),
+                            url('/school_base/static/src/img/school-hero.webp');
+                        background-size: cover;
+                        background-position: center;
+                    "
+                >
+
+                    <div
+                        class="container position-relative d-flex align-items-center justify-content-center text-center"
+                        style="min-height: 450px;"
+                    >
+
+                        <div>
+
+                            <!-- LABEL -->
+
+                            <div
+                                class="text-uppercase fw-semibold small mb-3"
+                                style="letter-spacing: 4px;"
+                            >
+                                Join Greenfield Academy
+                            </div>
+
+
+                            <!-- TITLE -->
+
+                            <h1 class="display-3 fw-bold mb-3">
+                                Admissions
+                            </h1>
+
+
+                            <!-- DESCRIPTION -->
+
+                            <p
+                                class="lead text-white-50 mx-auto mb-4"
+                                style="max-width: 720px;"
+                            >
+                                Begin your child's educational journey
+                                in a supportive community dedicated to
+                                learning, growth, and excellence.
+                            </p>
+
+
+                            <!-- BREADCRUMB -->
+
+                            <div class="small">
+
+                                <a
+                                    href="/"
+                                    class="text-white text-decoration-none"
+                                >
+                                    Home
+                                </a>
+
+                                <span class="mx-2">
+                                    /
+                                </span>
+
+                                <span class="text-white-50">
+                                    Admissions
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ADMISSIONS INTRO
+                ================================================== -->
+
+                <section class="bg-white py-5 oe_structure oe_empty">
+
+                    <div class="container py-lg-4">
+
+                        <div class="row align-items-center g-5">
+
+                            <!-- IMAGE -->
+
+                            <div class="col-lg-6">
+
+                                <img
+                                    src="/school_base/static/src/img/school-hero.webp"
+                                    alt="Students at Greenfield Academy"
+                                    class="img-fluid rounded-3 shadow-sm w-100"
+                                    style="
+                                        height: 430px;
+                                        object-fit: cover;
+                                    "
+                                />
+
+                            </div>
+
+
+                            <!-- CONTENT -->
+
+                            <div class="col-lg-6">
+
+                                <span
+                                    class="text-uppercase text-primary fw-semibold small"
+                                    style="letter-spacing: 3px;"
+                                >
+                                    Start Your Journey
+                                </span>
+
+                                <h2 class="display-6 fw-bold mt-2 mb-4">
+                                    Welcome to Greenfield Academy
+                                </h2>
+
+                                <p class="text-muted">
+                                    We welcome students and families who
+                                    are looking for a supportive,
+                                    engaging, and inspiring educational
+                                    environment.
+                                </p>
+
+                                <p class="text-muted">
+                                    Our admissions process is designed to
+                                    be clear and straightforward, helping
+                                    families understand our programs,
+                                    requirements, and the steps involved
+                                    in joining our school community.
+                                </p>
+
+
+                                <!-- HIGHLIGHTS -->
+
+                                <div class="row g-3 mt-3">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-graduation-cap"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Quality Education
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-users"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Supportive Community
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-book"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Strong Academics
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+
+                                        <div class="d-flex align-items-center">
+
+                                            <div
+                                                class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                                style="
+                                                    width: 48px;
+                                                    height: 48px;
+                                                "
+                                            >
+
+                                                <i class="fa fa-heart"/>
+
+                                            </div>
+
+                                            <span class="fw-semibold">
+                                                Student Care
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

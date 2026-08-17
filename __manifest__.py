@@ -66,6 +66,7 @@
         "views/website/website_test.xml",
         "views/website/website_events.xml",
         "views/website/website_academics.xml",
+        "views/website/website_admissions.xml",
         
 
         

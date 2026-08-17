@@ -70,6 +70,19 @@ class SchoolWebsite(http.Controller):
             }
         )
 
+
+    @http.route(
+        "/admissions",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def admissions(self):
+        return request.render(
+            "school_base.website_admissions"
+        )
+
+
     @http.route(
         "/school-test",
         type="http",
@@ -80,6 +93,7 @@ class SchoolWebsite(http.Controller):
         return request.render(
             "school_base.school_website_test"
         )
+
 
     
     

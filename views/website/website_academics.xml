@@ -1198,8 +1198,8 @@
                     style="
                         background-image:
                             linear-gradient(
-                                rgba(0, 45, 90, 0.82),
-                                rgba(0, 45, 90, 0.82)
+                                rgba(0, 0, 0, 0.82),
+                                rgba(0, 0, 0, 0.82)
                             ),
                             url('/school_base/static/src/img/school-hero.webp');
                         background-size: cover;
