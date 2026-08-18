@@ -1,5 +1,6 @@
 from odoo import http
 from odoo.http import request
+from odoo.tools import html2plaintext
 
 
 class SchoolWebsite(http.Controller):
@@ -80,6 +81,84 @@ class SchoolWebsite(http.Controller):
     def admissions(self):
         return request.render(
             "school_base.website_admissions"
+        )
+
+    @http.route(
+        "/campus",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def campus(self):
+        return request.render("school_base.website_campus")
+
+    @http.route(
+        "/news",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def news(self, event_type=None, **kwargs):
+        allowed_types = {"news", "event", "notice"}
+        selected_type = event_type if event_type in allowed_types else None
+        domain = [
+            ("active", "=", True),
+            ("published", "=", True),
+        ]
+        if selected_type:
+            domain.append(("event_type", "=", selected_type))
+
+        events = request.env["school.event"].sudo().search(
+            domain,
+            order="event_date desc, id desc",
+        )
+        event_summaries = {
+            event.id: (
+                html2plaintext(event.description or "").strip()[:180]
+            )
+            for event in events
+        }
+        return request.render(
+            "school_base.website_news",
+            {
+                "events": events,
+                "event_summaries": event_summaries,
+                "selected_type": selected_type,
+            },
+        )
+
+    @http.route(
+        "/news/<int:event_id>",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def news_detail(self, event_id, **kwargs):
+        event = request.env["school.event"].sudo().search(
+            [
+                ("id", "=", event_id),
+                ("active", "=", True),
+                ("published", "=", True),
+            ],
+            limit=1,
+        )
+        if not event:
+            return request.not_found()
+        return request.render(
+            "school_base.website_news_detail",
+            {"event": event},
+        )
+
+    @http.route(
+        "/contact",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def contact(self, **kwargs):
+        return request.render(
+            "school_base.website_contact",
+            {"company": request.website.company_id.sudo()},
         )
 
 

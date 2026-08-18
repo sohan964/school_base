@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="website_campus" name="School Campus Life">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <section class="position-relative overflow-hidden text-white oe_structure oe_empty"
+                    style="min-height: 500px; background-image: linear-gradient(rgba(3, 43, 78, 0.62), rgba(3, 43, 78, 0.62)), url('/school_base/static/src/img/campus-life.webp'); background-size: cover; background-position: center;">
+                    <div class="container d-flex align-items-center justify-content-center text-center" style="min-height: 500px;">
+                        <div class="o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom">
+                            <div class="text-uppercase fw-semibold small mb-3" style="letter-spacing: 4px;">Beyond the Classroom</div>
+                            <h1 class="display-3 fw-bold mb-3">Campus Life</h1>
+                            <p class="lead text-white-50 mx-auto mb-4" style="max-width: 760px;">Learn, connect, participate, and grow beyond the classroom.</p>
+                            <div class="small">
+                                <a href="/" class="text-white text-decoration-none">Home</a>
+                                <span class="mx-2">/</span>
+                                <span class="text-white-50">Campus Life</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 oe_structure oe_empty">
+                    <div class="container py-lg-5">
+                        <div class="row align-items-center g-5">
+                            <div class="col-lg-5">
+                                <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">Our Campus</span>
+                                <h2 class="display-5 fw-bold mt-2 mb-4">A Place Designed for Discovery</h2>
+                                <p class="lead text-muted">Greenfield Academy brings learning and community together in a welcoming school environment.</p>
+                                <p class="text-muted mb-0">Classrooms, learning resources, practical spaces, recreation, and shared student areas work together to support academic focus and positive daily experiences.</p>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="bg-light rounded-4 p-4 h-100 shadow-sm">
+                                            <i class="fa fa-graduation-cap text-primary fs-3 mb-3"/>
+                                            <h3 class="h5 fw-bold">Classrooms</h3>
+                                            <p class="text-muted mb-0">Spaces that encourage focused, interactive, and collaborative learning.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="bg-light rounded-4 p-4 h-100 shadow-sm">
+                                            <i class="fa fa-book text-primary fs-3 mb-3"/>
+                                            <h3 class="h5 fw-bold">Library Resources</h3>
+                                            <p class="text-muted mb-0">Reading and research resources that help students explore ideas independently.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="bg-light rounded-4 p-4 h-100 shadow-sm">
+                                            <i class="fa fa-flask text-primary fs-3 mb-3"/>
+                                            <h3 class="h5 fw-bold">Learning Labs</h3>
+                                            <p class="text-muted mb-0">Practical learning environments for scientific and digital exploration.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="bg-light rounded-4 p-4 h-100 shadow-sm">
+                                            <i class="fa fa-users text-primary fs-3 mb-3"/>
+                                            <h3 class="h5 fw-bold">Student Spaces</h3>
+                                            <p class="text-muted mb-0">Shared areas for conversation, teamwork, recreation, and school community life.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-light py-5 oe_structure oe_empty">
+                    <div class="container py-lg-5">
+                        <div class="text-center mx-auto mb-5" style="max-width: 760px;">
+                            <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">Student Activities</span>
+                            <h2 class="display-5 fw-bold mt-2">Explore Interests. Build Confidence.</h2>
+                            <p class="lead text-muted">Co-curricular experiences give students meaningful ways to connect, contribute, and discover their strengths.</p>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-4"><div class="card border-0 shadow-sm rounded-4 h-100 text-center p-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom"><div class="rounded-circle bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;"><i class="fa fa-futbol-o fs-3"/></div><h3 class="h5 fw-bold">Sports</h3><p class="text-muted mb-0">Teamwork, fitness, and healthy competition.</p></div></div>
+                            <div class="col-md-6 col-lg-4"><div class="card border-0 shadow-sm rounded-4 h-100 text-center p-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom"><div class="rounded-circle bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;"><i class="fa fa-puzzle-piece fs-3"/></div><h3 class="h5 fw-bold">Clubs</h3><p class="text-muted mb-0">Shared interests, new skills, and friendships.</p></div></div>
+                            <div class="col-md-6 col-lg-4"><div class="card border-0 shadow-sm rounded-4 h-100 text-center p-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom"><div class="rounded-circle bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;"><i class="fa fa-music fs-3"/></div><h3 class="h5 fw-bold">Cultural Activities</h3><p class="text-muted mb-0">Creative expression and appreciation of culture.</p></div></div>
+                            <div class="col-md-6 col-lg-4"><div class="card border-0 shadow-sm rounded-4 h-100 text-center p-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom"><div class="rounded-circle bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;"><i class="fa fa-trophy fs-3"/></div><h3 class="h5 fw-bold">Competitions</h3><p class="text-muted mb-0">Opportunities to challenge ideas and celebrate effort.</p></div></div>
+                            <div class="col-md-6 col-lg-4"><div class="card border-0 shadow-sm rounded-4 h-100 text-center p-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom"><div class="rounded-circle bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;"><i class="fa fa-star fs-3"/></div><h3 class="h5 fw-bold">Leadership</h3><p class="text-muted mb-0">Responsibility, initiative, and student voice.</p></div></div>
+                            <div class="col-md-6 col-lg-4"><div class="card border-0 shadow-sm rounded-4 h-100 text-center p-4 o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom"><div class="rounded-circle bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 64px; height: 64px;"><i class="fa fa-heart fs-3"/></div><h3 class="h5 fw-bold">Community Activities</h3><p class="text-muted mb-0">Service, empathy, and positive local engagement.</p></div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 oe_structure oe_empty">
+                    <div class="container py-lg-5">
+                        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+                            <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">Campus Facilities</span>
+                            <h2 class="display-5 fw-bold mt-2">Spaces That Support School Life</h2>
+                            <p class="text-muted">Our campus approach brings together the kinds of spaces students need for study, practical learning, creativity, activity, and connection.</p>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-6 col-lg-4"><div class="border rounded-4 p-4 h-100"><i class="fa fa-book text-primary me-2"/><strong>Library</strong><p class="small text-muted mt-2 mb-0">Quiet reading and research.</p></div></div>
+                            <div class="col-6 col-lg-4"><div class="border rounded-4 p-4 h-100"><i class="fa fa-flask text-primary me-2"/><strong>Science Learning</strong><p class="small text-muted mt-2 mb-0">Practical investigation and discovery.</p></div></div>
+                            <div class="col-6 col-lg-4"><div class="border rounded-4 p-4 h-100"><i class="fa fa-desktop text-primary me-2"/><strong>Digital Learning</strong><p class="small text-muted mt-2 mb-0">Technology-supported study.</p></div></div>
+                            <div class="col-6 col-lg-4"><div class="border rounded-4 p-4 h-100"><i class="fa fa-futbol-o text-primary me-2"/><strong>Sports Areas</strong><p class="small text-muted mt-2 mb-0">Movement, play, and teamwork.</p></div></div>
+                            <div class="col-6 col-lg-4"><div class="border rounded-4 p-4 h-100"><i class="fa fa-microphone text-primary me-2"/><strong>Performance Spaces</strong><p class="small text-muted mt-2 mb-0">Presentations and school gatherings.</p></div></div>
+                            <div class="col-6 col-lg-4"><div class="border rounded-4 p-4 h-100"><i class="fa fa-comments text-primary me-2"/><strong>Common Areas</strong><p class="small text-muted mt-2 mb-0">Connection and collaboration.</p></div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-light py-5 oe_structure oe_empty">
+                    <div class="container py-lg-5">
+                        <div class="row align-items-center g-5">
+                            <div class="col-lg-6">
+                                <img src="/school_base/static/src/img/student-experience.webp" alt="Students learning together in the library" class="img-fluid rounded-4 shadow" loading="lazy" style="min-height: 380px; width: 100%; object-fit: cover;"/>
+                            </div>
+                            <div class="col-lg-6">
+                                <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">Student Experience</span>
+                                <h2 class="display-5 fw-bold mt-2 mb-4">Belong, Participate, and Grow</h2>
+                                <p class="lead text-muted">A strong student experience balances academic purpose with friendship, creativity, service, and wellbeing.</p>
+                                <p class="text-muted">Through lessons and the wider rhythm of school life, students can practise collaboration, develop confidence, and learn how to make a positive contribution.</p>
+                                <a href="/contact" class="btn btn-outline-primary px-4 mt-2">Plan a Conversation <i class="fa fa-arrow-right ms-2"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 text-white oe_structure oe_empty" style="background: #073b66;">
+                    <div class="container py-4 text-center">
+                        <h2 class="display-5 fw-bold">Discover Life at Greenfield Academy</h2>
+                        <p class="lead text-white-50 mx-auto mb-4" style="max-width: 720px;">Speak with our team or explore the admissions information for your next step.</p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                            <a href="/contact" class="btn btn-light btn-lg px-4">Contact Us</a>
+                            <a href="/admissions" class="btn btn-outline-light btn-lg px-4">Admissions</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

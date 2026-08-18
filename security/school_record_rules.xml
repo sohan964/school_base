@@ -82,4 +82,15 @@
             [('student_id.user_id', '=', user.id)]
         </field>
      </record>
+
+    <record id="rule_public_published_school_events" model="ir.rule">
+        <field name="name">Public: Published School Events Only</field>
+        <field name="model_id" ref="model_school_event"/>
+        <field name="groups" eval="[(4, ref('base.group_public')), (4, ref('base.group_portal'))]"/>
+        <field name="domain_force">[('active', '=', True), ('published', '=', True)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
 </odoo>

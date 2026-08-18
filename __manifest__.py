@@ -67,9 +67,9 @@
         "views/website/website_events.xml",
         "views/website/website_academics.xml",
         "views/website/website_admissions.xml",
-        
-
-        
+        "views/website/website_campus.xml",
+        "views/website/website_news.xml",
+        "views/website/website_contact.xml",
 
         "views/school_base_menu.xml",
     ],
@@ -82,7 +82,6 @@
             'school_base/static/src/components/**/*.js',
             'school_base/static/src/components/**/*.css',
             # 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css',
-
         ],
         "web.assets_frontend": [
             'school_base/static/src/js/*.js',

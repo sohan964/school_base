@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="website_news" name="School News and Events">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <section class="position-relative overflow-hidden text-white oe_structure oe_empty"
+                    style="min-height: 450px; background-image: linear-gradient(rgba(3, 34, 69, 0.68), rgba(3, 34, 69, 0.68)), url('/school_base/static/src/img/school-news.webp'); background-size: cover; background-position: center;">
+                    <div class="container d-flex align-items-center justify-content-center text-center" style="min-height: 450px;">
+                        <div class="o_animate o_animate_on_scroll o_anim_fade_in">
+                            <div class="text-uppercase fw-semibold small mb-3" style="letter-spacing: 4px;">Greenfield Academy</div>
+                            <h1 class="display-3 fw-bold mb-3">News &amp; Events</h1>
+                            <p class="lead text-white-50 mx-auto mb-4" style="max-width: 780px;">Stay updated with the latest news, announcements, and activities from our school community.</p>
+                            <div class="small"><a href="/" class="text-white text-decoration-none">Home</a><span class="mx-2">/</span><span class="text-white-50">News &amp; Events</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 bg-light">
+                    <div class="container py-lg-4">
+                        <div class="d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-4 mb-5">
+                            <div style="max-width: 690px;">
+                                <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">School Community</span>
+                                <h2 class="display-5 fw-bold mt-2 mb-0">Latest Updates</h2>
+                            </div>
+                            <nav class="nav nav-pills gap-2" aria-label="Filter news and events">
+                                <a href="/news" t-attf-class="nav-link #{'active' if not selected_type else ''}">All</a>
+                                <a href="/news?event_type=news" t-attf-class="nav-link #{'active' if selected_type == 'news' else ''}">News</a>
+                                <a href="/news?event_type=event" t-attf-class="nav-link #{'active' if selected_type == 'event' else ''}">Events</a>
+                                <a href="/news?event_type=notice" t-attf-class="nav-link #{'active' if selected_type == 'notice' else ''}">Notices</a>
+                            </nav>
+                        </div>
+
+                        <div class="row g-4" t-if="events">
+                            <t t-foreach="events" t-as="event">
+                                <div class="col-md-6 col-lg-4">
+                                    <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden o_animate o_animate_on_scroll o_anim_fade_in o_anim_from_bottom">
+                                        <a t-attf-href="/news/#{event.id}" class="text-decoration-none">
+                                            <t t-if="event.image">
+                                                <img t-att-src="'/web/image/school.event/%s/image' % event.id" t-att-alt="event.name" class="card-img-top" loading="lazy" style="height: 240px; object-fit: cover;"/>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="d-flex align-items-center justify-content-center text-white" style="height: 240px; background: #0a4d80;">
+                                                    <i class="fa fa-newspaper-o fs-1"/>
+                                                </div>
+                                            </t>
+                                        </a>
+                                        <div class="card-body p-4 d-flex flex-column">
+                                            <div class="d-flex align-items-center gap-2 mb-3">
+                                                <span t-if="event.event_type == 'news'" class="badge rounded-pill bg-success">News</span>
+                                                <span t-if="event.event_type == 'event'" class="badge rounded-pill bg-primary">Event</span>
+                                                <span t-if="event.event_type == 'notice'" class="badge rounded-pill bg-warning text-dark">Notice</span>
+                                                <small class="text-muted"><i class="fa fa-calendar-o me-1"/><span t-field="event.event_date"/></small>
+                                            </div>
+                                            <h3 class="h4 fw-bold mb-3"><a t-attf-href="/news/#{event.id}" class="text-dark text-decoration-none" t-out="event.name"/></h3>
+                                            <p class="text-muted flex-grow-1" t-if="event_summaries.get(event.id)">
+                                                <t t-out="event_summaries[event.id]"/><t t-if="len(event_summaries[event.id]) == 180">…</t>
+                                            </p>
+                                            <a t-attf-href="/news/#{event.id}" class="text-primary fw-semibold text-decoration-none mt-2">Read More <i class="fa fa-arrow-right ms-1"/></a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </t>
+                        </div>
+
+                        <div t-else="" class="bg-white rounded-4 shadow-sm text-center py-5 px-4">
+                            <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center mb-3" style="width: 72px; height: 72px;"><i class="fa fa-calendar-o fs-2"/></div>
+                            <h3 class="h4 fw-bold">No news or events available.</h3>
+                            <p class="text-muted mb-0">Please check back soon for updates from our school community.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 text-white oe_structure oe_empty" style="background: #073b66;">
+                    <div class="container py-4 text-center">
+                        <h2 class="display-6 fw-bold">Stay Connected With School Life</h2>
+                        <p class="lead text-white-50 mb-4">Questions about an update or upcoming activity? Our team is ready to help.</p>
+                        <a href="/contact" class="btn btn-light btn-lg px-4">Contact Us</a>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="website_news_detail" name="School News and Event Detail">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <section class="py-5 text-white" style="background: #073b66;">
+                    <div class="container py-lg-4 text-center">
+                        <div class="mb-3">
+                            <span t-if="event.event_type == 'news'" class="badge rounded-pill bg-success px-3 py-2">News</span>
+                            <span t-if="event.event_type == 'event'" class="badge rounded-pill bg-primary px-3 py-2">Event</span>
+                            <span t-if="event.event_type == 'notice'" class="badge rounded-pill bg-warning text-dark px-3 py-2">Notice</span>
+                        </div>
+                        <h1 class="display-4 fw-bold mx-auto" style="max-width: 900px;" t-out="event.name"/>
+                        <p class="text-white-50 mb-0"><i class="fa fa-calendar-o me-2"/><span t-field="event.event_date"/></p>
+                    </div>
+                </section>
+
+                <main class="py-5">
+                    <div class="container py-lg-4" style="max-width: 960px;">
+                        <img t-if="event.image" t-att-src="'/web/image/school.event/%s/image' % event.id" t-att-alt="event.name" class="img-fluid rounded-4 shadow-sm mb-5 w-100" style="max-height: 540px; object-fit: cover;"/>
+                        <article class="bg-white rounded-4 shadow-sm p-4 p-lg-5 border">
+                            <div t-if="event.description" class="lead lh-lg" t-field="event.description"/>
+                            <div t-else="" class="text-muted">No additional details are available for this update.</div>
+                        </article>
+                        <a href="/news" class="btn btn-outline-primary mt-4"><i class="fa fa-arrow-left me-2"/>Back to News &amp; Events</a>
+                    </div>
+                </main>
+            </div>
+        </t>
+    </template>
+</odoo>

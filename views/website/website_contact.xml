@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="website_contact" name="School Contact">
+        <t t-call="website.layout">
+            <t t-set="contactus_form_values" t-value="{
+                'email_to': company.email or '',
+                'name': request.params.get('name', ''),
+                'phone': request.params.get('phone', ''),
+                'email_from': request.params.get('email_from', ''),
+                'subject': request.params.get('subject', ''),
+            }"/>
+            <span class="hidden" data-for="school_contact_form" t-att-data-values="contactus_form_values"/>
+            <div id="wrap">
+                <section class="position-relative overflow-hidden text-white oe_structure oe_empty"
+                    style="min-height: 450px; background-image: linear-gradient(rgba(3, 43, 78, 0.65), rgba(3, 43, 78, 0.65)), url('/school_base/static/src/img/school-contact.webp'); background-size: cover; background-position: center;">
+                    <div class="container d-flex align-items-center justify-content-center text-center" style="min-height: 450px;">
+                        <div class="o_animate o_animate_on_scroll o_anim_fade_in">
+                            <div class="text-uppercase fw-semibold small mb-3" style="letter-spacing: 4px;">Greenfield Academy</div>
+                            <h1 class="display-3 fw-bold mb-3">Contact Us</h1>
+                            <p class="lead text-white-50 mx-auto mb-4" style="max-width: 780px;">We'd love to hear from students, parents, and our community.</p>
+                            <div class="small"><a href="/" class="text-white text-decoration-none">Home</a><span class="mx-2">/</span><span class="text-white-50">Contact</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 bg-light">
+                    <div class="container py-lg-4">
+                        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+                            <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">Get in Touch</span>
+                            <h2 class="display-5 fw-bold mt-2">How to Reach Us</h2>
+                            <p class="lead text-muted">Use the details below or send our school team a message.</p>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 text-center">
+                                    <i class="fa fa-map-marker text-primary fs-2 mb-3"/><h3 class="h5 fw-bold">Address</h3>
+                                    <div class="text-muted" t-if="company.street or company.city">
+                                        <div t-if="company.street" t-out="company.street"/><div t-if="company.street2" t-out="company.street2"/>
+                                        <div><t t-if="company.city" t-out="company.city"/><t t-if="company.zip"> <t t-out="company.zip"/></t></div>
+                                        <div t-if="company.state_id or company.country_id"><t t-if="company.state_id" t-out="company.state_id.name"/><t t-if="company.state_id and company.country_id">, </t><t t-if="company.country_id" t-out="company.country_id.name"/></div>
+                                    </div>
+                                    <p t-else="" class="text-muted mb-0">Contact us for current location details.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 text-center">
+                                    <i class="fa fa-phone text-primary fs-2 mb-3"/><h3 class="h5 fw-bold">Phone</h3>
+                                    <a t-if="company.phone" t-attf-href="tel:#{company.phone}" class="text-muted text-decoration-none" t-out="company.phone"/>
+                                    <p t-else="" class="text-muted mb-0">Phone details will appear when configured.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 text-center">
+                                    <i class="fa fa-envelope text-primary fs-2 mb-3"/><h3 class="h5 fw-bold">Email</h3>
+                                    <a t-if="company.email" t-attf-href="mailto:#{company.email}" class="text-muted text-decoration-none text-break" t-out="company.email"/>
+                                    <p t-else="" class="text-muted mb-0">Email details will appear when configured.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card border-0 shadow-sm rounded-4 h-100 p-4 text-center">
+                                    <i class="fa fa-clock-o text-primary fs-2 mb-3"/><h3 class="h5 fw-bold">Office Hours</h3>
+                                    <p class="text-muted mb-0">Please contact our office for current visiting hours.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5">
+                    <div class="container py-lg-5">
+                        <div class="row g-5 align-items-start">
+                            <div class="col-lg-5">
+                                <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">Send a Message</span>
+                                <h2 class="display-5 fw-bold mt-2 mb-4">How Can We Help?</h2>
+                                <p class="lead text-muted">Tell us what you would like to know, and the appropriate school team can respond.</p>
+                                <div class="rounded-4 p-4 mt-4 text-white" style="background: #073b66;">
+                                    <h3 class="h5 fw-bold"><i class="fa fa-shield me-2"/>Public Form Safety</h3>
+                                    <p class="text-white-50 mb-0">This form uses Odoo's built-in website form handling. Please do not include sensitive personal or payment information.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <section class="s_website_form bg-light rounded-4 shadow-sm p-4 p-lg-5" data-vcss="001" data-snippet="s_website_form">
+                                    <form id="school_contact_form" action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="mail.mail" data-success-mode="redirect" data-success-page="/contactus-thank-you" data-pre-fill="true">
+                                        <div class="s_website_form_rows row s_col_no_bgcolor">
+                                            <div class="mb-3 col-md-6 s_website_form_field s_website_form_custom s_website_form_required" data-type="char" data-name="Field">
+                                                <label class="s_website_form_label" for="school_contact_name"><span class="s_website_form_label_content">Name</span><span class="s_website_form_mark"> *</span></label>
+                                                <input id="school_contact_name" type="text" class="form-control s_website_form_input" name="name" required="" data-fill-with="name"/>
+                                            </div>
+                                            <div class="mb-3 col-md-6 s_website_form_field s_website_form_custom" data-type="tel" data-name="Field">
+                                                <label class="s_website_form_label" for="school_contact_phone"><span class="s_website_form_label_content">Phone</span></label>
+                                                <input id="school_contact_phone" type="tel" class="form-control s_website_form_input" name="phone" data-fill-with="phone"/>
+                                            </div>
+                                            <div class="mb-3 col-12 s_website_form_field s_website_form_required s_website_form_model_required" data-type="email" data-name="Field">
+                                                <label class="s_website_form_label" for="school_contact_email"><span class="s_website_form_label_content">Email</span><span class="s_website_form_mark"> *</span></label>
+                                                <input id="school_contact_email" type="email" class="form-control s_website_form_input" name="email_from" required="" data-fill-with="email"/>
+                                            </div>
+                                            <div class="mb-3 col-12 s_website_form_field s_website_form_required s_website_form_model_required" data-type="char" data-name="Field">
+                                                <label class="s_website_form_label" for="school_contact_subject"><span class="s_website_form_label_content">Subject</span><span class="s_website_form_mark"> *</span></label>
+                                                <input id="school_contact_subject" type="text" class="form-control s_website_form_input" name="subject" required=""/>
+                                            </div>
+                                            <div class="mb-3 col-12 s_website_form_field s_website_form_custom s_website_form_required" data-type="text" data-name="Field">
+                                                <label class="s_website_form_label" for="school_contact_message"><span class="s_website_form_label_content">Message</span><span class="s_website_form_mark"> *</span></label>
+                                                <textarea id="school_contact_message" class="form-control s_website_form_input" name="description" required="" rows="6"></textarea>
+                                            </div>
+                                            <div class="mb-3 col-12 s_website_form_field s_website_form_dnone">
+                                                <input type="hidden" class="form-control s_website_form_input" name="email_to" t-att-value="company.email or ''"/>
+                                            </div>
+                                            <div class="mb-0 col-12 s_website_form_submit s_website_form_no_submit_label">
+                                                <span id="s_website_form_result"/>
+                                                <a href="#" role="button" class="btn btn-primary btn-lg px-4 s_website_form_send">Send Message <i class="fa fa-paper-plane ms-2"/></a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-light py-5 oe_structure oe_empty">
+                    <div class="container py-lg-5">
+                        <div class="row align-items-center g-5">
+                            <div class="col-lg-6"><img src="/school_base/static/src/img/school-contact.webp" alt="Welcoming school campus entrance" class="img-fluid rounded-4 shadow" loading="lazy" style="height: 390px; width: 100%; object-fit: cover;"/></div>
+                            <div class="col-lg-6">
+                                <span class="text-uppercase text-primary fw-semibold small" style="letter-spacing: 3px;">Visit Our Campus</span>
+                                <h2 class="display-5 fw-bold mt-2 mb-4">See School Life Up Close</h2>
+                                <p class="lead text-muted">Plan a visit, meet our admissions team, and learn more about the school.</p>
+                                <p class="text-muted">Contact us before visiting so our team can share current arrangements and help you make the most of your time.</p>
+                                <a href="/admissions" class="btn btn-primary btn-lg px-4 mt-2">Explore Admissions <i class="fa fa-arrow-right ms-2"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="py-5 text-white oe_structure oe_empty" style="background: #073b66;">
+                    <div class="container py-4 text-center">
+                        <h2 class="display-5 fw-bold">Have a Question?</h2>
+                        <p class="lead text-white-50 mx-auto mb-4" style="max-width: 760px;">Our team is here to help you with admissions, academics, campus life, and general enquiries.</p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                            <a href="/admissions" class="btn btn-light btn-lg px-4">Admissions</a>
+                            <a href="/academics" class="btn btn-outline-light btn-lg px-4">Academics</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>
